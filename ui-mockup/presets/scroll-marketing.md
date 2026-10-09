@@ -1,6 +1,6 @@
 # Preset: scroll-heavy marketing (GSAP)
 
-Source: Taste gpt-taste (MIT), with the GSAP pin patterns from Taste design-taste-frontend (MIT). Condensed; SKILL.md banned looks and the shared GUIDE.md rules still apply.
+Source: Taste gpt-taste (MIT), with the GSAP pin patterns from Taste design-taste-frontend (MIT). Condensed; the banned looks in ui-mockup's SKILL.md and its GUIDE.md still apply.
 
 Cinematic, award-site pacing: wide editorial type, sections as chapters, scroll-driven pinning and reveals.
 

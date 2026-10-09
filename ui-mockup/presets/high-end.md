@@ -1,6 +1,6 @@
 # Preset: high-end (agency finish)
 
-Source: Taste high-end-visual-design (MIT). Condensed; SKILL.md banned looks and the shared GUIDE.md rules still apply. The source's "Ethereal Glass" (glowing purple orbs, blurred black cards) and "Editorial Luxury" (cream plus serif) archetypes are omitted: both land in the user's banned looks.
+Source: Taste high-end-visual-design (MIT). Condensed; the banned looks in ui-mockup's SKILL.md and its GUIDE.md still apply. The source's "Ethereal Glass" (glowing purple orbs, blurred black cards) and "Editorial Luxury" (cream plus serif) archetypes are omitted: both land in the user's banned looks.
 
 Expensive-feeling, physical, machined: Soft Structuralism. Silver-grey or white grounds, massive bold grotesk, airy floating components, very diffused ambient shadows.
 

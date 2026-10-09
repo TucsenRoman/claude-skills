@@ -1,56 +1,46 @@
 ---
 name: ui-direction
-description: Decide what a screen, page, or component should look like before building it, and present options to choose from. Use when the user wants to design, redesign, rethink, restyle, or explore a screen or page; asks for options, variants, mockups, comps, or concepts; wants a landing or marketing page; or wants a new look for an app. Inventories the current screen first so redesigns never lose features. Shows options through ui-mockup (boards, labs, phone frames, Artifacts, Figma).
+description: Brainstorm what a screen, page, or component should be before anything is drawn or built — a conversation about directions, not mockups. Use when the user wants to design, redesign, rethink, restyle, or explore a screen or page; wants ideas or directions; wants a landing or marketing page; or wants a new look for an app. Inventories the current screen first so redesigns never lose features. When it's time to see the ideas, it hands them to ui-mockup.
 ---
 
 # ui-direction
 
-Choose the look or structure before building. Never skip straight to code on a new screen or redesign; a small addition inside an existing screen skips this stage and goes to `ui-build`.
+A brainstorm, in words. Work out what to make with the user: what's wrong today, what must survive, and which directions are worth seeing. Never mock or build anything here. When ideas need to be seen, hand them to `ui-mockup`. A small addition inside an existing screen skips this stage and goes to `ui-build`.
 
 ## 1. Foundations
 Make sure `ui-foundations` has loaded this project's design source (tokens, fonts, signature list). If the project has none and this is new work, offer to start one first.
 
 ## 2. Classify the job (say which, in one line)
 - **Addition inside an existing screen**: no direction needed. Hand to `ui-build`.
-- **New screen inside an existing system**: options vary structure and hierarchy; the visual system stays fixed.
-- **Redesign of an existing screen**: inventory first (step 3), then options.
-- **Marketing page** (landing, launch, portfolio, pricing): propose the Taste mode.
-- **New identity / full visual redo**: options vary the visual world too. Features still come from the inventory.
+- **New screen inside an existing system**: directions vary structure and hierarchy; the visual system stays fixed.
+- **Redesign of an existing screen**: inventory first (step 3), then directions.
+- **Marketing page** (landing, launch, portfolio, pricing): read the brief with [GUIDE.md](GUIDE.md) section 1.
+- **New identity / full visual redo**: directions vary the visual world too. Features still come from the inventory.
 
 ## 3. Inventory (any redesign; required)
 1. See the current screen running. Web: run the project's preview and screenshot it. Expo: emulator or Expo Go screenshot (`adb exec-out screencap -p > shot.png`), or the project's documented method. Don't work from code alone.
 2. List every feature, state, and action on it, plus every signature element from the foundations (custom nav, menus, sheets, headers, feedback, copy patterns).
-3. Show the list. The user marks each **keep / change / cut**. The default is keep. Write the result to a scratch `inventory.md`; `ui-build` and `ui-review` use it.
+3. Show the list. The user marks each **keep / change / cut**. The default is keep. Write the result to a scratch `inventory.md`; `ui-mockup`, `ui-build` and `ui-review` use it.
 
 ## 4. Brief
-Ask at most three questions together, only where the answer changes the work: what's wrong with it today, what must get better, and references they like. Skip what's already clear.
+Ask at most three questions together, only where the answer changes the work: what's wrong with it today, what must get better, and references they like. Skip what's already clear. For marketing pages, state the read and set the three dials (variance, motion, density) from [GUIDE.md](GUIDE.md) section 1.
 
-## 5. Make options
-- 2 to 4 options, each on a named axis (layout, hierarchy, density, interaction model, personality). Say each axis in a phrase. Three tints of one idea are not options.
-- Every option uses the project's tokens and honors the keep-list. Signature components appear as themselves, not as generic stand-ins.
-- Use real content from the product, never lorem ipsum.
-- **App UI**: build options in the real codebase with real components, behind a switcher (prototype mode). Use HTML mocks only for early concepts or a new identity, and resolve tokens to plain CSS variables first (see `ui-foundations`).
-- **Marketing pages**: self-contained HTML is fine.
-- **Banned looks** (the user calls these "AI sloppy"; avoid unless they ask): tiny monospaced small-caps labels with numbered rows and thin-bordered tiles everywhere ("terminal chic" dashboards); cream background + soft serif with color-highlighted numbers, sparkle-icon suggestion chips, and an "insight" sentence atop every card; purple-blue gradients; glassmorphism everywhere. Brief option builders with these bans.
-- Default builder is your own judgment plus the foundations. Tested: on app UI inside an established system, plain judgment with accurate foundations beat both style skills.
+## 5. Brainstorm directions
+- 2 to 4 directions, each on a named axis (layout, hierarchy, density, interaction model, personality), described in a few lines: the idea, what changes, what stays, a reference if one helps. Three tints of one idea are not directions.
+- Every direction honors the keep-list. Signature components stay themselves.
+- A look the user names can be one of `ui-mockup`'s presets (minimalist, high-end, brutalist, scroll-heavy marketing); name it in the direction.
+- Talk it through: merge, drop, sharpen, add. Keep it fast: one short table of directions, not essays.
 
-### Speed (the user found full-polish rounds far too slow)
-- **Two speeds. Explore is the default.**
-  - **Explore**: 2 to 3 rough options. Builders run on a faster model (`model: "sonnet"` on the Agent call) and are told: one pass, no polishing, do NOT screenshot or verify your own work, report in under 60 words. Target about 2 minutes per option. Rough is fine; the job is to show a direction, not finish it.
-  - **Refine**: only the option the user picked. Full fidelity, strongest model, its own render checks. Use it when the user asks for refinement or a direction is about to be locked.
-- **One check, done once.** Builders never self-verify in Explore. You render everything with `ui-mockup` and run the keep-list check yourself, once.
-- **Show options as they finish.** Launch builders in the background; when each one lands, render it right away and send it as a single-option board. Don't wait for the slowest builder. Send a combined board at the end only if comparing needs it.
-- **Variants of one thing go to one agent.** When options differ along one dimension (saturation, density, a color, a component state), give a single agent the shared template and have it emit every variant. Use one agent per option only when options differ in layout or concept.
-- **Explore in mocks, build only the pick.** Even inside a locked system, explore options as quick HTML mocks built from the project's real tokens (start from the latest approved mock of that screen), shown on a board. They take about a minute to review; real-code variants are slower to build, need a device, and hot-reload can wedge mid-build. Build in the real codebase only the option the user picked. (The user asked for this after trying both.)
+## 6. Go visual (when the user says so, or recommend it)
+Recommend it in one line when words stop settling it ("These two only differ in feel; want to see them?"). Then call `ui-mockup` with arguments:
+- the screen, and explore (rough, the default) or refine (the pick, full fidelity);
+- each direction: name, axis, the few lines from step 5, any preset;
+- the inventory path (keep-list), and the dials for marketing pages.
 
-## 6. Present (recommend one; the user can override)
-Show the options with `ui-mockup`: a PNG board by default, close-ups for small differences, a phone frame when safe areas matter, an Artifact to share. Options are for ideas and viewing, so they stay on boards. When the user names one ("send B to the lab"), open that option's mock in a `ui-mockup` lab with controls for the values that define it, plus any presets the question needs. It asks for the pick and anything to carry over.
+`ui-mockup` builds and shows them and asks for the pick. Come back here if the pick reopens the brainstorm.
 
 ## 7. Hand off
-Write a short direction note: the chosen option, why, what carried over, and the inventory. Recommend `ui-build`.
+Write a short direction note: the chosen direction, why, what carried over from the others, and the inventory. Recommend `ui-build`.
 
 ## Occasional modes (ask once per session before first use)
-- **Marketing pages** — the taste rules in [GUIDE.md](GUIDE.md) (sections 1 to 7). Won a blind test on a landing page. Suggest for any landing, launch, portfolio, or pricing page. Project foundations still win.
-- **Aesthetic presets** — when the user names a look: [minimalist](presets/minimalist.md), [high-end](presets/high-end.md), [brutalist](presets/brutalist.md), [scroll-heavy marketing](presets/scroll-marketing.md).
-- **Variants in code** — section 8 of [GUIDE.md](GUIDE.md): options behind a switcher in the real codebase. Only when a mock can't show the difference (real data, real gestures); HTML mocks stay the default.
-- **Something unexpected** — section 9 of [GUIDE.md](GUIDE.md) (concept research, a random draw among candidates, a direction contract). Only when the user asks for a bold or surprising identity.
+- **Something unexpected** — [GUIDE.md](GUIDE.md) section 2 (concept research, a random draw among candidates, a direction contract). Only when the user asks for a bold or surprising identity. The contract goes to `ui-mockup` as the direction.

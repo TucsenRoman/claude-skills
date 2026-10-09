@@ -1,6 +1,6 @@
 # Preset: minimalist (editorial utility)
 
-Source: Taste minimalist-ui (MIT). Condensed; SKILL.md banned looks and the shared GUIDE.md rules still apply.
+Source: Taste minimalist-ui (MIT). Condensed; the banned looks in ui-mockup's SKILL.md and its GUIDE.md still apply.
 
 Document-style, workspace-tool calm: warm monochrome, typographic contrast, flat bento, color only as tiny muted pastel spots.
 
