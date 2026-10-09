@@ -7,4 +7,5 @@ Live controls for a design system's tokens, applied to a sample screen built fro
 - **Guard rails shown, not enforced:** flag when a color pair becomes hard to read or two steps of the scale collapse into each other, as visible design problems.
 - **A/B** against the current tokens.
 - **Output:** the changed tokens as a diff in the project's token-source format, ready to paste into it (then regenerate the outputs).
-- Serve it over HTTP like the playground.
+- Built on the shared panel (see [playground.md](playground.md)): colors get the quick picks from the project's primitives, element select maps each part of the sample screen to its tokens, text editing doubles as a quick copy check.
+- Serve it with `tools/serve.js` like the playground.
