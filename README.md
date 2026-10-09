@@ -14,7 +14,7 @@ A set of Claude Code skills for designing and building UI, plus a few that keep 
 
 **UI stages** (see the table in `SHARED.md` for how they hand off)
 - `ui-foundations` — load, start, or extend a project's design system
-- `ui-direction` — decide the look before building; boards, playgrounds, phone mockups
+- `ui-direction` — decide the look before building
 - `ui-build` — implement the chosen direction
 - `ui-feel` — motion, gestures, haptics, press feedback
 - `ui-stress` — worst-case data
@@ -22,7 +22,7 @@ A set of Claude Code skills for designing and building UI, plus a few that keep 
 - `ui-copy` — UI text in the project's voice
 - `ui-loop` — opt-in builder + critics cycle for high-stakes screens
 - `ui-codify` — turn a design you love into measurable rules and tests
-- `ui-mockup` — standalone HTML phone frame with safe areas and device presets
+- `ui-mockup` — shows UI: boards, close-ups, playgrounds with dials, phone frames, Artifacts
 - `accessibility-sweep` — accessibility pass, only when asked
 
 **Skills that improve the skills**

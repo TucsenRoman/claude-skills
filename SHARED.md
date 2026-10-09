@@ -22,7 +22,7 @@ All UI and design work goes through these skills, in every project.
 | `ui-copy` | UI text, checked against the project's voice. |
 | `ui-loop` | High-stakes builder + critics cycle. Opt-in only. |
 | `ui-codify` | Turn a reference design into measurable rules and tests. Used by `ui-foundations` and `ui-loop`. |
-| `ui-mockup` | Standalone HTML phone frame for layout and safe-area checks. |
+| `ui-mockup` | How UI gets shown: PNG boards, close-ups, playgrounds with dials, phone frames, Artifacts, inline visuals, Figma. Other stages call it. |
 | `accessibility-sweep` | Accessibility pass. Runs only when the user asks for one. |
 
 - **Foundations first.** Before any UI work in a project, load its design source (`ui-foundations`). If none exists, offer to create one before building.
@@ -38,7 +38,11 @@ All UI and design work goes through these skills, in every project.
 - `GUIDE.md`: the technique, distilled from outside skills it learned from, credited at the top. Platform-specific parts go in `platforms/` (for example `platforms/expo.md`); variants of a technique in their own folder (for example `presets/`).
 - `LESSONS.md`: what real use taught, one dated line each. It beats `GUIDE.md` where they differ. The skill writes its own lessons: when a session teaches it something about its technique (a bug pattern, a value that works, a trap), it adds a dated line before it finishes and says so in one line.
 
-A skill never reads another skill's files; it calls the other skill by name. Conventions every skill shares live here.
+## Skills calling skills
+Any skill may call another skill by name whenever the job needs it (for example `ui-direction` calls `ui-mockup` to show options). A skill that must not be called by others says so on the first line under its title: `Not called by other skills.` That should be rare; list any here so it stays visible:
+- (none yet)
+
+Calling a skill is fine; reading another skill's files directly is not. Conventions every skill shares live here.
 
 ## Where the guides came from
 Each `GUIDE.md` started from outside skills (Emil Kowalski's, Taste, Impeccable), distilled and credited at the top. They were starting points; the guides now grow from real use through each skill's `LESSONS.md`, not from upstream.

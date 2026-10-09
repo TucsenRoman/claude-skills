@@ -19,7 +19,7 @@ A vague bar ("Apple's website", "good SaaS design") is the number one reason thi
 ## 2. Preflight
 A check, not a question. Report in one block before any work:
 - Fetch the bar now (screenshot the URL or read the file). If it's blocked or missing, ask for another.
-- Confirm you can render the output: `ui-direction`'s board tool for web and HTML, emulator screenshots for Expo.
+- Confirm you can render the output: `ui-mockup` for web and HTML, emulator screenshots for Expo.
 - Confirm the input files exist.
 
 Print what works, what's missing, and **which critic goes blind** if something is missing. Never carry on quietly with a critic that can't see.
