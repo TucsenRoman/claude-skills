@@ -1,0 +1,57 @@
+{
+  "repos": {
+    "emil": "https://github.com/emilkowalski/skills",
+    "taste": "https://github.com/Leonxlnx/taste-skill",
+    "impeccable": "https://github.com/pbakaus/impeccable"
+  },
+  "map": [
+    { "repo": "emil", "from": "skills/animate", "to": "ui-feel/sources/animate" },
+    { "repo": "emil", "from": "skills/animate-expo", "to": "ui-feel/sources/animate-expo" },
+    { "repo": "emil", "from": "skills/animation-vocabulary", "to": "ui-feel/sources/animation-vocabulary" },
+    { "repo": "emil", "from": "skills/apple-design", "to": "ui-feel/sources/apple-design" },
+    { "repo": "emil", "from": "skills/find-animation-opportunities", "to": "ui-feel/sources/find-animation-opportunities" },
+    { "repo": "emil", "from": "skills/improve-animations", "to": "ui-feel/sources/improve-animations" },
+    { "repo": "emil", "from": "skills/review-animations", "to": "ui-feel/sources/review-animations" },
+    { "repo": "emil", "from": "skills/break-ui", "to": "ui-stress/sources/break-ui" },
+    { "repo": "emil", "from": "skills/emil-design-eng", "to": "ui-review/sources/emil-design-eng" },
+    { "repo": "emil", "from": "skills/prototype", "to": "ui-direction/sources/prototype" },
+    { "repo": "emil", "from": "skills/pick-ui-library", "to": "ui-build/sources/pick-ui-library" },
+    { "repo": "emil", "from": "skills/ask-sonner", "to": "ui-build/sources/ask-sonner" },
+    { "repo": "emil", "from": "skills/mobile-native", "to": "ui-build/sources/mobile-native" },
+    { "repo": "taste", "from": "skills/taste-skill", "to": "ui-direction/sources/design-taste-frontend" },
+    { "repo": "taste", "from": "skills/minimalist-skill", "to": "ui-direction/sources/minimalist-ui" },
+    { "repo": "taste", "from": "skills/soft-skill", "to": "ui-direction/sources/high-end-visual-design" },
+    { "repo": "taste", "from": "skills/brutalist-skill", "to": "ui-direction/sources/industrial-brutalist-ui" },
+    { "repo": "taste", "from": "skills/gpt-tasteskill", "to": "ui-direction/sources/gpt-taste" },
+    { "repo": "taste", "from": "skills/redesign-skill", "to": "ui-build/sources/redesign-existing-projects" },
+    { "repo": "impeccable", "from": ".agents/skills/impeccable/reference/clarify.md", "to": "ui-copy/sources/clarify" },
+    { "repo": "impeccable", "from": ".agents/skills/impeccable/reference/critique.md", "to": "ui-review/sources/critique" },
+    { "repo": "impeccable", "from": ".agents/skills/impeccable/reference/audit.md", "to": "ui-review/sources/audit" },
+    { "repo": "impeccable", "from": ".agents/skills/impeccable/reference/audit.native.md", "to": "ui-review/sources/audit-native" },
+    { "repo": "impeccable", "from": ".agents/skills/impeccable/reference/polish.md", "to": "ui-review/sources/polish" },
+    { "repo": "impeccable", "from": ".agents/skills/impeccable/reference/harden.md", "to": "ui-stress/sources/harden" },
+    { "repo": "impeccable", "from": ".agents/skills/impeccable/reference/document.md", "to": "ui-foundations/sources/document" },
+    { "repo": "impeccable", "from": ".agents/skills/impeccable/reference/new-work.md", "to": "ui-direction/sources/new-work" },
+    { "repo": "impeccable", "from": ".agents/skills/impeccable/reference/typeset.md", "to": "ui-build/sources/typeset" },
+    { "repo": "impeccable", "from": ".agents/skills/impeccable/reference/layout.md", "to": "ui-build/sources/layout" },
+    { "repo": "impeccable", "from": ".agents/skills/impeccable/reference/colorize.md", "to": "ui-build/sources/colorize" },
+    { "repo": "impeccable", "from": ".agents/skills/impeccable/reference/adapt.md", "to": "ui-build/sources/adapt" },
+    { "repo": "impeccable", "from": ".agents/skills/impeccable/reference/adapt.native.md", "to": "ui-build/sources/adapt-native" },
+    { "repo": "impeccable", "from": ".agents/skills/impeccable/reference/optimize.md", "to": "ui-build/sources/optimize" }
+  ],
+  "ignore": [
+    "emil/skills/write-swift",
+    "taste/skills/brandkit",
+    "taste/skills/image-to-code-skill",
+    "taste/skills/imagegen-frontend-mobile",
+    "taste/skills/imagegen-frontend-web",
+    "taste/skills/output-skill",
+    "taste/skills/stitch-skill",
+    "taste/skills/taste-skill-v1"
+  ],
+  "local": [
+    "ui-foundations/sources/design-dna (yours, from Cowork; not synced)",
+    "ui-loop/sources/design-loop (yours, from Cowork; not synced)",
+    "ui-direction/sources/mobile-mockup (yours, from Cowork, adapted for Claude Code; not synced)"
+  ]
+}
