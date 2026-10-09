@@ -10,5 +10,5 @@ Modes are building blocks; one page can combine them when the question needs it.
 | Token lab | Copy lab or stress lab | Does the system hold up with real wording or extreme data? |
 | Before/after slider | 2x close-up | Tiny visual fixes |
 
-- One control panel per page, grouped by mode, with the (i) explanations and a single settings box covering every mode on the page.
+- One shared panel per page (`tools/panel.js`), one group per mode, one copy button covering every mode on the page.
 - Don't combine just because it's possible: each added mode is more for the user to read. Add one only when it answers part of the question.

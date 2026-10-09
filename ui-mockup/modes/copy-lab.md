@@ -8,3 +8,4 @@ The real screen with its strings editable in place, so wording is judged where i
 - **A/B wording:** two versions of the same string or screen side by side.
 - **Output:** a table of changed strings (# | Proposed | Now | Why) to paste back.
 - Serve it over HTTP like the playground.
+- Controls come from the shared panel and the page is served with `tools/serve.js` (see [playground.md](playground.md)).

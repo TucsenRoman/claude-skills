@@ -8,3 +8,4 @@ The real component (or a faithful mock of it) with dials that push its data to t
 - **Break markers:** outline anything that overflows its box, wraps where it shouldn't, or gets cut off, and list them under the controls ("Title overflows at 46 characters").
 - **Settings box:** the exact data that broke it, to paste back as a test case.
 - Serve it over HTTP like the playground.
+- Controls come from the shared panel and the page is served with `tools/serve.js` (see [playground.md](playground.md)).

@@ -10,3 +10,4 @@ A live mock for judging how something moves: a sheet opening, a swipe, a press, 
 - **For async review:** capture a frame strip (screenshots at fixed intervals laid out in a row, through the board tool) or a short recording. On native, record the emulator or device (`adb shell screenrecord`) and send the clip or frames.
 - Build it from the project's motion tokens and the values in `ui-feel`'s guide. Serve it over HTTP like the playground.
 - The emulator and a slow dev machine distort timing. Use the lab to compare and tune; confirm the final feel on a real phone.
+- Controls come from the shared panel and the page is served with `tools/serve.js` (see [playground.md](playground.md)).
