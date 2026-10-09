@@ -14,7 +14,7 @@ All UI and design work goes through these skills, in every project.
 | Stage | Job |
 |---|---|
 | `ui-foundations` | Read, start, or extend the project's design system. Runs before any other stage. |
-| `ui-direction` | Decide the look or structure before building, and present options. |
+| `ui-direction` | Brainstorm the look or structure in words before anything is drawn; hands directions to `ui-mockup` when it's time to see them. |
 | `ui-build` | Implement the chosen direction in the real codebase. |
 | `ui-feel` | How the UI feels: motion, gestures, haptics, sound, press feedback (web and Expo/React Native). |
 | `ui-stress` | Worst-case data: long names, empty lists, huge counts. |
@@ -22,7 +22,7 @@ All UI and design work goes through these skills, in every project.
 | `ui-copy` | UI text, checked against the project's voice. |
 | `ui-review-deep` | The deep version: a builder and three critics in rounds until all pass. Opt-in only. |
 | `ui-codify` | Turn a reference design into measurable rules and tests. Used by `ui-foundations` and `ui-review-deep`. |
-| `ui-mockup` | How UI gets shown: PNG boards, close-ups, live labs with controls, phone frames, Artifacts, inline visuals, Figma. Other stages call it. |
+| `ui-mockup` | Builds and shows UI: options from directions, PNG boards, close-ups, live labs with controls, phone frames, Artifacts, inline visuals, Figma. Other stages call it. |
 | `accessibility-sweep` | Accessibility pass. Runs only when the user asks for one. |
 
 - **Foundations first.** Before any UI work in a project, load its design source (`ui-foundations`). If none exists, offer to create one before building.
@@ -30,7 +30,7 @@ All UI and design work goes through these skills, in every project.
 - **Occasional modes: ask once per session.** Each stage lists occasional modes. When one fits, propose it in one line and wait for a yes before its first use in a session. After a yes, use it freely; after a no, don't suggest it again this session.
 - **Keep what makes the product the product.** A redesign starts from an inventory of the current screen's features and signature elements, and the default for each is keep. Never drop a feature or swap a signature component for a generic one without the user's explicit OK. `ui-review` checks this.
 - **Order of authority.** The user's own rules and the project's design system beat every skill. Then the stage skill. Then any source guide it loads.
-- **Speed first.** UI exploration defaults to fast: 2 to 3 rough options on a faster model, no builder self-verification, one render and check by you, options shown as each one finishes, variants of one thing from a single agent, and options explored as quick HTML mocks (even in a locked system) with only the picked option built in real code. Full polish only for the option the user picked. Details in `ui-direction`.
+- **Speed first.** UI exploration defaults to fast: 2 to 3 rough options on a faster model, no builder self-verification, one render and check by you, options shown as each one finishes, variants of one thing from a single agent, and options explored as quick HTML mocks (even in a locked system) with only the picked option built in real code. Full polish only for the option the user picked. Details in `ui-mockup`.
 - **Accessibility lives in `accessibility-sweep`.** The other stages leave it out. Problems anyone can see (something vanishing into its background) are design issues; raise them as such.
 
 ## How a skill is laid out
@@ -39,7 +39,7 @@ All UI and design work goes through these skills, in every project.
 - `LESSONS.md`: what real use taught, one dated line each. It beats `GUIDE.md` where they differ. The skill writes its own lessons: when a session teaches it something about its technique (a bug pattern, a value that works, a trap), it adds a dated line before it finishes and says so in one line.
 
 ## Skills calling skills
-Any skill may call another skill by name whenever the job needs it (for example `ui-direction` calls `ui-mockup` to show options). A skill that must not be called by others says so on the first line under its title: `Not called by other skills.` That should be rare; list any here so it stays visible:
+Any skill may call another skill by name whenever the job needs it (for example `ui-direction` calls `ui-mockup` to build and show its directions). A skill that must not be called by others says so on the first line under its title: `Not called by other skills.` That should be rare; list any here so it stays visible:
 - (none yet)
 
 Calling a skill is fine; reading another skill's files directly is not. Conventions every skill shares live here.

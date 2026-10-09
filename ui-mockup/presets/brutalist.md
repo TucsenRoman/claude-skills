@@ -1,6 +1,6 @@
 # Preset: brutalist (Swiss industrial print)
 
-Source: Taste industrial-brutalist-ui (MIT). Condensed; SKILL.md banned looks and the shared GUIDE.md rules still apply. The source's second mode, "Tactical Telemetry / CRT terminal" (dark, all-monospace, bracketed labels, scanlines), is omitted: it produces the user's banned "terminal chic" look.
+Source: Taste industrial-brutalist-ui (MIT). Condensed; the banned looks in ui-mockup's SKILL.md and its GUIDE.md still apply. The source's second mode, "Tactical Telemetry / CRT terminal" (dark, all-monospace, bracketed labels, scanlines), is omitted: it produces the user's banned "terminal chic" look.
 
 1960s corporate identity and machinery manuals: raw, rigid, typographic. Type is the structure; imagery is secondary.
 
