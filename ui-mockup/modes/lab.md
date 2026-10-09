@@ -20,6 +20,9 @@ Ready-made control sets, including motion. Use one, several, or none.
 - **Copy** (`ui-copy`): text editing on, a switch for every state of the screen (empty, loading, error, success), words the project's glossary rules out underlined with the preferred term on hover, and paste-back as the proposals table (# | Proposed | Now | Why).
 - **Motion** (`ui-feel`): a Replay button that plays the interaction (or the real gesture: make the element draggable so the user feels the follow, release and settle); controls for duration, easing (preset curves plus custom cubic-bezier), spring (damping ratio and duration, or stiffness and damping), distance, stagger and delay; a 1x / 0.5x / 0.25x select that scales every duration so easing and overshoot show; and "repeat 10x" for interactions people do all day. Build from the project's motion tokens and `ui-feel`'s guide. For async review, capture a frame strip through the board tool, or on native record the device (`adb shell screenrecord`). The emulator and a slow machine distort timing: tune here, confirm the feel on a real phone.
 
+## From a board
+When the user names an option on a board ("send B to the lab"), open that option's mock here with controls for the values that define it (the ones that differ between options first). Its paste-back feeds the direction note.
+
 ## Custom controls
 Anything else is a lab with its own controls (the logo stack's size, overlap and max per day was one). Include one control that reaches the worst case (for example "N items on every row"). When the user's answers reveal a better rule (for example "fit to width with a minimum" instead of a fixed scale), rebuild the model rather than adding dials.
 
