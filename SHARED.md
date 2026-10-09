@@ -21,6 +21,8 @@ All UI and design work goes through these skills, in every project.
 | `ui-review` | One-pass critique: regression check, design critique, polish. |
 | `ui-copy` | UI text, checked against the project's voice. |
 | `ui-loop` | High-stakes builder + critics cycle. Opt-in only. |
+| `ui-codify` | Turn a reference design into measurable rules and tests. Used by `ui-foundations` and `ui-loop`. |
+| `ui-mockup` | Standalone HTML phone frame for layout and safe-area checks. |
 | `ui-sync` | Refresh the guides inside these skills from their upstream sources. |
 | `accessibility-sweep` | Accessibility pass. Runs only when the user asks for one. |
 

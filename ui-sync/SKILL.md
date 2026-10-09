@@ -14,4 +14,4 @@ disable-model-invocation: true
 5. Skim the diffs of updated guides for changes to how they work (new steps, renamed files that stage routers link to). Fix broken links in the stage SKILL.md files.
 6. Report: what changed, anything that needs a decision.
 
-Your own guides (design-dna, design-loop, mobile-mockup) are local and never synced.
+Only the copied upstream guides are synced; the skills themselves are never overwritten.

@@ -5,17 +5,50 @@ description: High-stakes design loop — set a measurable bar from a reference, 
 
 # ui-loop
 
-The original method is in [sources/design-loop/GUIDE.md](sources/design-loop/GUIDE.md). Run its four phases (interview, preflight, teardown, loop) with these changes:
+Four phases: interview, preflight, teardown, loop. Don't skip ahead, and don't start building during phases 1 to 3.
 
-- **Interview**: question 3 (files to work from) is answered by `ui-foundations`. Load it instead of asking. If the piece is a redesign, run `ui-direction`'s inventory step; the keep-list is binding.
-- **Preflight**: rendering uses `~/.claude/skills/ui-direction/tools/board.sh` (web and HTML) or emulator screenshots (Expo). Image-generation tools are not required.
-- **Teardown**: instead of a quick `bar.md`, run design-dna on the reference ([../ui-foundations/sources/design-dna/GUIDE.md](../ui-foundations/sources/design-dna/GUIDE.md)) and use its binary tests as the bar. If the user already has a dna spec for this look, reuse it.
-- **Builder**: works as `ui-build` does: the project's real components and tokens, the keep-list honored.
-- **Critics** (fresh context each round, judging rendered output only, never the code):
-  - **Brief critic**: does it do the job? Includes the regression check: every keep-list item present, no signature element swapped for a generic one.
-  - **System critic**: the project's foundations, not a generic `design-system.md`.
-  - **Craft critic**: the dna tests plus a blind side-by-side with the reference. Always the strongest model available.
-- **Progress**: keep a progress file (or an Artifact if the user wants to watch remotely) with each piece's status, each critic's verdict, the gap history, and the round count.
-- **Cost**: before starting, say plainly that each round runs four agents, and ask for a round ceiling to check in at.
+## 1. Interview
+Ask these together, then wait:
+1. What are you building, and how big?
+2. Name something that already does this brilliantly: a site, a video, a doc, anything you can open. "Skip" is fine.
 
-When the loop exits, recommend `ui-feel` and `ui-review` as usual.
+The design system and files come from `ui-foundations`; load it instead of asking. If the piece is a redesign, run `ui-direction`'s inventory step; the keep-list is binding.
+
+A vague bar ("Apple's website", "good SaaS design") is the number one reason this fails: the critic invents a comparison and approves everything on round one. Push once for the specific page or file. On "skip", propose three candidate bars, one line each on why, and wait; if there's no answer, take the hardest.
+
+## 2. Preflight
+A check, not a question. Report in one block before any work:
+- Fetch the bar now (screenshot the URL or read the file). If it's blocked or missing, ask for another.
+- Confirm you can render the output: `ui-direction`'s board tool for web and HTML, emulator screenshots for Expo.
+- Confirm the input files exist.
+
+Print what works, what's missing, and **which critic goes blind** if something is missing. Never carry on quietly with a critic that can't see.
+
+## 3. Teardown
+Turn the reference into binary tests a critic can check by looking: run `ui-codify` on it and use its tests as the bar. If a dna spec for this look already exists, reuse it. Mechanisms, not adjectives ("headline is 5x body size, three type sizes total", not "feels premium"). Show the bar to the user before continuing.
+
+## 4. Loop
+Split the goal into the smallest pieces that can be judged on their own, usually three or four; every extra piece multiplies the run. For each piece, a builder, then three critics, each in fresh context with no knowledge of how the builder worked:
+
+| Critic | Judges against | Model |
+|---|---|---|
+| Brief | The stated goal; ignores aesthetics. Includes the regression check: every keep-list item present, no signature element swapped for a generic one | Fast |
+| System | The project's foundations only | Fast |
+| Craft | The bar's tests, plus a blind side-by-side with the reference (labels stripped): which is better, and the single biggest gap | Strongest available, always |
+
+- The builder works as `ui-build` does: the project's real components and tokens.
+- Write each critic's brief yourself for this goal; don't reuse generic wording.
+- Critics judge rendered output, never code. Reading the implementation makes them grade intent instead of result.
+- Binary verdicts, not scores; scores drift upward. Critics are harsh; praise isn't useful.
+- All three must pass. Any fail goes back to the builder with the single biggest gap named.
+- No fixed round count. The exit is winning, or the user stopping it.
+
+Keep a progress file (or an Artifact if the user wants to watch remotely): each piece's status, each critic's verdict, the gap history, the round count.
+
+## Cost
+Before starting, say plainly that each round runs four agents, and ask for a round ceiling to check in at. There's no reliable token count, so show rounds and pieces instead. Past the ceiling, pause and ask.
+
+## What breaks this
+A vague bar. The builder judging its own work. A soft critic. A fixed round count. Over-specifying: every extra instruction is one fewer decision the model makes with its own judgment.
+
+When the loop exits, recommend `ui-feel` and `ui-review`.

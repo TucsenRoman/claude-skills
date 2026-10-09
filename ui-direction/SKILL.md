@@ -58,7 +58,7 @@ Write a short direction note: the chosen option, why, what carried over, and the
 - **Taste: marketing pages** — [sources/design-taste-frontend/GUIDE.md](sources/design-taste-frontend/GUIDE.md). Won a blind test against Impeccable on a landing page. Suggest for any landing, launch, portfolio, or pricing page. Project foundations still win where they conflict.
 - **Taste: aesthetic presets** — when the user names a look: [minimalist](sources/minimalist-ui/GUIDE.md), [high-end](sources/high-end-visual-design/GUIDE.md), [brutalist](sources/industrial-brutalist-ui/GUIDE.md), [scroll-heavy marketing with GSAP](sources/gpt-taste/GUIDE.md).
 - **Variants in code** — [sources/prototype/GUIDE.md](sources/prototype/GUIDE.md) (Emil's picker). Default for app UI options; ask once.
-- **Phone mockup** — [sources/mobile-mockup/GUIDE.md](sources/mobile-mockup/GUIDE.md): a standalone HTML phone with safe-area sliders and device presets. Suggest when safe areas, notches, or exact layout fidelity matter, or when the app can't run.
+- **Phone mockup** — `ui-mockup`: a standalone HTML phone with safe-area sliders and device presets. Suggest when safe areas, notches, or exact layout fidelity matter, or when the app can't run.
 - **Something unexpected** — the new-work process ([sources/new-work/GUIDE.md](sources/new-work/GUIDE.md), from Impeccable) (concept research, a random draw among candidates, direction contracts). Only when the user asks for a bold or surprising identity. It lost both blind tests when used as the default.
 - **Artifact** — publish the options or the chosen direction as a shareable claude.ai page for teammates.
 - **Figma** — `figma:figma-generate-design` when the user wants the result in Figma.

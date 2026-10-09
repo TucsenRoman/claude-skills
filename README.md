@@ -21,6 +21,8 @@ A set of Claude Code skills for designing and building UI, plus a few that keep 
 - `ui-review` — regression check, critique, polish
 - `ui-copy` — UI text in the project's voice
 - `ui-loop` — opt-in builder + critics cycle for high-stakes screens
+- `ui-codify` — turn a design you love into measurable rules and tests
+- `ui-mockup` — standalone HTML phone frame with safe areas and device presets
 - `ui-sync` — refresh the guides in `sources/` from upstream
 - `accessibility-sweep` — accessibility pass, only when asked
 
@@ -43,4 +45,4 @@ Skills learn from outside skills by keeping copies of their guides in each skill
 - [Taste](https://github.com/Leonxlnx/taste-skill) (MIT): marketing-page and aesthetic-preset guides
 - [Impeccable](https://github.com/pbakaus/impeccable) by Paul Bakaus (Apache-2.0): clarify, critique, audit, polish, harden, document, new-work, and refine guides (typeset, layout, colorize, adapt, optimize)
 
-`design-dna`, `design-loop`, and `mobile-mockup` are original guides kept in `sources/` and never synced.
+

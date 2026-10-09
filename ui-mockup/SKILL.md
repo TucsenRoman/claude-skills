@@ -1,5 +1,5 @@
 ---
-name: mobile-mockup
+name: ui-mockup
 description: Build a standalone, interactive HTML artifact that faithfully reproduces a mobile screen (or flow of screens) from a Figma design, for testing layout, spacing, and safe-area behavior without running the real app. Use when the user wants to preview, test, or iterate on a mobile UI's layout — especially safe-area/notch handling, multi-screen flows, or pixel-fidelity against a Figma design — outside of building/running the actual app.
 ---
 

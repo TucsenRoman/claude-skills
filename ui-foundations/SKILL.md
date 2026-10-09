@@ -1,6 +1,6 @@
 ---
 name: ui-foundations
-description: Load, start, or extend a project's design system before any UI work — tokens, type, color, spacing, voice, and the product's signature components. Use at the start of any UI, design, styling, or screen work in a project; when the user wants to start or set up a design system, design tokens, a theme, or a style guide; when adding or changing tokens; or when written design docs and code may disagree. Also codifies a reference design the user loves into reusable rules (design-dna).
+description: Load, start, or extend a project's design system before any UI work — tokens, type, color, spacing, voice, and the product's signature components. Use at the start of any UI, design, styling, or screen work in a project; when the user wants to start or set up a design system, design tokens, a theme, or a style guide; when adding or changing tokens; or when written design docs and code may disagree. Also codifies a reference design the user loves into reusable rules (`ui-codify`).
 ---
 
 # ui-foundations
@@ -33,7 +33,7 @@ Token files written for a build tool may not work raw. Example: CSS inside Tailw
 
 ## Start (no design system yet)
 1. Ask, together, then wait: what the product is and who it's for; the feel in three words; one or two references the user loves (a site, an app, a screenshot); platforms (web, Expo, both); and light only or light + dark.
-2. If they named a reference, offer **design-dna** (occasional mode) to turn it into measurable rules first.
+2. If they named a reference, offer `ui-codify` (occasional mode) to turn it into measurable rules first.
 3. Build the token system on the pattern in [templates/tokens-starter.md](templates/tokens-starter.md): three tiers (primitives, then semantic, then component), light and dark values for every semantic token, one source file that generates every platform output.
 4. Write a one-page design doc next to it: type scale, spacing scale, radii, elevation, color usage rules, voice in three lines, and do/don't examples.
 5. Add the `## UI foundations` section to the project's CLAUDE.md.
@@ -43,6 +43,6 @@ Token files written for a build tool may not work raw. Example: CSS inside Tailw
 Adding or changing tokens: keep the tiers (components use tier 2 only), add both theme values, regenerate the outputs, and grep for places the change touches. Never hardcode a value to dodge adding a token.
 
 ## Occasional modes (ask once per session before first use)
-- **design-dna**: codify one reference design into ratios, bans, and pass/fail tests, validated by rebuilding the original. Guide: [sources/design-dna/GUIDE.md](sources/design-dna/GUIDE.md). Suggest when the user names a reference they want to capture, or before `ui-loop`.
+- **`ui-codify`**: codify one reference design into ratios, bans, and pass/fail tests, validated by rebuilding the original. Suggest when the user names a reference they want to capture, or before `ui-loop`.
 - **Document from code**: write a design doc from an existing codebase that has a de-facto system but no docs. Follow [sources/document/GUIDE.md](sources/document/GUIDE.md) (from Impeccable) for the analysis steps, writing to the project's own doc location.
 - **User research**: when the user wants to understand their users before setting the system, use the `design:user-research` or `design:research-synthesis` skills if available.
