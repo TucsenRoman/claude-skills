@@ -23,7 +23,6 @@ A set of Claude Code skills for designing and building UI, plus a few that keep 
 - `ui-loop` — opt-in builder + critics cycle for high-stakes screens
 - `ui-codify` — turn a design you love into measurable rules and tests
 - `ui-mockup` — standalone HTML phone frame with safe areas and device presets
-- `ui-sync` — watch the upstream skills and propose what each stage should learn
 - `accessibility-sweep` — accessibility pass, only when asked
 
 **Skills that improve the skills**
@@ -40,7 +39,7 @@ Each skill keeps a `CHANGES.md` (what changed and why, so reviews don't repeat o
 `SHARED.md` holds what every skill follows: the UI stage table and rules, how source guides are used, the proposals table (`# | Proposed | Now | Why`), and when `skill-tailor` and `skill-mason` speak up.
 
 ## Sources and credits
-Skills learn from outside skills without depending on them: each stage's `GUIDE.md` is distilled from the sources below and credits them at the top, and `ui-sync` watches those repos and proposes what to absorb when they change (`ui-sync/sources.json` lists what each stage watches). Some stages still hold older full copies in `sources/` until they're distilled. Sources and their licenses:
+The guides started from these outside skills, distilled into each stage's `GUIDE.md` and credited there. They're starting points; the skills now grow from real use (`LESSONS.md`). Some stages still hold older full copies in `sources/` until they're distilled.
 - [Emil Kowalski's skills](https://github.com/emilkowalski/skills) (MIT): animation, review, stress, prototyping, and UI-library guides
 - [Taste](https://github.com/Leonxlnx/taste-skill) (MIT): marketing-page and aesthetic-preset guides
 - [Impeccable](https://github.com/pbakaus/impeccable) by Paul Bakaus (Apache-2.0): clarify, critique, audit, polish, harden, document, new-work, and refine guides (typeset, layout, colorize, adapt, optimize)
