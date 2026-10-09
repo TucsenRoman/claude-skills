@@ -1,9 +1,9 @@
 ---
-name: ui-loop
-description: High-stakes design loop — set a measurable bar from a reference, then cycle a builder and three fresh-context critics until all pass. Use only when the user asks for the loop or the gauntlet, or accepts it when offered for a piece that has to be great (homepage, onboarding, launch screen). Costs many times a normal build; never run it unasked.
+name: ui-review-deep
+description: The deep version of ui-review, for screens that have to be great — set a measurable bar from a reference, then cycle a builder and three fresh-context critics until all pass. Use only when the user asks for the loop or the gauntlet, or accepts it when offered for a piece that has to be great (homepage, onboarding, launch screen). Costs many times a normal build; never run it unasked.
 ---
 
-# ui-loop
+# ui-review-deep
 
 Four phases: interview, preflight, teardown, loop. Don't skip ahead, and don't start building during phases 1 to 3.
 

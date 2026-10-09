@@ -20,7 +20,7 @@ A set of Claude Code skills for designing and building UI, plus a few that keep 
 - `ui-stress` — worst-case data
 - `ui-review` — regression check, critique, polish
 - `ui-copy` — UI text in the project's voice
-- `ui-loop` — opt-in builder + critics cycle for high-stakes screens
+- `ui-review-deep` — opt-in builder + critics cycle for high-stakes screens
 - `ui-codify` — turn a design you love into measurable rules and tests
 - `ui-mockup` — shows UI: boards, close-ups, playgrounds with dials, phone frames, Artifacts
 - `accessibility-sweep` — accessibility pass, only when asked
