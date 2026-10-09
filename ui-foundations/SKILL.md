@@ -43,6 +43,7 @@ Token files written for a build tool may not work raw. Example: CSS inside Tailw
 Adding or changing tokens: keep the tiers (components use tier 2 only), add both theme values, regenerate the outputs, and grep for places the change touches. Never hardcode a value to dodge adding a token.
 
 ## Occasional modes (ask once per session before first use)
+- **Token lab** — `ui-mockup`'s token lab: live controls for the tokens on a sample screen of the product's own components, with the token diff to paste back. Suggest when starting or retuning a system.
 - **`ui-codify`**: codify one reference design into ratios, bans, and pass/fail tests, validated by rebuilding the original. Suggest when the user names a reference they want to capture, or before `ui-review-deep`.
 - **Document from code**: write a design doc from an existing codebase that has a de-facto system but no docs. Follow [GUIDE.md](GUIDE.md) for the analysis steps, writing to the project's own doc location.
 - **User research**: when the user wants to understand their users before setting the system, use the `design:user-research` or `design:research-synthesis` skills if available.

@@ -29,6 +29,7 @@ Use [GUIDE.md](GUIDE.md) as the craft bar, plus [platforms/web.md](platforms/web
 Rank fixes by severity: regressions first, then broken, then wrong, then polish. Use the proposals table (`# | Proposed | Now | Why`, see `../SHARED.md`), one row per fix; put the severity in Why. For a fix that changes how something looks, show a quick mock or before/after crop before applying; other fixes apply directly. Apply what the user approves, re-render, and confirm.
 
 ## Occasional modes (ask once per session before first use)
+- **Before/after slider** — `ui-mockup`'s compare mode: drag a divider across the old and new screen. Suggest when a review has many small visual changes.
 - **Deep critique** — the critique heuristics in [GUIDE.md](GUIDE.md), applied flow by flow. Suggest for a major screen or flow.
 - **Audit** — the performance and platform checks in `platforms/`. Suggest before a release.
 - **Polish** — the polish checklist in [GUIDE.md](GUIDE.md). Suggest after fixes land, right before shipping.
