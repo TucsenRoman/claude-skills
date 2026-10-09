@@ -26,4 +26,5 @@ Use the proposals table (`# | Proposed | Now | Why`, see `../SHARED.md`), one ro
 Keep the Why cell short: the reason plus where it appears.
 
 ## Occasional modes (ask once per session before first use)
+- **Copy lab** — `ui-mockup`'s copy lab: the real screen with strings editable in place, glossary flags, and a fit check at phone width. Suggest when wording is being reworked across a whole screen or flow.
 - **Brand voice** — the `brand-voice:*` skills, when the project has formal brand guidelines to enforce.
