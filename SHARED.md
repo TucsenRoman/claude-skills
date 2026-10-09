@@ -22,7 +22,7 @@ All UI and design work goes through these skills, in every project.
 | `ui-copy` | UI text, checked against the project's voice. |
 | `ui-review-deep` | The deep version: a builder and three critics in rounds until all pass. Opt-in only. |
 | `ui-codify` | Turn a reference design into measurable rules and tests. Used by `ui-foundations` and `ui-review-deep`. |
-| `ui-mockup` | How UI gets shown: PNG boards, close-ups, playgrounds with dials, phone frames, Artifacts, inline visuals, Figma. Other stages call it. |
+| `ui-mockup` | How UI gets shown: PNG boards, close-ups, live labs with controls, phone frames, Artifacts, inline visuals, Figma. Other stages call it. |
 | `accessibility-sweep` | Accessibility pass. Runs only when the user asks for one. |
 
 - **Foundations first.** Before any UI work in a project, load its design source (`ui-foundations`). If none exists, offer to create one before building.
