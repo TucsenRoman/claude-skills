@@ -1,6 +1,6 @@
 ---
 name: ui-mockup
-description: Show UI to the user so they can judge it — PNG boards and close-ups rendered in a headless browser, live playgrounds with dials and toggles for tuning values, phone frames with safe-area controls, shareable Artifacts, inline visuals, Figma, and files (HTML, SVG, PDF). Use whenever options, a design, a fix, or a mock needs to be seen rather than described; other skills (ui-direction, ui-review, ui-review-deep, ui-codify, ui-copy) call it to present their work.
+description: Show UI to the user so they can judge it — PNG boards and close-ups rendered in a headless browser, live playgrounds with dials and toggles for tuning values, a motion lab for timing, easing and gestures, phone frames with safe-area controls, shareable Artifacts, inline visuals, Figma, and files (HTML, SVG, PDF). Use whenever options, a design, a fix, or a mock needs to be seen rather than described; other skills (ui-direction, ui-review, ui-review-deep, ui-codify, ui-copy) call it to present their work.
 ---
 
 # ui-mockup
@@ -12,6 +12,7 @@ The one place that decides how UI gets shown. Pick the format by what the user n
 | Compare options, or see a fix before and after | PNG board (default) | [modes/board.md](modes/board.md) |
 | Judge a small detail (an icon, an outline, a number) | 2x close-up | [modes/board.md](modes/board.md) |
 | Find the right numbers (sizes, spacing, thresholds) | Playground with dials and toggles | [modes/playground.md](modes/playground.md) |
+| Judge or tune how something moves (timing, easing, springs, gestures) | Motion lab | [modes/motion.md](modes/motion.md) |
 | Check a phone layout: safe areas, notches, exact fidelity, or the app can't run | Phone frame | [modes/phone-frame.md](modes/phone-frame.md) |
 | Share it, come back to it, or view it on a phone | Artifact | [modes/share.md](modes/share.md) |
 | Understand a flow or structure, not a finished look | Inline visual | [modes/share.md](modes/share.md) |

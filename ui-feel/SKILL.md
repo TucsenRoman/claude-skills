@@ -17,6 +17,7 @@ How the UI responds to the user: motion, gestures, haptics, sound, press feedbac
 - Use the project's motion tokens (durations, easings) if it has them; add them via `ui-foundations` if it doesn't.
 - Signature interactions (the product's own sheets, menus, FAB, press feedback) keep their feel. Change them only with the user's OK.
 - Before judging or adding motion, read the motion code that already exists (hooks, shared helpers, not just the component).
+- To explore or tune motion before building it, use `ui-mockup`'s motion lab (dials, slow motion, side-by-side).
 - Verify on a device or emulator for Expo, and in the browser for web. Motion can't be judged from code. The emulator confirms motion runs; how fast it feels gets judged on a real phone.
 
 ## Next
