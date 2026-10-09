@@ -1,6 +1,6 @@
 ---
 name: ui-review
-description: One-pass review of built UI before shipping — regression check against the original screen, design critique, and polish. Use when the user asks to review, critique, polish, audit, or sanity-check a screen or UI change, asks "does this look right", or a UI change is about to ship or go into a PR.
+description: One-pass review of built UI before shipping — regression check against the original screen, design critique, and polish (ui-review-deep is the multi-round version for high-stakes screens). Use when the user asks to review, critique, polish, audit, or sanity-check a screen or UI change, asks "does this look right", or a UI change is about to ship or go into a PR.
 ---
 
 # ui-review

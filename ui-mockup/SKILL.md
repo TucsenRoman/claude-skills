@@ -1,6 +1,6 @@
 ---
 name: ui-mockup
-description: Show UI to the user so they can judge it — PNG boards and close-ups rendered in a headless browser, live playgrounds with dials and toggles for tuning values, phone frames with safe-area controls, shareable Artifacts, inline visuals, Figma, and files (HTML, SVG, PDF). Use whenever options, a design, a fix, or a mock needs to be seen rather than described; other skills (ui-direction, ui-review, ui-loop, ui-codify, ui-copy) call it to present their work.
+description: Show UI to the user so they can judge it — PNG boards and close-ups rendered in a headless browser, live playgrounds with dials and toggles for tuning values, phone frames with safe-area controls, shareable Artifacts, inline visuals, Figma, and files (HTML, SVG, PDF). Use whenever options, a design, a fix, or a mock needs to be seen rather than described; other skills (ui-direction, ui-review, ui-review-deep, ui-codify, ui-copy) call it to present their work.
 ---
 
 # ui-mockup

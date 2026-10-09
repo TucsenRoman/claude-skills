@@ -18,10 +18,10 @@ All UI and design work goes through these skills, in every project.
 | `ui-build` | Implement the chosen direction in the real codebase. |
 | `ui-feel` | How the UI feels: motion, gestures, haptics, sound, press feedback (web and Expo/React Native). |
 | `ui-stress` | Worst-case data: long names, empty lists, huge counts. |
-| `ui-review` | One-pass critique: regression check, design critique, polish. |
+| `ui-review` | One pass: regression check, design critique, polish. |
 | `ui-copy` | UI text, checked against the project's voice. |
-| `ui-loop` | High-stakes builder + critics cycle. Opt-in only. |
-| `ui-codify` | Turn a reference design into measurable rules and tests. Used by `ui-foundations` and `ui-loop`. |
+| `ui-review-deep` | The deep version: a builder and three critics in rounds until all pass. Opt-in only. |
+| `ui-codify` | Turn a reference design into measurable rules and tests. Used by `ui-foundations` and `ui-review-deep`. |
 | `ui-mockup` | How UI gets shown: PNG boards, close-ups, playgrounds with dials, phone frames, Artifacts, inline visuals, Figma. Other stages call it. |
 | `accessibility-sweep` | Accessibility pass. Runs only when the user asks for one. |
 

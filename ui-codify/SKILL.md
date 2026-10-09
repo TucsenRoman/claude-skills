@@ -1,6 +1,6 @@
 ---
 name: ui-codify
-description: "Codify one design the user loves (any medium) into a reusable spec: measured ratios, coverage, bans, pass/fail tests, a capped 2KB prompt payload and a full dna.json record, validated by rebuilding the original from the spec alone. Use when the user names a reference they want to capture or match, when ui-foundations starts a design system from a reference, or when ui-loop needs a measurable bar."
+description: "Codify one design the user loves (any medium) into a reusable spec: measured ratios, coverage, bans, pass/fail tests, a capped 2KB prompt payload and a full dna.json record, validated by rebuilding the original from the spec alone. Use when the user names a reference they want to capture or match, when ui-foundations starts a design system from a reference, or when ui-review-deep needs a measurable bar."
 ---
 
 # Design DNA
@@ -116,4 +116,4 @@ List every value that was inferred rather than measured, and every rule under 70
 
 ## Usage
 
-Run `ui-loop` (or otherwise pick a winning design). Point `/ui-codify` at it. The output is a new named skill folder capturing that look as a command, not a memory — reusable on new content in any medium.
+Run `ui-review-deep` (or otherwise pick a winning design). Point `/ui-codify` at it. The output is a new named skill folder capturing that look as a command, not a memory — reusable on new content in any medium.
