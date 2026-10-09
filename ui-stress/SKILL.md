@@ -5,7 +5,7 @@ description: Stress-test UI with worst-case realistic data — long names, unbre
 
 # ui-stress
 
-Throw the realistic worst case at the UI and fix what breaks. Guide: [sources/break-ui/GUIDE.md](sources/break-ui/GUIDE.md).
+Throw the realistic worst case at the UI and fix what breaks. Guide: [GUIDE.md](GUIDE.md).
 
 ## How it runs here
 - Use the product's real data shapes from the project's types and database, not invented fields.
@@ -14,7 +14,7 @@ Throw the realistic worst case at the UI and fix what breaks. Guide: [sources/br
 - Report the breaks in the proposals table (`# | Proposed | Now | Why`, see `../SHARED.md`): Now is what breaks, Proposed is the fix. Apply what the user approves.
 
 ## Occasional modes (ask once per session before first use)
-- **Harden** — [sources/harden/GUIDE.md](sources/harden/GUIDE.md) (from Impeccable): production hardening beyond data (error states, i18n, overflow, offline). Suggest before a release.
+- **Harden** — the hardening section of [GUIDE.md](GUIDE.md): errors, loading and slow network, double-submits, overflow, cleanup. Suggest before a release.
 
 ## Next
 Recommend `ui-review`.

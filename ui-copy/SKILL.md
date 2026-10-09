@@ -5,7 +5,7 @@ description: Write or fix UI text — labels, buttons, headers, empty states, er
 
 # ui-copy
 
-UI text that sounds like the product and tells people what they need. The method is the clarify guide ([sources/clarify/GUIDE.md](sources/clarify/GUIDE.md), from Impeccable); read it in full. Skip its accessibility and translation parts (accessibility is `accessibility-sweep`'s job), and keep this skill's voice rules on top.
+UI text that sounds like the product and tells people what they need. The method is in [GUIDE.md](GUIDE.md); read it in full. This skill's voice rules sit on top of it.
 
 ## Steps
 1. **Load the voice** from the project's foundations (`ui-foundations`: voice doc, examples of good copy, banned words). If the project has no voice doc, ask for three words and two examples of copy they like, and offer to save them to the foundations.

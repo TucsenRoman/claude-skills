@@ -28,8 +28,8 @@ Turn the direction into shipped code, inside the project's system.
 Recommend `ui-feel` if something should move or respond, `ui-stress` for data-heavy UI, then `ui-review`.
 
 ## Occasional modes (ask once per session before first use)
-- **Pick a library** — [sources/pick-ui-library/GUIDE.md](sources/pick-ui-library/GUIDE.md): before adding a dependency for a UI primitive (toast, drawer, command menu, carousel). Suggest instead of hand-rolling one.
-- **Sonner toasts** — [sources/ask-sonner/GUIDE.md](sources/ask-sonner/GUIDE.md): when the project uses or adds Sonner.
-- **Mobile web feel** — [sources/mobile-native/GUIDE.md](sources/mobile-native/GUIDE.md): a web app on phones (100vh bug, tap highlight, input zoom, safe areas, PWA). Not for React Native.
-- **Redesign checklist** — [sources/redesign-existing-projects/GUIDE.md](sources/redesign-existing-projects/GUIDE.md): an audit-first upgrade of an older codebase's UI. Its aesthetic rules yield to the project's foundations and the inventory.
-- **Refine guides** (from Impeccable) — `typeset`, `layout`, `colorize`, `adapt`, `optimize`: load `sources/<name>/GUIDE.md` (`sources/adapt-native/` on Expo) for a focused pass on one dimension; for hardening use `../ui-stress/sources/harden/`. Its guidance yields to the project's foundations.
+- **Pick a library** — the library section of [GUIDE.md](GUIDE.md): before adding a dependency for a UI primitive (toast, drawer, command menu, carousel). Suggest instead of hand-rolling one.
+- **Sonner toasts** — the toasts section of [GUIDE.md](GUIDE.md): when the project uses or adds Sonner.
+- **Mobile web feel** — [platforms/web.md](platforms/web.md): a web app on phones (100vh, tap highlight, input zoom, safe areas). Not for React Native, which uses [platforms/expo.md](platforms/expo.md).
+- **Redesign checklist** — the redesign section of [GUIDE.md](GUIDE.md): an audit-first upgrade of an older codebase's UI. It yields to the project's foundations and the inventory.
+- **Refine passes** — typography, layout, color, adaptation, or performance on their own, from the matching sections of [GUIDE.md](GUIDE.md) and `platforms/`. For hardening, run `ui-stress`. The project's foundations win where they differ.

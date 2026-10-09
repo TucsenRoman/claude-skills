@@ -23,13 +23,13 @@ List each with where it went missing.
 - Voice: copy matches the project's voice doc (or hand to `ui-copy`).
 - Craft: alignment, spacing rhythm, states (empty, loading, error).
 - Motion: when the change includes animation, gestures, or haptics, check it against [motion.md](motion.md).
-Use [sources/emil-design-eng/GUIDE.md](sources/emil-design-eng/GUIDE.md) as the craft bar.
+Use [GUIDE.md](GUIDE.md) as the craft bar, plus [platforms/web.md](platforms/web.md) or [platforms/expo.md](platforms/expo.md) for the platform.
 
 ## 4. Report
 Rank fixes by severity: regressions first, then broken, then wrong, then polish. Use the proposals table (`# | Proposed | Now | Why`, see `../SHARED.md`), one row per fix; put the severity in Why. For a fix that changes how something looks, show a quick mock or before/after crop before applying; other fixes apply directly. Apply what the user approves, re-render, and confirm.
 
 ## Occasional modes (ask once per session before first use)
-- **Critique** — [sources/critique/GUIDE.md](sources/critique/GUIDE.md) (from Impeccable): deep heuristic UX review with scoring. Suggest for a major screen or flow.
-- **Audit** — [sources/audit/GUIDE.md](sources/audit/GUIDE.md) (or [sources/audit-native/GUIDE.md](sources/audit-native/GUIDE.md) on Expo), from Impeccable: technical audit of performance and responsiveness (skip its accessibility checks; its detector script isn't included). Suggest before a release.
-- **Polish** — [sources/polish/GUIDE.md](sources/polish/GUIDE.md) (from Impeccable): final tightening pass on alignment and detail. Suggest after fixes land, right before shipping.
-- **Untested:** none of the critique, audit, or polish guides have been compared head-to-head yet. Note in the report which mode found what, so the user can judge their value.
+- **Deep critique** — the critique heuristics in [GUIDE.md](GUIDE.md), applied flow by flow. Suggest for a major screen or flow.
+- **Audit** — the performance and platform checks in `platforms/`. Suggest before a release.
+- **Polish** — the polish checklist in [GUIDE.md](GUIDE.md). Suggest after fixes land, right before shipping.
+- **Untested:** none of these modes have been compared head-to-head yet. Note in the report which mode found what, so the user can judge their value.
