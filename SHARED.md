@@ -23,7 +23,6 @@ All UI and design work goes through these skills, in every project.
 | `ui-loop` | High-stakes builder + critics cycle. Opt-in only. |
 | `ui-codify` | Turn a reference design into measurable rules and tests. Used by `ui-foundations` and `ui-loop`. |
 | `ui-mockup` | Standalone HTML phone frame for layout and safe-area checks. |
-| `ui-sync` | Refresh the guides inside these skills from their upstream sources. |
 | `accessibility-sweep` | Accessibility pass. Runs only when the user asks for one. |
 
 - **Foundations first.** Before any UI work in a project, load its design source (`ui-foundations`). If none exists, offer to create one before building.
@@ -37,15 +36,13 @@ All UI and design work goes through these skills, in every project.
 ## How a skill is laid out
 - `SKILL.md`: when to use it and the steps. Short.
 - `GUIDE.md`: the technique, distilled from outside skills it learned from, credited at the top. Platform-specific parts go in `platforms/` (for example `platforms/expo.md`).
-- `LESSONS.md`: what real use taught, one dated line each. It beats `GUIDE.md` where they differ. `skill-tailor` adds to it when a session teaches something new.
+- `LESSONS.md`: what real use taught, one dated line each. It beats `GUIDE.md` where they differ. The skill writes its own lessons: when a session teaches it something about its technique (a bug pattern, a value that works, a trap), it adds a dated line before it finishes and says so in one line.
 - `CHANGES.md`: what changed in the skill and why, including declined proposals.
 
 A skill never reads another skill's files; it calls the other skill by name. Conventions every skill shares live here.
 
-## Learning from outside skills
-Skills learn from outside skills without depending on them. `ui-sync` watches the upstream repos listed in `ui-sync/sources.json`, shows what changed since it last looked, and proposes what to absorb into each stage's `GUIDE.md`, in the proposals table. Nothing is copied wholesale. When reading upstream material, skip its "Initial Response" preamble and ignore its references to its own tools (slash commands, CLIs, scripts).
-
-Some stages still keep older full copies in `sources/`; they get distilled into `GUIDE.md` one stage at a time.
+## Where the guides came from
+Each `GUIDE.md` started from outside skills (Emil Kowalski's, Taste, Impeccable), distilled and credited at the top. They were starting points; the guides now grow from real use through each skill's `LESSONS.md`, not from upstream. Some stages still hold older full copies in `sources/` until they're distilled.
 
 ## Proposals for the user to approve
 Any list of proposed changes (copy, review fixes, stress breaks, skill edits, new skills) goes in one table, then `Reply like "1 y, 2 n"`:

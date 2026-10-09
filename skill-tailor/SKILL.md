@@ -23,7 +23,7 @@ The user should read and approve the whole thing in seconds.
 ## 1. Pick the skill
 - From the arguments, or from the sweep. Mid-session with no name, use the skill that was just used.
 - Locate everything it owns: `SKILL.md`, the files it links (tools, templates), and its `CHANGES.md` if one exists.
-- Note what's not its own: copies under `sources/` that a sync tool refreshes from upstream (for the `ui-` stages, `ui-sync`). Changes go in the skill's own files, never in a synced copy, or the next sync erases them.
+- Note what's not its own: older copies of outside guides under `sources/`. Changes go in the skill's own files, not in those copies.
 
 ## 2. Rebuild context
 Assume no memory of earlier sessions. Gather evidence, and note the date of each piece:
@@ -55,7 +55,6 @@ Present the findings ranked by impact (overrides and conflicts first), in the sh
 ## 5. Apply
 - Edit in place, in the skill's existing voice and structure. Prefer replacing an instruction over adding next to it. Delete what's obsolete; a skill should get sharper, not longer.
 - Keep the frontmatter `description` accurate, since that's what decides when the skill fires. Update it if the skill's scope changed.
-- When the finding is something real use taught about the technique itself (a bug pattern, a value that works, a trap), add a dated line to the skill's `LESSONS.md` instead of rewriting its guide.
 - Append each applied change to the skill's `CHANGES.md` (create it if missing): date, one line on what changed, one line on why (the evidence). Record skipped proposals too, marked "declined", so later reviews don't raise them again.
 - Re-read the edited skill end to end for contradictions you just introduced.
 
@@ -66,4 +65,4 @@ A few short lines: what changed, what was declined, what's still open. If a chan
 - Evidence over opinion. A finding without a source is a question, not a change.
 - One decision per change; the user never approves a bundle blind.
 - Small, reversible edits. `CHANGES.md` is the memory between reviews.
-- Never edit a synced upstream copy; change the skill that loads it.
+- Never edit a copied outside guide; change the skill that loads it.
