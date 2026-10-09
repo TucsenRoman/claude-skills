@@ -44,5 +44,5 @@ Adding or changing tokens: keep the tiers (components use tier 2 only), add both
 
 ## Occasional modes (ask once per session before first use)
 - **`ui-codify`**: codify one reference design into ratios, bans, and pass/fail tests, validated by rebuilding the original. Suggest when the user names a reference they want to capture, or before `ui-loop`.
-- **Document from code**: write a design doc from an existing codebase that has a de-facto system but no docs. Follow [sources/document/GUIDE.md](sources/document/GUIDE.md) (from Impeccable) for the analysis steps, writing to the project's own doc location.
+- **Document from code**: write a design doc from an existing codebase that has a de-facto system but no docs. Follow [GUIDE.md](GUIDE.md) for the analysis steps, writing to the project's own doc location.
 - **User research**: when the user wants to understand their users before setting the system, use the `design:user-research` or `design:research-synthesis` skills if available.

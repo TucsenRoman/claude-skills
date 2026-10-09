@@ -35,13 +35,13 @@ All UI and design work goes through these skills, in every project.
 
 ## How a skill is laid out
 - `SKILL.md`: when to use it and the steps. Short.
-- `GUIDE.md`: the technique, distilled from outside skills it learned from, credited at the top. Platform-specific parts go in `platforms/` (for example `platforms/expo.md`).
+- `GUIDE.md`: the technique, distilled from outside skills it learned from, credited at the top. Platform-specific parts go in `platforms/` (for example `platforms/expo.md`); variants of a technique in their own folder (for example `presets/`).
 - `LESSONS.md`: what real use taught, one dated line each. It beats `GUIDE.md` where they differ. The skill writes its own lessons: when a session teaches it something about its technique (a bug pattern, a value that works, a trap), it adds a dated line before it finishes and says so in one line.
 
 A skill never reads another skill's files; it calls the other skill by name. Conventions every skill shares live here.
 
 ## Where the guides came from
-Each `GUIDE.md` started from outside skills (Emil Kowalski's, Taste, Impeccable), distilled and credited at the top. They were starting points; the guides now grow from real use through each skill's `LESSONS.md`, not from upstream. Some stages still hold older full copies in `sources/` until they're distilled.
+Each `GUIDE.md` started from outside skills (Emil Kowalski's, Taste, Impeccable), distilled and credited at the top. They were starting points; the guides now grow from real use through each skill's `LESSONS.md`, not from upstream.
 
 ## Proposals for the user to approve
 Any list of proposed changes (copy, review fixes, stress breaks, skill edits, new skills) goes in one table, then `Reply like "1 y, 2 n"`:

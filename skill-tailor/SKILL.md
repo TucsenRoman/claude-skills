@@ -23,7 +23,6 @@ The user should read and approve the whole thing in seconds.
 ## 1. Pick the skill
 - From the arguments, or from the sweep. Mid-session with no name, use the skill that was just used.
 - Locate everything it owns: `SKILL.md`, the files it links (guides, tools, templates), and its `LESSONS.md`.
-- Note what's not its own: older copies of outside guides under `sources/`. Changes go in the skill's own files, not in those copies.
 
 ## 2. Rebuild context
 Assume no memory of earlier sessions. Gather evidence, and note the date of each piece:
@@ -65,4 +64,3 @@ A few short lines: what changed, what was declined, what's still open. If a chan
 - Evidence over opinion. A finding without a source is a question, not a change.
 - One decision per change; the user never approves a bundle blind.
 - Small, reversible edits, one commit each.
-- Never edit a copied outside guide; change the skill that loads it.
