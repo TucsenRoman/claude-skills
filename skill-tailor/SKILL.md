@@ -16,19 +16,19 @@ The user should read and approve the whole thing in seconds.
 
 ## Two ways in
 - **Named** (`/skill-tailor ui-review`): review that skill.
-- **Sweep** (`/skill-tailor` with no name, usually at the start of a session): find the skills that need attention, so the user never has to notice friction themselves. Look at sessions since each skill's last `CHANGES.md` entry (or the last two weeks), find where the user overrode or corrected a skill, and list the skills with friction, one line each and most friction first. Then review the one the user picks, or all of them in a row. If nothing turned up, say so in one line and stop.
+- **Sweep** (`/skill-tailor` with no name, usually at the start of a session): find the skills that need attention, so the user never has to notice friction themselves. Look at sessions since the skill's last commit in the skills repo (or the last two weeks), find where the user overrode or corrected a skill, and list the skills with friction, one line each and most friction first. Then review the one the user picks, or all of them in a row. If nothing turned up, say so in one line and stop.
 
 **Standing permission:** while this skill runs, Claude may ask the user about any instruction in the skill under review: whether it still holds, which side wins in a conflict, and whether to change it. Asking is expected, not an interruption. Editing is not covered: nothing under `~/.claude/skills/`, no CLAUDE.md, and no memory changes until the user approves that specific change.
 
 ## 1. Pick the skill
 - From the arguments, or from the sweep. Mid-session with no name, use the skill that was just used.
-- Locate everything it owns: `SKILL.md`, the files it links (tools, templates), and its `CHANGES.md` if one exists.
+- Locate everything it owns: `SKILL.md`, the files it links (guides, tools, templates), and its `LESSONS.md`.
 - Note what's not its own: older copies of outside guides under `sources/`. Changes go in the skill's own files, not in those copies.
 
 ## 2. Rebuild context
 Assume no memory of earlier sessions. Gather evidence, and note the date of each piece:
-- **The skill itself**: read `SKILL.md` and the linked files in full. Read `CHANGES.md` so you don't re-propose something already decided.
-- **Past use**: search session transcripts for the skill's name and for "Launching skill: <name>", plus any former names listed in its `CHANGES.md` header (`mcp__ccd_session_mgmt__search_session_transcripts` when available, otherwise grep `~/.claude/projects/*/*.jsonl`). Read the user's messages around each use. That's where overrides and complaints live.
+- **The skill itself**: read `SKILL.md` and the linked files in full. Check the skills repo's git log for it so you don't redo a recent change.
+- **Past use**: search session transcripts for the skill's name and for "Launching skill: <name>", plus any former names (check the skills repo's git log) (`mcp__ccd_session_mgmt__search_session_transcripts` when available, otherwise grep `~/.claude/projects/*/*.jsonl`). Read the user's messages around each use. That's where overrides and complaints live.
 - **The current session**, if the skill was used in it.
 - **Saved preferences**: feedback memories in `~/.claude/projects/*/memory/`, the global `~/.claude/CLAUDE.md`, and the CLAUDE.md of projects where the skill ran.
 - **Neighbors**: skills it hands off to or shares a job with, for overlaps and contradictions.
@@ -55,7 +55,7 @@ Present the findings ranked by impact (overrides and conflicts first), in the sh
 ## 5. Apply
 - Edit in place, in the skill's existing voice and structure. Prefer replacing an instruction over adding next to it. Delete what's obsolete; a skill should get sharper, not longer.
 - Keep the frontmatter `description` accurate, since that's what decides when the skill fires. Update it if the skill's scope changed.
-- Append each applied change to the skill's `CHANGES.md` (create it if missing): date, one line on what changed, one line on why (the evidence). Record skipped proposals too, marked "declined", so later reviews don't raise them again.
+- Commit each applied change to the skills repo with a one-line why.
 - Re-read the edited skill end to end for contradictions you just introduced.
 
 ## 6. Report
@@ -64,5 +64,5 @@ A few short lines: what changed, what was declined, what's still open. If a chan
 ## Rules
 - Evidence over opinion. A finding without a source is a question, not a change.
 - One decision per change; the user never approves a bundle blind.
-- Small, reversible edits. `CHANGES.md` is the memory between reviews.
+- Small, reversible edits, one commit each.
 - Never edit a copied outside guide; change the skill that loads it.

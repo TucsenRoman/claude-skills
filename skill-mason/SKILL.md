@@ -44,8 +44,7 @@ Propose only when all of these hold:
 2. **At most one question**, and only if the evidence leaves something genuinely open (for example, which of two conflicting versions wins). Otherwise just build.
 3. **Write** `~/.claude/skills/<name>/SKILL.md` in the voice of the user's other skills: short, direct, rules over prose. Frontmatter `description` says what it does and when it fires, with the trigger phrases the user actually used.
 4. **Wire it in** only if it belongs to a family (for example, a new `ui-` stage goes in the table in `../SHARED.md`). That edit is part of the yes; mention it in the ask.
-5. **Start its `CHANGES.md`** with the date and one line on where it came from (the evidence).
-6. **Report** in two lines: what was built, and how it fires. Suggest a `skill-tailor` after it's seen some real use.
+5. **Report** in two lines: what was built, and how it fires. Suggest a `skill-tailor` after it's seen some real use.
 
 ## LEDGER.md
 This skill's memory between sessions, in two parts:

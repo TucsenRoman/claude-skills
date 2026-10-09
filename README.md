@@ -33,13 +33,13 @@ A set of Claude Code skills for designing and building UI, plus a few that keep 
 - `ping-me` — push notification to your phone when a task finishes or gets blocked
 - `prog-rep` — short progress report on the session
 
-Each skill keeps a `CHANGES.md` (what changed and why, so reviews don't repeat old decisions) and may keep a `LESSONS.md` (what real use taught). See "How a skill is laid out" in `SHARED.md`.
+Skills keep a `LESSONS.md` of what real use taught them. See "How a skill is laid out" in `SHARED.md`.
 
 ## Shared conventions
 `SHARED.md` holds what every skill follows: the UI stage table and rules, how source guides are used, the proposals table (`# | Proposed | Now | Why`), and when `skill-tailor` and `skill-mason` speak up.
 
-## Sources and credits
-The guides started from these outside skills, distilled into each stage's `GUIDE.md` and credited there. They're starting points; the skills now grow from real use (`LESSONS.md`). Some stages still hold older full copies in `sources/` until they're distilled.
+## Credits
+Some guides build on these open-source skills:
 - [Emil Kowalski's skills](https://github.com/emilkowalski/skills) (MIT): animation, review, stress, prototyping, and UI-library guides
 - [Taste](https://github.com/Leonxlnx/taste-skill) (MIT): marketing-page and aesthetic-preset guides
 - [Impeccable](https://github.com/pbakaus/impeccable) by Paul Bakaus (Apache-2.0): clarify, critique, audit, polish, harden, document, new-work, and refine guides (typeset, layout, colorize, adapt, optimize)
