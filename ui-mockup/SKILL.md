@@ -11,8 +11,7 @@ The one place that decides how UI gets shown. Pick the format by what the user n
 |---|---|---|
 | Compare options, or see a fix before and after | PNG board (default) | [modes/board.md](modes/board.md) |
 | Judge a small detail (an icon, an outline, a number) | 2x close-up | [modes/board.md](modes/board.md) |
-| Tune anything live: find the right numbers, tune tokens, break it with extreme data, edit wording in place | Lab (custom controls, or the tokens, stress data and copy presets) | [modes/lab.md](modes/lab.md) |
-| Judge or tune how something moves (timing, easing, springs, gestures) | Lab with the motion add-on | [modes/motion.md](modes/motion.md) |
+| Tune anything live: find the right numbers, tune tokens or motion, break it with extreme data, edit wording in place | Lab (custom controls, or the tokens, stress data, copy and motion presets) | [modes/lab.md](modes/lab.md) |
 | Spot what changed between two versions | Before/after slider | [modes/compare.md](modes/compare.md) |
 | Check a phone layout: safe areas, notches, exact fidelity, or the app can't run | Phone frame | [modes/phone-frame.md](modes/phone-frame.md) |
 | Share it, come back to it, or view it on a phone | Artifact | [modes/share.md](modes/share.md) |
