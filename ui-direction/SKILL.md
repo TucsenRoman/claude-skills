@@ -44,7 +44,7 @@ Ask at most three questions together, only where the answer changes the work: wh
 - **Explore in mocks, build only the pick.** Even inside a locked system, explore options as quick HTML mocks built from the project's real tokens (start from the latest approved mock of that screen), shown on a board. They take about a minute to review; real-code variants are slower to build, need a device, and hot-reload can wedge mid-build. Build in the real codebase only the option the user picked. (The user asked for this after trying both.)
 
 ## 6. Present (recommend one; the user can override)
-Show the options with `ui-mockup`: a PNG board by default, close-ups for small differences, a lab when the user is tuning numbers, a phone frame when safe areas matter, an Artifact to share. It asks for the pick and anything to carry over.
+Show the options with `ui-mockup`: a PNG board by default, close-ups for small differences, a phone frame when safe areas matter, an Artifact to share. Options are for ideas and viewing, so they stay on boards. When the user names one ("send B to the lab"), open that option's mock in a `ui-mockup` lab with controls for the values that define it, plus any presets the question needs. It asks for the pick and anything to carry over.
 
 ## 7. Hand off
 Write a short direction note: the chosen option, why, what carried over, and the inventory. Recommend `ui-build`.
