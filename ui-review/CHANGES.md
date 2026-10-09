@@ -15,3 +15,5 @@
   Why: blind taps into a loading app left it three times and opened the home screen's search.
 - 2026-10-08: Proposals use the shared table (# | Proposed | Now | Why) from the global CLAUDE.md.
   Why: user asked for one side-by-side format across every skill that proposes changes.
+- 2026-10-08: Motion is checked in every review against motion.md (distilled from Emil's review-animations); dropped the touch-targets item.
+  Why: user wants review left to ui-review, auto-recommended after ui-feel.

@@ -8,3 +8,5 @@
   Why: the viseez motion review proposed a card count-up that already existed in a shared hook.
 - 2026-10-08: The emulator confirms motion runs; feel and speed are judged on a real phone.
   Why: same slow-machine finding as ui-review.
+- 2026-10-08: Distilled 7 copied guides (2,394 lines) into GUIDE.md (121) + platforms/web.md + platforms/expo.md; sources/ removed. Motion review standards moved to ui-review/motion.md. Added LESSONS.md.
+  Why: sources were bloated and mostly unread; review belongs to ui-review; real-use lessons kept separate from upstream technique.

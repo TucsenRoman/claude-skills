@@ -21,7 +21,8 @@ List each with where it went missing.
 - Foundations compliance: tokens only, fonts, radii, spacing scale, both themes.
 - Hierarchy: is the most important thing the most visible? One focal point per screen.
 - Voice: copy matches the project's voice doc (or hand to `ui-copy`).
-- Craft: alignment, spacing rhythm, states (empty, loading, error), touch targets.
+- Craft: alignment, spacing rhythm, states (empty, loading, error).
+- Motion: when the change includes animation, gestures, or haptics, check it against [motion.md](motion.md).
 Use [sources/emil-design-eng/GUIDE.md](sources/emil-design-eng/GUIDE.md) as the craft bar.
 
 ## 4. Report
@@ -31,5 +32,4 @@ Rank fixes by severity: regressions first, then broken, then wrong, then polish.
 - **Critique** — [sources/critique/GUIDE.md](sources/critique/GUIDE.md) (from Impeccable): deep heuristic UX review with scoring. Suggest for a major screen or flow.
 - **Audit** — [sources/audit/GUIDE.md](sources/audit/GUIDE.md) (or [sources/audit-native/GUIDE.md](sources/audit-native/GUIDE.md) on Expo), from Impeccable: technical audit of performance and responsiveness (skip its accessibility checks; its detector script isn't included). Suggest before a release.
 - **Polish** — [sources/polish/GUIDE.md](sources/polish/GUIDE.md) (from Impeccable): final tightening pass on alignment and detail. Suggest after fixes land, right before shipping.
-- **Motion review** — hand to `ui-feel` (review-animations) when the change includes animation or haptics.
 - **Untested:** none of the critique, audit, or polish guides have been compared head-to-head yet. Note in the report which mode found what, so the user can judge their value.

@@ -55,6 +55,7 @@ Present the findings ranked by impact (overrides and conflicts first), in the sh
 ## 5. Apply
 - Edit in place, in the skill's existing voice and structure. Prefer replacing an instruction over adding next to it. Delete what's obsolete; a skill should get sharper, not longer.
 - Keep the frontmatter `description` accurate, since that's what decides when the skill fires. Update it if the skill's scope changed.
+- When the finding is something real use taught about the technique itself (a bug pattern, a value that works, a trap), add a dated line to the skill's `LESSONS.md` instead of rewriting its guide.
 - Append each applied change to the skill's `CHANGES.md` (create it if missing): date, one line on what changed, one line on why (the evidence). Record skipped proposals too, marked "declined", so later reviews don't raise them again.
 - Re-read the edited skill end to end for contradictions you just introduced.
 
