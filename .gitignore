@@ -1,2 +1,5 @@
 # Third-party installs that live here but aren't part of this set
 impeccable/
+
+# Personal working state, not part of the shared set
+skill-mason/LEDGER.md

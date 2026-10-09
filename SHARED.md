@@ -37,7 +37,6 @@ All UI and design work goes through these skills, in every project.
 - `SKILL.md`: when to use it and the steps. Short.
 - `GUIDE.md`: the technique, distilled from outside skills it learned from, credited at the top. Platform-specific parts go in `platforms/` (for example `platforms/expo.md`).
 - `LESSONS.md`: what real use taught, one dated line each. It beats `GUIDE.md` where they differ. The skill writes its own lessons: when a session teaches it something about its technique (a bug pattern, a value that works, a trap), it adds a dated line before it finishes and says so in one line.
-- `CHANGES.md`: what changed in the skill and why, including declined proposals.
 
 A skill never reads another skill's files; it calls the other skill by name. Conventions every skill shares live here.
 
