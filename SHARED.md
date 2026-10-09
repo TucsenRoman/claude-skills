@@ -34,10 +34,18 @@ All UI and design work goes through these skills, in every project.
 - **Speed first.** UI exploration defaults to fast: 2 to 3 rough options on a faster model, no builder self-verification, one render and check by you, options shown as each one finishes, variants of one thing from a single agent, and options explored as quick HTML mocks (even in a locked system) with only the picked option built in real code. Full polish only for the option the user picked. Details in `ui-direction`.
 - **Accessibility lives in `accessibility-sweep`.** The other stages leave it out. Problems anyone can see (something vanishing into its background) are design issues; raise them as such.
 
-## Source guides
-Skills learn from outside skills by keeping copies of their guides in `sources/` (refreshed by `ui-sync`, credited in the README). Nothing here depends on another skill being installed.
-- Skip a guide's "Initial Response" preamble; the stage skill already set the context.
-- Ignore a guide's references to its original tools (its own slash commands, CLIs, or scripts). Follow the stage skill instead.
+## How a skill is laid out
+- `SKILL.md`: when to use it and the steps. Short.
+- `GUIDE.md`: the technique, distilled from outside skills it learned from, credited at the top. Platform-specific parts go in `platforms/` (for example `platforms/expo.md`).
+- `LESSONS.md`: what real use taught, one dated line each. It beats `GUIDE.md` where they differ. `skill-tailor` adds to it when a session teaches something new.
+- `CHANGES.md`: what changed in the skill and why, including declined proposals.
+
+A skill never reads another skill's files; it calls the other skill by name. Conventions every skill shares live here.
+
+## Learning from outside skills
+Skills learn from outside skills without depending on them. `ui-sync` watches the upstream repos listed in `ui-sync/sources.json`, shows what changed since it last looked, and proposes what to absorb into each stage's `GUIDE.md`, in the proposals table. Nothing is copied wholesale. When reading upstream material, skip its "Initial Response" preamble and ignore its references to its own tools (slash commands, CLIs, scripts).
+
+Some stages still keep older full copies in `sources/`; they get distilled into `GUIDE.md` one stage at a time.
 
 ## Proposals for the user to approve
 Any list of proposed changes (copy, review fixes, stress breaks, skill edits, new skills) goes in one table, then `Reply like "1 y, 2 n"`:

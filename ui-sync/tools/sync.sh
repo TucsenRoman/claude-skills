@@ -1,46 +1,55 @@
 #!/usr/bin/env bash
-# Refresh the upstream guides inside the ui-* skills. A map entry is a folder (copied whole,
-# SKILL.md renamed GUIDE.md) or a single .md file (copied to GUIDE.md).
-# Usage: sync.sh [--dry-run]
+# Watch the upstream skills the ui- stages learn from. Copies nothing into the skills.
+#   sync.sh            report what changed upstream since each repo was last reviewed,
+#                      per stage, and write the diffs to a temp folder for reading
+#   sync.sh --mark     record each repo's current HEAD as reviewed (run after absorbing)
 set -euo pipefail
-dry=0; [ "${1:-}" = "--dry-run" ] && dry=1
-SK="$HOME/.claude/skills"
 here="$(cd "$(dirname "$0")/.." && pwd)"
-tmp="$(mktemp -d)"
-trap 'rm -rf -- "$tmp"' EXIT
+json="$here/sources.json"
+mode="${1:-check}"
 
+if [ "$mode" = "--mark" ]; then
+  node -e '
+    const fs = require("fs"), cp = require("child_process"), f = process.argv[1]
+    const j = JSON.parse(fs.readFileSync(f, "utf8"))
+    for (const r of Object.values(j.repos)) r.seen = cp.execSync(`git ls-remote ${r.url} HEAD`).toString().split(/\s/)[0]
+    fs.writeFileSync(f, JSON.stringify(j, null, 2).replace(/\{\n\s+"repo": ("[^"]+"),\n\s+"path": ("[^"]+"),\n\s+"stage": ("[^"]+")\n\s+\}/g, "{ \"repo\": $1, \"path\": $2, \"stage\": $3 }") + "\n")
+    console.log("marked:", Object.entries(j.repos).map(([k, r]) => k + " " + r.seen.slice(0, 8)).join(", "))
+  ' "$json"
+  exit 0
+fi
+
+out="$(mktemp -d)"
 node -e '
-const j=require(process.argv[1]);
-for (const [k,v] of Object.entries(j.repos)) console.log("REPO",k,v);
-for (const m of j.map) console.log("MAP",m.repo,m.from,m.to);
-' "$here/sources.json" > "$tmp/plan.txt"
+  const j = require(process.argv[1])
+  for (const [k, r] of Object.entries(j.repos)) console.log("REPO", k, r.url, r.seen)
+  for (const w of j.watch) console.log("WATCH", w.repo, w.path, w.stage)
+  for (const i of j.ignore) console.log("IGNORE", i)
+' "$json" > "$out/plan.txt"
 
-while read -r kind a b c; do
-  [ "$kind" = REPO ] && git clone --depth 1 -q "$b" "$tmp/$a"
-done < "$tmp/plan.txt"
+while read -r kind name url seen; do
+  [ "$kind" = REPO ] || continue
+  git clone -q --filter=blob:none "$url" "$out/$name"
+  head="$(git -C "$out/$name" rev-parse HEAD)"
+  if [ "$head" = "$seen" ]; then echo "same     $name"; continue; fi
+  echo "CHANGED  $name ($(git -C "$out/$name" log --oneline "$seen..$head" 2>/dev/null | wc -l) commits since last review)"
+  while read -r k repo path stage; do
+    [ "$k" = WATCH ] && [ "$repo" = "$name" ] || continue
+    if ! git -C "$out/$name" cat-file -e "HEAD:$path" 2>/dev/null; then echo "  MISSING  $path (moved or removed? fix sources.json)"; continue; fi
+    if ! git -C "$out/$name" diff --quiet "$seen" HEAD -- "$path" 2>/dev/null; then
+      mkdir -p "$out/diffs/$stage"
+      git -C "$out/$name" diff "$seen" HEAD -- "$path" > "$out/diffs/$stage/$(echo "$name-$path" | tr '/.' '__').diff"
+      echo "  $stage  <-  $path"
+    fi
+  done < "$out/plan.txt"
+  # Upstream skills nobody watches yet
+  for d in "$out/$name/skills"/*/ "$out/$name/.agents/skills/impeccable/reference"/*.md; do
+    [ -e "$d" ] || continue
+    rel="${d#$out/$name/}"; rel="${rel%/}"
+    grep -q "\"path\": \"$rel" "$json" && continue
+    grep -q "\"$name/$rel\"" "$json" && continue
+    echo "  NEW (unwatched)  $rel"
+  done
+done < "$out/plan.txt"
 
-changed=0
-while read -r kind repo from to; do
-  [ "$kind" = MAP ] || continue
-  src="$tmp/$repo/$from"; dst="$SK/$to"
-  mkdir -p "$tmp/stage/$to"
-  if [ -d "$src" ]; then cp -r "$src/." "$tmp/stage/$to/"
-  elif [ -f "$src" ]; then cp "$src" "$tmp/stage/$to/GUIDE.md"
-  else echo "MISSING upstream: $repo/$from (renamed or removed? update sources.json)"; continue; fi
-  [ -f "$tmp/stage/$to/SKILL.md" ] && mv "$tmp/stage/$to/SKILL.md" "$tmp/stage/$to/GUIDE.md"
-  if diff -rq "$tmp/stage/$to" "$dst" >/dev/null 2>&1; then echo "same     $to"
-  else
-    echo "UPDATED  $to"; changed=$((changed+1))
-    if [ $dry -eq 0 ]; then rm -rf -- "$dst"; mkdir -p "$dst"; cp -r "$tmp/stage/$to/." "$dst/"; fi
-  fi
-done < "$tmp/plan.txt"
-
-for d in "$tmp/emil/skills"/* "$tmp/taste/skills"/*; do
-  [ -d "$d" ] || continue
-  rel="${d#$tmp/}"; repo="${rel%%/*}"; path="${rel#*/}"
-  grep -q "\"repo\": \"$repo\", \"from\": \"$path\"" "$here/sources.json" && continue
-  grep -q "\"$repo/$path\"" "$here/sources.json" && continue  # deliberately ignored
-  echo "NEW upstream skill (not mapped): $repo/$path"
-done
-
-echo "$changed guide folder(s) changed$([ $dry -eq 1 ] && echo ' (dry run, nothing written)')"
+echo "diffs: $out/diffs"

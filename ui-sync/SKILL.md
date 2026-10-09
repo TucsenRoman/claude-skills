@@ -1,17 +1,19 @@
 ---
 name: ui-sync
-description: Update the design guides inside the ui-* skills from their upstream repos (Emil Kowalski's skills, Taste, Impeccable's reference guides). Use when the user asks to update, sync, or refresh the design skills, or to check for new versions.
+description: Learn from the upstream skills the ui- stages draw on (Emil Kowalski's skills, Taste, Impeccable). Shows what changed upstream since the last review and proposes what each stage should absorb into its GUIDE.md. Use when the user asks to update, sync, or refresh the design skills, or to check what's new upstream.
 disable-model-invocation: true
 ---
 
 # ui-sync
 
-## Steps
-1. Dry run first and show the result: `bash ~/.claude/skills/ui-sync/tools/sync.sh --dry-run`. It lists updated guide folders, upstream folders that went missing, and new upstream skills not mapped yet.
-2. With the user's OK, run it for real (no flag).
-3. For each **NEW upstream skill**, read it and recommend which `ui-` stage it belongs in, if any. Add accepted ones to `sources.json` and to that stage's SKILL.md as an occasional mode.
-4. For each **MISSING** entry, find where it moved upstream and fix `sources.json`.
-5. Skim the diffs of updated guides for changes to how they work (new steps, renamed files that stage routers link to). Fix broken links in the stage SKILL.md files.
-6. Report: what changed, anything that needs a decision.
+The stages learn from outside skills without copying them. This skill watches those repos and turns new upstream ideas into proposals.
 
-Only the copied upstream guides are synced; the skills themselves are never overwritten.
+## Steps
+1. Run `bash ~/.claude/skills/ui-sync/tools/sync.sh`. For each repo it reports `same` or `CHANGED`, then lists per stage which watched files changed (`stage <- path`), any `MISSING` paths, and `NEW (unwatched)` upstream skills. Diffs land in the temp folder it prints.
+2. For each stage with changes, read the diffs and that stage's `GUIDE.md`, `platforms/`, and `LESSONS.md`. Keep only what would change what the stage builds or how it judges: new rules, better values, new techniques. Skip rewording, tool-specific instructions, and anything the stage's lessons already overrule.
+3. Propose the absorptions in the proposals table: Proposed is the line to add or change in the stage's guide, Now is what the guide says today, Why names the upstream source and the gain.
+4. For each **NEW** upstream skill, say in one line whether a stage should watch it, and add it to `sources.json` if the user agrees. For each **MISSING** path, find where it moved and fix `sources.json`.
+5. Apply what's approved, credit the source at the top of the guide if it's new, and log it in the stage's `CHANGES.md`.
+6. Run `bash ~/.claude/skills/ui-sync/tools/sync.sh --mark` so the next run only shows newer changes.
+
+Nothing upstream is ever copied into a skill wholesale.
