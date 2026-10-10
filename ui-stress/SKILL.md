@@ -14,7 +14,7 @@ Throw the realistic worst case at the UI and fix what breaks. Guide: [GUIDE.md](
 - Report the breaks in the proposals table (`# | Proposed | Now | Why`, see `../SHARED.md`): Now is what breaks, Proposed is the fix. Apply what the user approves.
 
 ## Occasional modes (ask once per session before first use)
-- **Stress lab** — `ui-mockup`'s lab with the stress data preset: the real component with dials for extreme data, so the user finds the breaking point live. Suggest for data-heavy components (lists, cards, tables, profiles).
+- **Stress lab** — `ui-mockup`'s lab with the stress data preset: the real component with dials for extreme data, so the user finds the breaking point live. Only when the user wants to find limits by hand; by default the table from the real screen is the result. Don't pitch it after a report.
 - **Harden** — the hardening section of [GUIDE.md](GUIDE.md): errors, loading and slow network, double-submits, overflow, cleanup. Suggest before a release.
 
 ## Next

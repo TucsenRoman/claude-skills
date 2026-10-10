@@ -13,7 +13,8 @@ Every project records its design source in its `CLAUDE.md` under a `## UI founda
 ```markdown
 ## UI foundations
 - Tokens: <path to the source of truth, and how outputs are generated>
-- Docs: <design system / voice docs: repo files, Notion pages, Figma>
+- Brand book: <artifact url> (source: <path>)
+- Docs: <short written rules for code: tokens, assets, logo rules; voice docs; Notion pages, Figma>
 - Fonts: <heading / body / mono, and where they're loaded>
 - Platforms: <web / Expo / both>
 - Signature: <components and interactions that define this product; never swap for generic ones>
@@ -34,7 +35,7 @@ Token files written for a build tool may not work raw. Example: CSS inside Tailw
 1. Ask, together, then wait: what the product is and who it's for; the feel in three words; one or two references the user loves (a site, an app, a screenshot); platforms (web, Expo, both); and light only or light + dark.
 2. If they named a reference, offer `ui-codify` (occasional mode) to turn it into measurable rules first.
 3. Build the token system on the pattern in [templates/tokens-starter.md](templates/tokens-starter.md): three tiers (primitives, then semantic, then component), light and dark values for every semantic token, one source file that generates every platform output.
-4. Write a one-page design doc next to it: type scale, spacing scale, radii, elevation, color usage rules, voice in three lines, and do/don't examples.
+4. Call `brand-book` to show the system as a visual page. Next to the tokens, keep only a short written reference for code: type scale, spacing scale, radii, elevation, and color names and values. Don't repeat in words what the brand book shows.
 5. Add the `## UI foundations` section to the project's CLAUDE.md.
 6. Recommend `ui-direction` to try the system on a first real screen.
 
@@ -44,5 +45,5 @@ Adding or changing tokens: keep the tiers (components use tier 2 only), add both
 ## Occasional modes (ask once per session before first use)
 - **Token lab** — `ui-mockup`'s lab with the tokens preset: live controls for the tokens on a sample screen of the product's own components, with the token diff to paste back. Suggest when starting or retuning a system.
 - **`ui-codify`**: codify one reference design into ratios, bans, and pass/fail tests, validated by rebuilding the original. Suggest when the user names a reference they want to capture, or before `ui-review-deep`.
-- **Document from code**: write a design doc from an existing codebase that has a de-facto system but no docs. Follow [GUIDE.md](GUIDE.md) for the analysis steps, writing to the project's own doc location.
+- **Document from code**: document an existing codebase that has a de-facto system but no docs. Follow [GUIDE.md](GUIDE.md) for the analysis steps, then hand the result to `brand-book` for the visual page and keep the written part short.
 - **User research**: when the user wants to understand their users before setting the system, use the `design:user-research` or `design:research-synthesis` skills if available.

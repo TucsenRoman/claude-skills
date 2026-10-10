@@ -36,6 +36,6 @@ Modes combine: a lab inside a phone frame, A/B on any lab. See [MIXING.md](MIXIN
 ## Rules
 - Build mocks from the project's real tokens, fonts, and content (load `ui-foundations`), starting from the latest approved mock of that screen when there is one.
 - Light and dark both, unless the project has one theme.
-- Look at every render before sending it. Retake anything that caught a loading state, an overlay, or the wrong screen.
+- Look at every render before sending it. Retake anything that caught a loading state, an overlay, or the wrong screen. For a live page (a lab), check it has rendered in the browser pane at the size the user will view it, not only at a test size.
 - Send results as they finish; don't hold a finished option back waiting for a slower one.
 - Ask for a pick, plus anything to carry over from the options that lost. For options from `ui-direction`, hand the pick back to it for the direction note.
