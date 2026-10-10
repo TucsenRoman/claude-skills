@@ -1,6 +1,6 @@
 ---
 name: ui-mockup
-description: Build and show UI so the user can judge it — design options built from directions, PNG boards and close-ups rendered in a headless browser, live labs with a shared control panel for tuning values (presets for tokens, stress data, copy and motion), a before/after slider, phone frames with safe-area controls, shareable Artifacts, inline visuals, Figma, and files (HTML, SVG, PDF). Use whenever options, a design, a fix, or a mock needs to be seen rather than described; other skills (ui-direction, ui-review, ui-review-deep, ui-codify, ui-copy) call it to present their work.
+description: Build and show UI so the user can judge it — design options built from directions, PNG boards and close-ups rendered in a headless browser, live labs with a shared control panel for tuning values (presets for tokens, stress data, copy and motion), a synced scrubber for comparing options that differ over time (intros, transitions), a before/after slider, phone frames with safe-area controls, shareable Artifacts, inline visuals, Figma, and files (HTML, SVG, PDF). Use whenever options, a design, a fix, or a mock needs to be seen rather than described; other skills (ui-direction, ui-review, ui-review-deep, ui-codify, ui-copy) call it to present their work.
 ---
 
 # ui-mockup
@@ -11,6 +11,7 @@ The one place that builds mocks and decides how UI gets shown. Pick the format b
 |---|---|---|
 | Compare options, or see a fix before and after | PNG board (default) | [modes/board.md](modes/board.md) |
 | Judge a small detail (an icon, an outline, a number) | 2x close-up | [modes/board.md](modes/board.md) |
+| Compare options that differ over time (an intro, a transition, a loading sequence) | Synced scrubber: every option on one timeline, with key moments and durations marked | [modes/lab.md](modes/lab.md#synced-scrubber) |
 | Tune anything live: find the right numbers, tune tokens or motion, break it with extreme data, edit wording in place | Lab (custom controls, or the tokens, stress data, copy and motion presets) | [modes/lab.md](modes/lab.md) |
 | Spot what changed between two versions | Before/after slider | [modes/compare.md](modes/compare.md) |
 | Check a phone layout: safe areas, notches, exact fidelity, or the app can't run | Phone frame | [modes/phone-frame.md](modes/phone-frame.md) |
