@@ -83,6 +83,8 @@
             <div class="mp-info">${esc(c.info || '')}</div><input type="range" data-range min="${c.min}" max="${c.max}" step="${c.step || 1}">`;
         } else if (c.type === 'toggle') {
           row.innerHTML = `<div class="mp-line">${label}<button class="mp-pill" data-toggle></button><button class="mp-reset" data-act="reset" title="Reset">↺</button></div><div class="mp-info">${esc(c.info || '')}</div>`;
+        } else if (c.type === 'select' && (c.options.length > 3 || c.options.join('').length > 24)) {
+          row.innerHTML = `<div class="mp-line">${label}<button class="mp-reset" data-act="reset" title="Reset">↺</button></div><div class="mp-info">${esc(c.info || '')}</div><select class="mp-dd" data-dd>${c.options.map(o => `<option>${esc(o)}</option>`).join('')}</select>`
         } else if (c.type === 'select') {
           row.innerHTML = `<div class="mp-line">${label}<span class="mp-seg" data-select>${c.options.map(o => `<button data-v="${esc(o)}">${esc(o)}</button>`).join('')}</span><button class="mp-reset" data-act="reset" title="Reset">↺</button></div><div class="mp-info">${esc(c.info || '')}</div>`;
         }
@@ -110,6 +112,7 @@
         const b = row.querySelector('[data-toggle]'); b.textContent = v ? 'On' : 'Off'; b.classList.toggle('on', !!v);
       } else if (c.type === 'select') {
         row.querySelectorAll('[data-select] button').forEach(b => b.classList.toggle('on', b.dataset.v === v));
+        const dd = row.querySelector('[data-dd]'); if (dd) dd.value = v;
       }
     }
     function sync() {
@@ -135,6 +138,7 @@
       const k = row.dataset.key, c = row.control;
       if (e.target.dataset.color) { values[k] = { ...values[k], [e.target.dataset.color]: e.target.value.toUpperCase() }; changed(); }
       else if (e.target.dataset.hex) { const v = e.target.value.trim(); if (/^#[0-9a-f]{6}$/i.test(v) || /^rgba?\(/i.test(v)) { values[k] = { ...values[k], [e.target.dataset.hex]: v.toUpperCase() }; changed(); } }
+      else if ('dd' in e.target.dataset) { values[k] = e.target.value; changed(); }
       else if ('range' in e.target.dataset || 'num' in e.target.dataset) { const n = +e.target.value; if (!Number.isNaN(n)) { values[k] = Math.max(c.min, Math.min(c.max, n)); changed(); } }
     });
     let pickSide = 'light';
