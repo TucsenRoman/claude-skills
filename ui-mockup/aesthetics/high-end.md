@@ -1,4 +1,4 @@
-# Preset: high-end (agency finish)
+# Aesthetic: high-end (agency finish)
 
 Source: Taste high-end-visual-design (MIT). Condensed; the banned looks in ui-mockup's SKILL.md and its GUIDE.md still apply. The source's "Ethereal Glass" (glowing purple orbs, blurred black cards) and "Editorial Luxury" (cream plus serif) archetypes are omitted: both land in the user's banned looks.
 

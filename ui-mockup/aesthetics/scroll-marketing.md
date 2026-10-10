@@ -1,4 +1,4 @@
-# Preset: scroll-heavy marketing (GSAP)
+# Aesthetic: scroll-heavy marketing (GSAP)
 
 Source: Taste gpt-taste (MIT), with the GSAP pin patterns from Taste design-taste-frontend (MIT). Condensed; the banned looks in ui-mockup's SKILL.md and its GUIDE.md still apply.
 
