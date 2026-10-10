@@ -20,6 +20,14 @@ Ready-made control sets, including motion. Use one, several, or none.
 - **Copy** (`ui-copy`): text editing on, a switch for every state of the screen (empty, loading, error, success), words the project's glossary rules out underlined with the preferred term on hover, and paste-back as the proposals table (# | Proposed | Now | Why).
 - **Motion** (`ui-feel`): a Replay button that plays the interaction (or the real gesture: make the element draggable so the user feels the follow, release and settle); controls for duration, easing (preset curves plus custom cubic-bezier), spring (damping ratio and duration, or stiffness and damping), distance, stagger and delay; a 1x / 0.5x / 0.25x select that scales every duration so easing and overshoot show; and "repeat 10x" for interactions people do all day. Build from the project's motion tokens and `ui-feel`'s guide. For async review, capture a frame strip through the board tool, or on native record the device (`adb shell screenrecord`). The emulator and a slow machine distort timing: tune here, confirm the feel on a real phone.
 
+## Synced scrubber
+For choosing between options that differ over time (an intro, a transition, a loading sequence), not tuning one. Use [tools/scrubber.js](../tools/scrubber.js) and [tools/scrubber.css](../tools/scrubber.css); usage is at the top of `scrubber.js`. Every option plays in its own pane, scaled to fit, all driven by one timeline:
+- **One playhead.** Dragging it, Play, the 1x / 0.5x / 0.25x speed and the theme switch apply to every pane at once, so they always show the same instant.
+- **Marks** are the moments the choice hinges on ("first look", "page in"). Click one, or use the arrow keys, to jump every pane there.
+- **Ranges** are durations, drawn as colored bars in each option's own lane ("empty tray: B 0–1.1s"), so a difference reads as a length, not a single frame.
+- **One plain sentence per option** in its caption: what the viewer sees, never only a name. Never ask for a pick by option name alone.
+- **Builder brief:** each option page exposes `window.__mockSeek(t)` (pause its own clock, show second t), optionally `window.__mockTheme('light' | 'dark')`, and reads `?t=` on load so the board tool can capture any mark. Drive animation from a clock the page computes, not CSS transitions that only play forward.
+
 ## From a board
 When the user names an option on a board ("send B to the lab"), open that option's mock here with controls for the values that define it (the ones that differ between options first). Its paste-back feeds the direction note.
 

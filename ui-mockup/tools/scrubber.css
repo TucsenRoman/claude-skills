@@ -1,0 +1,36 @@
+/* Synced scrubber for ui-mockup. Neutral chrome, matching panel.css, so it never competes with the options. */
+.ms { --ms-bg: #fff; --ms-fg: #1c1316; --ms-sub: #7a6a70; --ms-line: #ece4e7; --ms-soft: #f6f1f2; --ms-accent: #6e1430;
+  display: flex; flex-direction: column; gap: 14px; color: var(--ms-fg); font: 500 12.5px/1.35 system-ui, -apple-system, Segoe UI, sans-serif; }
+.ms.ms-dark { --ms-bg: #1d1418; --ms-fg: #f2e7ea; --ms-sub: #a8949b; --ms-line: #33242a; --ms-soft: #281c21; --ms-accent: #e4a0b0; }
+.ms button, .ms select { font: inherit; color: inherit; cursor: pointer; }
+.ms-panes { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 14px; }
+.ms-pane { margin: 0; display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.ms-pane figcaption { display: flex; flex-direction: column; gap: 2px; }
+.ms-pane figcaption b { font-size: 13.5px; font-weight: 700; }
+.ms-pane figcaption span { color: var(--ms-sub); }
+.ms-view { position: relative; overflow: hidden; border-radius: 10px; border: 1px solid var(--ms-line); background: var(--ms-soft); }
+.ms-view iframe { position: absolute; left: 0; top: 0; border: 0; transform-origin: 0 0; pointer-events: none; }
+.ms-bar { position: sticky; bottom: 0; display: flex; align-items: flex-end; gap: 10px; padding: 12px 14px; border-radius: 14px; background: var(--ms-bg); box-shadow: 0 6px 30px rgba(0,0,0,.14); }
+.ms-btn { flex: none; width: 30px; height: 30px; border-radius: 8px; border: 1px solid var(--ms-line); background: var(--ms-soft); display: inline-flex; align-items: center; justify-content: center; }
+.ms-btn svg { width: 15px; height: 15px; }
+.ms-time { flex: none; width: 46px; font-variant-numeric: tabular-nums; font-weight: 700; line-height: 30px; }
+.ms-rate { flex: none; height: 30px; padding: 0 6px; border-radius: 8px; border: 1px solid var(--ms-line); background: var(--ms-soft); }
+/* the track: one lane per option (its ranges), then the shared rail with marks and the playhead */
+.ms-track { position: relative; flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 3px; padding-bottom: 2px; }
+.ms-lanes { display: flex; flex-direction: column; gap: 3px; }
+.ms-lane { position: relative; height: 16px; border-radius: 4px; background: var(--ms-soft); }
+/* lane names sit in their own column, lined up with the lanes, so ranges never cover them */
+.ms-names { flex: none; max-width: 110px; display: flex; flex-direction: column; gap: 3px; padding-bottom: 12px; }
+.ms-names span { height: 16px; line-height: 16px; font-size: 10.5px; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+/* a hairline in the bar color's gap keeps touching ranges apart */
+.ms-seg { position: absolute; top: 0; height: 100%; border-radius: 4px; opacity: .85; overflow: hidden; display: flex; align-items: center; box-shadow: inset -2px 0 0 var(--ms-bg); }
+.ms-seg span { padding: 0 5px; color: #fff; font-size: 10px; font-weight: 700; white-space: nowrap; }
+.ms-rail { position: relative; height: 6px; border-radius: 3px; background: var(--ms-line); margin-top: 4px; }
+.ms-mark { position: absolute; bottom: -4px; width: 14px; height: 14px; margin-left: -7px; border: 0; background: transparent; padding: 0; z-index: 2; }
+.ms-mark i { display: block; width: 10px; height: 10px; margin: 2px; transform: rotate(45deg); border-radius: 2px; background: var(--ms-fg); }
+.ms-mark.on i { background: var(--ms-accent); box-shadow: 0 0 0 2px var(--ms-bg), 0 0 0 3.5px var(--ms-accent); }
+.ms-mark span { position: absolute; bottom: calc(100% + 6px); left: 50%; transform: translateX(-50%); white-space: nowrap; padding: 3px 7px; border-radius: 6px; background: var(--ms-fg); color: var(--ms-bg); font-size: 10.5px; font-weight: 650; opacity: 0; pointer-events: none; transition: opacity .12s; }
+.ms-mark:hover span, .ms-mark.on span { opacity: 1; }
+.ms-head { position: absolute; top: 0; bottom: 0; width: 2px; margin-left: -1px; background: var(--ms-accent); pointer-events: none; z-index: 1; }
+/* the real input sits over the rail so dragging anywhere on it scrubs */
+.ms-range { position: absolute; left: 0; right: 0; bottom: -6px; width: 100%; height: 22px; margin: 0; opacity: 0; cursor: ew-resize; z-index: 1; }
