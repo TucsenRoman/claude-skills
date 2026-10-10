@@ -1,4 +1,4 @@
-# Preset: minimalist (editorial utility)
+# Aesthetic: minimalist (editorial utility)
 
 Source: Taste minimalist-ui (MIT). Condensed; the banned looks in ui-mockup's SKILL.md and its GUIDE.md still apply.
 

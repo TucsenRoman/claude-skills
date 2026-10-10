@@ -22,7 +22,7 @@ A set of Claude Code skills for designing and building UI, plus a few that keep 
 - `ui-copy` — UI text in the project's voice
 - `ui-review-deep` — opt-in builder + critics cycle for high-stakes screens
 - `ui-codify` — turn a design you love into measurable rules and tests
-- `ui-mockup` — builds and shows UI: options from directions (with taste guides and look presets), boards, close-ups, labs with a shared control panel (token, stress, copy and motion presets), a before/after slider, phone frames, Artifacts; modes combine
+- `ui-mockup` — builds and shows UI: options from directions (with taste guides and aesthetics), boards, close-ups, labs with a shared control panel (token, stress, copy and motion presets), a before/after slider, phone frames, Artifacts; modes combine
 - `accessibility-sweep` — accessibility pass, only when asked
 
 **Skills that improve the skills**

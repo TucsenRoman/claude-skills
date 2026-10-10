@@ -1,4 +1,4 @@
-# Preset: brutalist (Swiss industrial print)
+# Aesthetic: brutalist (Swiss industrial print)
 
 Source: Taste industrial-brutalist-ui (MIT). Condensed; the banned looks in ui-mockup's SKILL.md and its GUIDE.md still apply. The source's second mode, "Tactical Telemetry / CRT terminal" (dark, all-monospace, bracketed labels, scanlines), is omitted: it produces the user's banned "terminal chic" look.
 
