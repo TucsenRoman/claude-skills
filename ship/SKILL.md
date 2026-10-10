@@ -39,6 +39,7 @@ Never merge without the click.
 
 ## 6. Merge and sync
 - On approve: `gh pr merge <n> --merge`, then switch to the main branch and pull.
+- Clean up after yourself: `git branch -d <branch>` and `git fetch --prune`. Check the repo has GitHub's "Automatically delete head branches" on (`gh api repos/<owner>/<repo> --jq .delete_branch_on_merge`); if it's off, turn it on (`gh api -X PATCH repos/<owner>/<repo> -f delete_branch_on_merge=true`) and say so in one line, so remote branches clean themselves up too.
 - If a migration needs applying, follow the project's CLAUDE.md for it.
 - Report in 2–4 lines: what merged, what's live, and anything left over.
 - If the user asked to be pinged (`ping-me`), send one push notification at the approval step and one when done.
