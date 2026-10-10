@@ -1,0 +1,1 @@
+- 2026-10-10: New strings in a build get checked against the project's copy glossary before verifying; viseez Settings shipped "Signed in with" against the glossary's "log in, not sign in".
