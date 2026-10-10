@@ -21,6 +21,7 @@ A set of Claude Code skills for designing and building UI, plus a few that keep 
 - `ui-review` — regression check, critique, polish
 - `ui-copy` — UI text in the project's voice
 - `ui-review-deep` — opt-in builder + critics cycle for high-stakes screens
+- `brand-book` — the brand as one visual page you look at, built from the real code
 - `ui-codify` — turn a design you love into measurable rules and tests
 - `ui-mockup` — builds and shows UI: options from directions (with taste guides and aesthetics), boards, close-ups, labs with a shared control panel (token, stress, copy and motion presets), a before/after slider, phone frames, Artifacts; modes combine
 - `accessibility-sweep` — accessibility pass, only when asked
@@ -34,6 +35,7 @@ A set of Claude Code skills for designing and building UI, plus a few that keep 
 - `loose-ends` — sweep a repo for unfinished work and clear it one item at a time
 - `ping-me` — push notification to your phone when a task finishes or gets blocked
 - `prog-rep` — short progress report on the session
+- `next-steps` — give it a goal, answer a few quick questions, get a visual plan
 
 Skills keep a `LESSONS.md` of what real use taught them. See "How a skill is laid out" in `SHARED.md`.
 
