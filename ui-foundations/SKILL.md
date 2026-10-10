@@ -17,7 +17,6 @@ Every project records its design source in its `CLAUDE.md` under a `## UI founda
 - Fonts: <heading / body / mono, and where they're loaded>
 - Platforms: <web / Expo / both>
 - Signature: <components and interactions that define this product; never swap for generic ones>
-- Drift: <known mismatches between docs and code, and which one wins>
 ```
 
 If the section is missing, build it (read mode, step 5) and show it to the user before writing it.
@@ -25,7 +24,7 @@ If the section is missing, build it (read mode, step 5) and show it to the user 
 ## Read (default, every UI task)
 1. Read the project's `## UI foundations` section if present, and follow its pointers.
 2. Otherwise discover: token files (`tokens.ts`, `tokens.css`, `tailwind.config.*`, `theme.*`, CSS custom properties), font loading (layouts, `global.css`, font assets), component library folders, and design docs (`DESIGN.md`, `docs/design*`, Notion or Figma links in CLAUDE.md).
-3. **Drift check.** Compare what the docs say with what the code ships: fonts, brand colors, radii, token names. Code is what users see; docs are what was intended. List every mismatch and ask the user which is right. Never silently pick one. Record the answer under `Drift`.
+3. **Drift check.** Compare what the docs say with what the code ships: fonts, brand colors, radii, token names. Code is what users see; docs are what was intended. List every mismatch and ask the user which is right. Never silently pick one. Then fix the side that's wrong; if it can't be fixed now, note it in the design doc, never in CLAUDE.md (it goes stale there).
 4. **Signature inventory.** List the components and interactions that make this product recognizable (custom nav, menus, headers, sheets, feedback, copy patterns). Read them from the code, not from guesses. Confirm the list with the user once; it becomes the keep-list every redesign respects.
 5. Summarize the loaded foundations in at most 8 lines, then hand back to the calling stage.
 

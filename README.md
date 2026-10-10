@@ -30,6 +30,8 @@ A set of Claude Code skills for designing and building UI, plus a few that keep 
 - `skill-mason` — spots habits you keep repeating and proposes new skills for them
 
 **Everyday**
+- `ship` — branch, commit, PR, checks, Approve/Deny, merge
+- `loose-ends` — sweep a repo for unfinished work and clear it one item at a time
 - `ping-me` — push notification to your phone when a task finishes or gets blocked
 - `prog-rep` — short progress report on the session
 
