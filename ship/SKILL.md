@@ -31,8 +31,9 @@ Ship the change that is in progress (or the one described in the arguments) as a
 - **If a check fails:** read the logs, fix the problem, push again. Don't ask to merge a red PR.
 
 ## 5. Approve or deny
-Ask with `AskUserQuestion`, one question, header `Merge PR #<n>`:
+Ask with `AskUserQuestion`, one question, header `Merge PR`:
 - The question: the PR title, one plain line on what it does, and the check status.
+- Everywhere you mention the PR (question, report), call it by its title, not "#<n>". Link it once in full if a link helps.
 - Options: **Approve & merge** / **Deny**. If the PR has a database migration, add **Merge only** (don't apply to the DB).
 
 Never merge without the click.
