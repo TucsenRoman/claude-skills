@@ -26,15 +26,15 @@ Make sure `ui-foundations` has loaded this project's design source (tokens, font
 Ask at most three questions together, only where the answer changes the work: what's wrong with it today, what must get better, and references they like. Skip what's already clear. For marketing pages, state the read and set the three dials (variance, motion, density) from [GUIDE.md](GUIDE.md) section 1.
 
 ## 5. Brainstorm directions
-- 2 to 4 directions, each on a named axis (layout, hierarchy, density, interaction model, personality), described in a few lines: the idea, what changes, what stays, a reference if one helps. Three tints of one idea are not directions.
+- 2 to 4 directions, each on a named axis (layout, hierarchy, density, interaction model, personality), in one line each: the idea and what changes. Details (what stays, references) only when asked. Three tints of one idea are not directions.
 - Every direction honors the keep-list. Signature components stay themselves.
 - A look the user names can be one of `ui-mockup`'s aesthetics (minimalist, high-end, brutalist, scroll-heavy marketing); name it in the direction.
-- Talk it through: merge, drop, sharpen, add. Keep it fast: one short table of directions, not essays.
+- End every list of directions with "Mock these?" as the default next step. Merging, dropping or sharpening happens if the user asks for it instead.
 
-## 6. Go visual (when the user says so, or recommend it)
-Recommend it in one line when words stop settling it ("These two only differ in feel; want to see them?"). Then call `ui-mockup` with arguments:
+## 6. Go visual (the default next step)
+On a yes (or "show me", "mock it"), call `ui-mockup` with arguments:
 - the screen, and explore (rough, the default) or refine (the pick, full fidelity);
-- each direction: name, axis, the few lines from step 5, any aesthetic;
+- each direction: name, axis, its line from step 5 plus anything the talk added, any aesthetic;
 - the inventory path (keep-list), and the dials for marketing pages.
 
 `ui-mockup` builds and shows them and asks for the pick. Come back here if the pick reopens the brainstorm.
