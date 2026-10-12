@@ -35,7 +35,7 @@ A set of Claude Code skills for designing and building UI, plus a few that keep 
 - `loose-ends` — sweep a repo for unfinished work and clear it one item at a time
 - `ping-me` — push notification to your phone when a task finishes or gets blocked
 - `prog-rep` — short progress report on the session
-- `next-steps` — give it a goal, answer a few quick questions, get a visual plan
+- `next-steps` — give it a goal, answer a few quick questions, see the plan as a picture, approve, and it runs the plan to the end on its own
 
 Skills keep a `LESSONS.md` of what real use taught them. See "How a skill is laid out" in `SHARED.md`.
 
