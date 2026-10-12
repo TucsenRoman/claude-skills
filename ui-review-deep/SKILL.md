@@ -12,7 +12,7 @@ Ask these together, then wait:
 1. What are you building, and how big?
 2. Name something that already does this brilliantly: a site, a video, a doc, anything you can open. "Skip" is fine.
 
-The design system and files come from `ui-foundations`; load it instead of asking. If the piece is a redesign, run `ui-direction`'s inventory step; the keep-list is binding.
+The design system and files come from `ui-foundations`; load it instead of asking. If the user has changed direction since the design doc was written, settle with them which source binds (old doc, new bar, or neither) before round 1, and brief the System critic on only that. If the piece is a redesign, run `ui-direction`'s inventory step; the keep-list is binding.
 
 A vague bar ("Apple's website", "good SaaS design") is the number one reason this fails: the critic invents a comparison and approves everything on round one. Push once for the specific page or file. On "skip", propose three candidate bars, one line each on why, and wait; if there's no answer, take the hardest.
 
@@ -39,9 +39,11 @@ Split the goal into the smallest pieces that can be judged on their own, usually
 - The builder works as `ui-build` does: the project's real components and tokens.
 - Write each critic's brief yourself for this goal; don't reuse generic wording.
 - Critics judge rendered output, never code. Reading the implementation makes them grade intent instead of result.
+- Crop every capture to the device frame and check the mock fills it. Re-render each section that changed; never reuse old captures. Otherwise critics flag capture artifacts as bugs.
 - Binary verdicts, not scores; scores drift upward. Critics are harsh; praise isn't useful.
 - All three must pass. Any fail goes back to the builder with the single biggest gap named.
 - No fixed round count. The exit is winning, or the user stopping it.
+- After two contradictory gap notes on one piece (critics asking for opposite fixes), stop looping that piece and hand the taste call to the user.
 
 Keep a progress file (or an Artifact if the user wants to watch remotely): each piece's status, each critic's verdict, the gap history, the round count.
 
