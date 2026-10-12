@@ -23,7 +23,8 @@ Modes combine: a lab inside a phone frame, A/B on any lab. See [MIXING.md](MIXIN
 
 ## Building options from directions
 `ui-direction` calls this with directions in words (name, axis, a few lines, any aesthetic), the inventory path, and explore or refine. Build them as mocks; options stay on boards for viewing.
-- **Explore (default):** 2 to 3 rough options. Builders run on a faster model (`model: "sonnet"` on the Agent call) and are told: one pass, no polishing, do NOT screenshot or verify your own work, report in under 60 words. About 2 minutes per option; the job is to show a direction, not finish it.
+- **Explore (default):** 2 to 3 rough options. Builders run on a faster model (`model: "sonnet"` on the Agent call) and are told: one pass, no polishing, do NOT screenshot or verify your own work, report in under 60 words. About 2 minutes per option; the job is to show a direction, not finish it. Rough means unpolished, not cheap: builders still start from the real app's look, photos and logos, so the option looks like the product.
+- **Caption every option.** One sentence under each option on a board saying what it is; bare numbers or letters aren't enough.
 - **Refine:** only the option the user picked. Full fidelity, strongest model, its own render checks.
 - **One check, done once.** Builders never self-verify in Explore. You render everything and run the keep-list check yourself, once.
 - **Variants of one thing go to one agent.** When options differ along one dimension (saturation, density, a color, a component state), give a single agent the shared template and have it emit every variant. One agent per option only when options differ in layout or concept.
