@@ -25,6 +25,8 @@ Make sure `ui-foundations` has loaded this project's design source (tokens, font
 ## 4. Brief
 Ask at most three questions together, only where the answer changes the work: what's wrong with it today, what must get better, and references they like. Skip what's already clear. For marketing pages, state the read and set the three dials (variance, motion, density) from [GUIDE.md](GUIDE.md) section 1.
 
+**Logo or app icon:** before any mark is drawn, have `ui-mockup` show 10 to 20 real icons as a numbered board, and have the user pick. In the same message, ask the finish once (flat, Apple-dimensional, realistic object), pointing at icons from the board, and hold it for every round after. Draw only from the picks, in that finish. Lit marks drawn in SVG are fine. If the user says a round "looks great" but rejects it, ask whether they mean the idea or the rendering.
+
 ## 5. Brainstorm directions
 - 2 to 4 directions, each on a named axis (layout, hierarchy, density, interaction model, personality), in one line each: the idea and what changes. Details (what stays, references) only when asked. Three tints of one idea are not directions.
 - Every direction honors the keep-list. Signature components stay themselves.
