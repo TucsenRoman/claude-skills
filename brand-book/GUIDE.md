@@ -7,7 +7,7 @@ One long scroll. Every section has one big visual and at most one sentence. If s
 
 | Section | Show | Not |
 |---|---|---|
-| Opening | The logo large, the wordmark huge, and the one-line brand promise | A title and an intro paragraph |
+| Opening | The logo large, the wordmark huge, and the one-line brand promise, then a row of jump-link pills (one per section, short names, wrapping on phones) | A title and an intro paragraph |
 | Logo | The logo on light, on dark, as the app icon, then a row at real pixel sizes, smallest allowed first | A table of variants |
 | Logo rules | The real logo, mini, broken each way the rules forbid (stretched, rotated, mirrored, shadowed, recolored, faded), each with a small ✕ | Bullet points of don'ts |
 | Wordmark | The wordmark large, with its colors named in order beneath it | A spec sentence |
