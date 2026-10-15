@@ -22,6 +22,7 @@ Turn the direction into shipped code, inside the project's system.
 ## Verify
 - Web: run the dev preview, click through the flow, check the console, test light and dark, and phone and desktop widths.
 - Expo: emulator or Expo Go per the project's instructions; say which was used.
+- A layout fix that misses twice on the device: stop changing code. Have `ui-mockup` show 2 to 3 options with measured values, and build the pick.
 - Compare against the chosen option (board or prototype) and the inventory. Anything dropped is a bug.
 
 ## Next

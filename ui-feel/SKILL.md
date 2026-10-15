@@ -19,6 +19,7 @@ How the UI responds to the user: motion, gestures, haptics, sound, press feedbac
 - Before judging or adding motion, read the motion code that already exists (hooks, shared helpers, not just the component).
 - To explore or tune motion before building it, use `ui-mockup`'s lab with the motion preset (controls, slow motion, side-by-side).
 - Verify on a device or emulator for Expo, and in the browser for web. Motion can't be judged from code. The emulator confirms motion runs; how fast it feels gets judged on a real phone.
+- Judge an animation by its first frame, not just where it lands: where it starts, on every trigger that runs it (mount, a new value, a re-render). Most "it doesn't animate" bugs start at the end state.
 
 ## Next
 Recommend `ui-review` when done; it checks motion against its motion standards.
