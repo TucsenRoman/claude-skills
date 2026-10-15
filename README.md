@@ -37,7 +37,7 @@ A set of Claude Code skills for designing and building UI, plus a few that keep 
 - `prog-rep` — short progress report on the session
 - `next-steps` — give it a goal, answer a few quick questions, see the plan as a picture, approve, and it runs the plan to the end on its own
 
-Skills keep a `LESSONS.md` of what real use taught them. See "How a skill is laid out" in `SHARED.md`.
+Skills keep a `LESSONS.md` of what real use taught them. Those files are personal and gitignored, so they are not in this repo. See "How a skill is laid out" in `SHARED.md`.
 
 ## Shared conventions
 `SHARED.md` holds what every skill follows: the UI stage table and rules, how source guides are used, the proposals table (`# | Proposed | Now | Why`), and when `skill-tailor` and `skill-mason` speak up.

@@ -37,7 +37,7 @@ All UI and design work goes through these skills, in every project.
 ## How a skill is laid out
 - `SKILL.md`: when to use it and the steps. Short.
 - `GUIDE.md`: the technique, distilled from outside skills it learned from, credited at the top. Platform-specific parts go in `platforms/` (for example `platforms/expo.md`); variants of a technique in their own folder (for example `presets/`).
-- `LESSONS.md`: what real use taught, one dated line each. It beats `GUIDE.md` where they differ. The skill writes its own lessons: when a session teaches it something about its technique (a bug pattern, a value that works, a trap), it adds a dated line before it finishes and says so in one line.
+- `LESSONS.md`: what real use taught, one dated line each. It beats `GUIDE.md` where they differ. The skill writes its own lessons: when a session teaches it something about its technique (a bug pattern, a value that works, a trap), it adds a dated line before it finishes and says so in one line. Lessons are personal: `LESSONS.md` is gitignored, so it stays on this machine and is never committed.
 
 ## Skills calling skills
 Any skill may call another skill by name whenever the job needs it (for example `ui-direction` calls `ui-mockup` to build and show its directions). A skill that must not be called by others says so on the first line under its title: `Not called by other skills.` That should be rare; list any here so it stays visible:
