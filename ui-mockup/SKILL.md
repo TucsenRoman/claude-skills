@@ -37,6 +37,7 @@ Modes combine: a lab inside a phone frame, A/B on any lab. See [MIXING.md](MIXIN
 
 ## Rules
 - Build mocks from the project's real tokens, fonts, and content (load `ui-foundations`), starting from the latest approved mock of that screen when there is one.
+- **Mock data follows the app's logic.** Before mocking a state, read how the code works it out, and brief builders with it. Every number and label in one state must be true together (no "on track" on a frozen week).
 - **Settled stays settled.** When the user settles a detail mid-thread (a colour, a shape, an effect, a text treatment), write it into the project's brand book or the doc that owns that component right away. Brief every later round from that doc, and check each render against it before sending.
 - Light and dark both, unless the project has one theme.
 - Look at every render before sending it. Retake anything that caught a loading state, an overlay, or the wrong screen. For a live page (a lab), check it has rendered in the browser pane at the size the user will view it, not only at a test size.
