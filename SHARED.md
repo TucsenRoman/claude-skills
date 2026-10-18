@@ -55,7 +55,9 @@ Any list of proposed changes (copy, review fixes, stress breaks, skill edits, ne
 |---|---|---|---|
 | 1 | the change | what's there today | the reason, in a few words, plus where |
 
+In the Claude app, a next-step box with a question can hide the text above it. So a table, or steps the user must read, goes in the closing message after a recap-only wrap_up (no question, no buttons), never before a wrap_up that asks.
+
 ## Improving the skills
-`skill-tailor` and `skill-mason` are listeners: they fire when their event happens, in your next reply, not at the end of the task. Finish the current step first, then add the proposal at the end of that reply (the table, or one line). Never interrupt a tool sequence, and never edit before a yes.
+`skill-tailor` and `skill-mason` are listeners: they fire when their event happens, in your next reply, not at the end of the task. Finish the current step first, then add the proposal at the end of that reply (the table, or one line). Never interrupt a tool sequence, and never edit before a yes. After applying the approved changes, always run `ship` on the skills repo.
 - **`skill-tailor` events:** the user overrides or corrects what a skill had you do; a skill conflicts with their rules or another skill; or the user says a skill's output or process isn't working ("too long", "we need something better", skipping its review). Propose the fix for that skill right away. A fix that applies to many skills goes in this file or in each skill, so every skill still works on its own.
 - **`skill-mason` events:** a philosophy, workflow, or output format the user restates that no skill, rule, or memory covers yet. Log it to the watch list in its `LEDGER.md` when you notice it; the moment it clears the bar (2+ sessions, or 3+ times in one), propose a new skill in one line, for example `Pattern: X (4x). Build "name"? y/n`. Check its `LEDGER.md` first so declined ideas don't come back; "mute" defers one for this session only, "mute all" silences it for the session. Never build before a yes.

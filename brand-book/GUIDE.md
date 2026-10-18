@@ -14,7 +14,7 @@ One long scroll. Every section has one big visual and at most one sentence. If s
 | Color | Big swatches sized by how much of a screen each color gets, plus a usage bar. Tap a swatch to copy its value | Equal tiles in a table |
 | Type | A big specimen in each face, set in a real product line, then the app's actual size steps, each in a real string | "Aa" grids and a weights table |
 | Product | A phone mock of the real main screen beside callouts for the signature features (the keep-list), plus the empty state | Screenshots with arrows |
-| Voice | "Says / not this" pairs: the product's real lines next to crossed-out generic app copy. Then the feel words as pills, each with its opposite struck through | Adjective lists |
+| Voice | "Says / not this" pairs: the product's real lines next to crossed-out generic app copy. Then the feel words as pills, each with its opposite struck through. Then the house rules as short do/don't lines (banned punctuation or words, how wins and misses sound) | Adjective lists |
 | Ending | A mood moment from the brand's own world (Jotful: the moth on dark, drawn to a lamp glow) with mood words for future imagery | A credits footer |
 
 ## Rules
