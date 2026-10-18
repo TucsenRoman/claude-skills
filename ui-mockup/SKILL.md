@@ -23,7 +23,7 @@ Modes combine: a lab inside a phone frame, A/B on any lab. See [MIXING.md](MIXIN
 
 ## Building options from directions
 `ui-direction` calls this with directions in words (name, axis, a few lines, any aesthetic), the inventory path, and explore or refine. Build them as mocks; options stay on boards for viewing.
-- **Explore (default):** 2 to 3 rough options. Builders run on a faster model (`model: "sonnet"` on the Agent call) and are told: one pass, no polishing, do NOT screenshot or verify your own work, report in under 60 words. About 2 minutes per option; the job is to show a direction, not finish it. Rough means unpolished, not cheap: builders still start from the real app's look, photos and logos, so the option looks like the product.
+- **Explore (default):** 2 to 3 rough options. Builders run on a faster model (`model: "sonnet"` on the Agent call) and are told: one pass, no polishing, do NOT screenshot or verify your own work, report in under 60 words. About 2 minutes per option; the job is to show a direction, not finish it. Rough means unpolished, not cheap: builders still start from the real app's look, photos and logos, so the option looks like the product. The real look means a fresh screenshot or the current screen code, never saved mocks or brand-book shots, which go stale.
 - **Benchmark screens first.** When the project is modeled on another product (a codified reference or an app the user named), find that product's real screens for this same screen, put them on the board beside the options, and have builders start from them.
 - **Caption every option.** One sentence under each option on a board saying what it is; bare numbers or letters aren't enough.
 - **Refine:** only the option the user picked. Full fidelity, strongest model, its own render checks.
@@ -37,6 +37,7 @@ Modes combine: a lab inside a phone frame, A/B on any lab. See [MIXING.md](MIXIN
 
 ## Rules
 - Build mocks from the project's real tokens, fonts, and content (load `ui-foundations`), starting from the latest approved mock of that screen when there is one.
+- **Showing the product means its source.** When a page or mock shows the product itself (a phone in a hero, a screen in a feature section), build it from the product's own source code (the app, not a web copy that may have drifted), and check every signature piece against the brand book before showing it.
 - **Mock data follows the app's logic.** Before mocking a state, read how the code works it out, and brief builders with it. Every number and label in one state must be true together (no "on track" on a frozen week).
 - **Settled stays settled.** When the user settles a detail mid-thread (a colour, a shape, an effect, a text treatment), write it into the project's brand book or the doc that owns that component right away. Brief every later round from that doc, and check each render against it before sending.
 - Light and dark both, unless the project has one theme.
