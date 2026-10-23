@@ -9,7 +9,7 @@ Turn evidence from real use into a better skill. The user decides every change; 
 
 ## Keep it fast and light
 The user should read and approve the whole thing in seconds.
-- Findings go in the proposals table (`# | Proposed | Now | Why`, see `../SHARED.md`): Proposed is the new instruction, Now is what the skill says today, Why is the evidence in a few words. No quotes or background.
+- Findings go in the proposals table (`# | Context | Proposed | Now | Why`, see `../SHARED.md`): Proposed is the new instruction, Now is what the skill says today, Why is the evidence in a few words. No quotes or background.
 - Then one line telling them how to answer, for example `Reply like "1 y, 2 n, 3 y"`.
 - Details (evidence, exact wording of the edit) only when the user asks about a number.
 - Same for the final report: a few short lines.

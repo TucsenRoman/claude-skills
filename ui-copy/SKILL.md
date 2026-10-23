@@ -17,13 +17,13 @@ UI text that sounds like the product and tells people what they need. The method
 7. **Voice check:** human phrases over labels; one moment of wit per screen at most; no corporate phrasing. Keep it as short as it can be without losing meaning, and check it fits at phone width.
 
 ## Report
-Use the proposals table (`# | Proposed | Now | Why`, see `../SHARED.md`), one row per change, then `Reply like "1 y, 2 n"`. Apply what's approved.
+Use the proposals table (`# | Context | Proposed | Now | Why`, see `../SHARED.md`), one row per change, then `Reply like "1 y, 2 n"`. Apply what's approved.
 
-| # | Proposed | Now | Why |
-|---|---|---|---|
-| 1 | Connect your banks once. | Link your banks once. | Glossary: connect, not link (welcome screen) |
+| # | Context | Proposed | Now | Why |
+|---|---|---|---|---|
+| 1 | Welcome screen, the line under the title | Connect your banks once. | Link your banks once. | Glossary: connect, not link |
 
-Keep the Why cell short: the reason plus where it appears.
+Keep the Why cell short: the reason only; where it appears goes in Context.
 
 ## Occasional modes (ask once per session before first use)
 - **Copy lab** — `ui-mockup`'s lab with the copy preset: the real screen with strings editable in place, glossary flags, and a fit check at phone width. Suggest when wording is being reworked across a whole screen or flow.

@@ -17,4 +17,4 @@ Render the screen (light and dark) the way `ui-review` does, then check:
 - **Text scaling:** layout survives the largest system text size without clipping.
 
 ## Report
-Use the proposals table (`# | Proposed | Now | Why`, see `../SHARED.md`), one row per issue, worst first, then `Reply like "1 y, 2 n"`. Apply what's approved, re-render, confirm in a line.
+Use the proposals table (`# | Context | Proposed | Now | Why`, see `../SHARED.md`), one row per issue, worst first, then `Reply like "1 y, 2 n"`. Apply what's approved, re-render, confirm in a line.
