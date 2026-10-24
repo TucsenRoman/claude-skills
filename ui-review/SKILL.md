@@ -20,7 +20,7 @@ List each with where it went missing.
 ## 3. Design critique
 - Foundations compliance: tokens only, fonts, radii, spacing scale, both themes.
 - Hierarchy: is the most important thing the most visible? One focal point per screen.
-- Voice: copy matches the project's voice doc (or hand to `ui-copy`).
+- Voice and terms: copy matches the project's voice doc (or hand to `ui-copy`). Read the brand book's glossary before writing the table, and check every word you propose against it, not only what's on screen (user, 2026-10-24: a fix said "bank" where the glossary says "connection").
 - Craft: alignment, spacing rhythm, states (empty, loading, error).
 - Motion: when the change includes animation, gestures, or haptics, check it against [motion.md](motion.md).
 Use [GUIDE.md](GUIDE.md) as the craft bar, plus [platforms/web.md](platforms/web.md) or [platforms/expo.md](platforms/expo.md) for the platform.
