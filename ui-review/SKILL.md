@@ -26,7 +26,7 @@ List each with where it went missing.
 Use [GUIDE.md](GUIDE.md) as the craft bar, plus [platforms/web.md](platforms/web.md) or [platforms/expo.md](platforms/expo.md) for the platform.
 
 ## 4. Report
-Rank fixes by severity: regressions first, then broken, then wrong, then polish. Use the proposals table (`# | Context | Proposed | Now | Why`, see `../SHARED.md`), one row per fix; put the severity in Why. When some fixes change how things look, end with a one-line offer ("See these before/after?") and build the before/after crops with `ui-mockup` only on a yes. Apply what the user approves, re-render, and confirm.
+Rank fixes by severity: regressions first, then broken, then wrong, then polish. Use the proposals table (`# | Context | Why | Now | Proposed`, see `../SHARED.md`), one row per fix; put the severity in Why. When some fixes change how things look, end with a one-line offer ("See these before/after?") and build the before/after crops with `ui-mockup` only on a yes. Apply what the user approves, re-render, and confirm.
 
 ## Occasional modes (ask once per session before first use)
 - **Before/after slider** — `ui-mockup`'s compare mode: drag a divider across the old and new screen. Suggest when a review has many small visual changes.

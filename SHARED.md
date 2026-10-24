@@ -51,11 +51,11 @@ Each `GUIDE.md` started from outside skills (Emil Kowalski's, Taste, Impeccable)
 ## Proposals for the user to approve
 Any list of proposed changes (copy, review fixes, stress breaks, skill edits, new skills) goes in one table, then `Reply like "1 y, 2 n"`:
 
-| # | Context | Proposed | Now | Why |
+| # | Context | Why | Now | Proposed |
 |---|---|---|---|---|
-| 1 | where it is and what the user would see or do there, in plain words | the change | what's there today | the reason, in a few words |
+| 1 | where it is and what the user would see or do there, in plain words | the reason, in a few words | what's there today | the change |
 
-Context leads (user, 2026-10-23): a row must make sense without knowing the code or the mock. Name the screen and the moment ("Saving sheet, the grey card with the number; swipe left"), never a file or an internal term.
+Columns run Context, Why, Now, Proposed (user, 2026-10-24): where it is, why it matters, what's there, then the fix. Context leads (user, 2026-10-23): a row must make sense without knowing the code or the mock. Name the screen and the moment ("Saving sheet, the grey card with the number; swipe left"), never a file or an internal term.
 
 In the Claude app, a next-step box with a question can hide the text above it. So a table, or steps the user must read, goes in the closing message after a recap-only wrap_up (no question, no buttons), never before a wrap_up that asks.
 
