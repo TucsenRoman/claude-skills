@@ -17,9 +17,9 @@ UI text that sounds like the product and tells people what they need. The method
 7. **Voice check:** human phrases over labels; one moment of wit per screen at most; no corporate phrasing. Keep it as short as it can be without losing meaning, and check it fits at phone width.
 
 ## Report
-Use the proposals table (`# | Context | Why | Now | Proposed`, see `../SHARED.md`), one row per change, then `Reply like "1 y, 2 n"`. Apply what's approved.
+Use the proposals table (`# | Problem | Context | Why | Now | Proposed`, see `../SHARED.md`), one row per change, then `Reply like "1 y, 2 n"`. Apply what's approved.
 
-| # | Context | Why | Now | Proposed |
+| # | Problem | Context | Why | Now | Proposed |
 |---|---|---|---|---|
 | 1 | Welcome screen, the line under the title | Glossary: connect, not link | Link your banks once. | Connect your banks once. |
 
