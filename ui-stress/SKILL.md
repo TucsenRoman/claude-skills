@@ -12,6 +12,7 @@ Throw the realistic worst case at the UI and fix what breaks. Guide: [GUIDE.md](
 - Web: render demo and worst-case data behind the guide's toggle and check in the browser at phone and desktop widths, light and dark.
 - Expo: put the worst-case data behind a dev-only toggle and check on the emulator or Expo Go; screenshot both states. Remove the toggle when done unless the user wants it kept.
 - Logic pass, whenever the screen shows computed numbers (totals, goals, streaks, suggestions): check each one against the app's own math and source data with hard cases (zero, negative, refunds, missing history, goals that clash). A wrong or impossible number is a break (user, 2026-10-24: "make sure it's displaying truly accurate numbers").
+- When a display disagrees with the app's own logic (a streak line vs its count, a total vs its rows), the fix is to make the display read the app's source of truth. Report it as one fix, never as options for the user to pick (user, 2026-10-25: "you shouldn't even have to ask me that... there should be a source of truth").
 - Report the breaks in the proposals table (`# | Problem | Context | Why | Now | Proposed`, see `../SHARED.md`): Now is what breaks, Proposed is the fix. Apply what the user approves.
 
 ## Occasional modes (ask once per session before first use)
