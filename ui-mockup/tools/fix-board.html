@@ -1,0 +1,133 @@
+<!doctype html>
+<!-- Fix-approval board (ui-mockup, modes/board.md "Fix-approval board"). First used: viseez goal sheets, 2026-10-25.
+     Swap the :root tokens for the project's, the .phone backdrop for the screen behind the sheet, and the rows for your screens.
+     Render: chrome --headless=new --hide-scrollbars --virtual-time-budget=4000 --window-size=1000,<height> --screenshot=board.png file:///.../fix-board.html -->
+<html><head><meta charset="utf-8">
+<script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
+<style>
+:root{--sheet:#1C1C1E;--group:#2C2C2E;--t1:#fff;--t2:#BFA6AE;--t3:#9A8088;--out:#FF6B8F;--in:#B8FF3A;--saved:#5CFFF8;--line:rgba(255,255,255,.08);--total:rgba(255,255,255,.42)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#000;color:var(--t1);font:15px/1.35 -apple-system,"SF Pro Text",system-ui,Segoe UI,Roboto,sans-serif;padding:28px;width:1330px;position:relative}
+h1{font-size:22px;margin-bottom:6px}
+.sub{color:#9a9a9f;font-size:14px;margin-bottom:22px}
+.row{display:grid;grid-template-columns:140px 380px 380px;gap:22px;margin-bottom:34px;align-items:start}
+.rl{padding-top:40px;font-weight:700;font-size:18px}
+.rl small{display:block;font-weight:400;color:#9a9a9f;font-size:13px;margin-top:4px}
+.col h3{font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:#9a9a9f;margin:0 0 8px 4px}
+.col.p h3{color:#fff}
+.phone{position:relative;width:380px;border-radius:30px;overflow:hidden;background:radial-gradient(120% 70% at 50% 0%,#0d5f73 0%,#062c38 50%,#05141a 100%)}
+.sheet{margin-top:26px;background:var(--sheet);border-radius:30px 30px 0 0;padding:10px 18px 18px;position:relative}
+.grab{width:36px;height:5px;border-radius:3px;background:#48484a;margin:0 auto 10px}
+.hdr{display:flex;align-items:center;justify-content:space-between;height:38px}
+.btn{width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.1);display:grid;place-items:center;color:var(--t2)}
+.btn svg{width:16px;height:16px}
+.segs{display:flex;gap:4px}.segs i{width:22px;height:3px;border-radius:2px;display:block}
+.title{text-align:center;font-weight:700;font-size:22px;letter-spacing:-.5px;margin-top:8px}
+.checked{text-align:center;color:var(--t3);font-size:14px;margin-top:2px}
+.card{background:var(--group);border-radius:24px;padding:14px 16px 12px;margin-top:14px;text-align:center}
+.amt{font-weight:700;font-size:44px;letter-spacing:-1px;line-height:1.1}
+.amt span{font-size:17px;font-weight:600;color:#c9b8bd;margin-left:3px}
+.ruler{height:34px;margin:6px 0;background:repeating-linear-gradient(90deg,#666 0 1.5px,transparent 1.5px 9px);opacity:.6;position:relative;-webkit-mask:linear-gradient(90deg,transparent,#000 20%,#000 80%,transparent)}
+.pin{font-size:12px;font-weight:600}
+.note{color:var(--t2);font-size:14px;margin-top:4px}
+.why{padding:12px 0;border-top:1px solid var(--line);display:flex;gap:10px;align-items:center}
+.why.first{border-top:0;padding-top:16px}
+.why .tx{flex:1;color:var(--t2)}
+.b{color:#fff;font-weight:600}
+.bul{display:block;margin-top:3px}
+.il{display:flex;gap:6px;align-items:center;color:var(--t3);font-size:14px;margin-top:6px}
+.il svg{width:15px;height:15px}
+.gv{font-weight:600;white-space:nowrap}
+.gv svg{width:14px;height:14px;vertical-align:-2px;margin-left:3px;stroke-width:2.6}
+.lh{color:var(--t3);font-size:14px;padding:14px 0 4px;border-top:1px solid var(--line)}
+.lr{display:flex;align-items:center;gap:12px;min-height:44px}
+.slot{width:42px;display:flex}
+.slot.tight{width:auto}
+.ic{width:24px;height:24px;border-radius:50%;background:#3a3a3c;display:grid;place-items:center}
+.ic svg{width:14px;height:14px}
+.logo{width:26px;height:26px;border-radius:50%;display:grid;place-items:center;font-size:11px;font-weight:800;border:2px solid var(--sheet)}
+.logo+.logo{margin-left:-9px}
+.lr .nm{flex:1}
+.lr .am{text-align:right;color:var(--t2)}
+.lr .am small{display:block;color:var(--t3);font-size:12px}
+.tot{display:flex;justify-content:space-between;align-items:center;border-top:1.5px solid var(--total);min-height:44px;padding-top:4px}
+.tot .l{color:var(--t3)}
+.tot .r{font-weight:600;text-align:right}
+.tot .r small{display:block;font-weight:400;color:var(--t3);font-size:12px}
+.foot{margin-top:16px;height:50px;border-radius:25px;display:grid;place-items:center;font-weight:700;font-size:17px}
+.n{display:inline-block;position:relative;width:0;height:0;vertical-align:top;font-style:normal}
+.n b{display:none}
+.n::after{content:"";position:absolute;z-index:10;left:1px;top:-2px;width:7px;height:7px;border-radius:50%;background:#FFD60A;box-shadow:0 0 0 1.5px #000}
+.col.p{position:relative}
+.rail{position:absolute;z-index:10;display:grid;place-items:center;width:20px;height:20px;border-radius:50%;background:#FFD60A;color:#000;font-size:12px;font-weight:800}
+.rail::before{content:"";position:absolute;right:20px;top:9.5px;height:1px;background:rgba(255,214,10,.55);width:var(--lead)}
+.ln{display:inline-grid;place-items:center;width:20px;height:20px;border-radius:50%;background:#FFD60A;color:#000;font-size:12px;font-weight:800;flex:none;font-style:normal;margin-top:1px}
+.x{outline:2px dashed #FFD60A;outline-offset:3px;border-radius:8px}
+.cut{color:#ff453a}
+/* scrolled header states */
+.scrolltop{position:relative;height:110px;overflow:hidden;margin:0 -18px}
+.scrolltop .content{padding:0 18px;position:absolute;top:-6px;left:0;right:0;color:var(--t2)}
+.mini{position:absolute;left:0;right:0;top:0;height:52px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:22px}
+.mini span{font-size:15px;color:#c9b8bd;margin-left:3px;font-weight:600}
+.band{background:#2a2a2c}
+.bandfade{position:absolute;left:0;right:0;top:52px;height:32px;background:linear-gradient(#2a2a2c,rgba(42,42,44,0))}
+.masked{-webkit-mask:linear-gradient(transparent 0,transparent 30px,#000 80px)}
+.cap{font-size:12px;color:#9a9a9f;margin:6px 4px 0}
+.legend{position:absolute;left:1010px;top:28px;width:290px}
+.legend h2{font-size:16px;margin-bottom:10px}
+.legend ol{list-style:none}
+.legend li{display:flex;gap:10px;margin-bottom:12px;font-size:14px;line-height:1.35;color:#d1d1d6}
+.legend b{color:#fff}
+</style></head><body>
+<h1>SCREEN NAME: now vs proposed</h1>
+<div class="sub">Yellow numbers mark each fix. Reply like "1 y, 2 n".</div>
+
+<!-- ONE ROW PER SCREEN. Copy this block. Now = the screen as it is (from a real screenshot or the code). Proposed = the same screen with fixes; put <i class="n"><b>#</b></i> right after each changed element (inline, never absolutely placed). Under a Now problem, one .cap line saying why in plain numbers. -->
+<div class="row">
+ <div class="rl">Cushion<small>90 days</small></div>
+ <div class="col"><h3>Now</h3>
+  <div class="phone"><div class="sheet">
+   <div class="grab"></div>
+   <div class="card"><div class="amt">90<span>days</span></div><div class="ruler"></div><div class="pin" style="color:var(--in)">Suggested</div><div class="note">Three months, the classic safety net</div></div>
+   <div class="why first"><div class="tx">Keep at least <span class="b">$6,274</span> in the bank. That covers <span class="gv" style="color:var(--in)">90 days<i data-lucide="goal"></i></span> of spending at $70 a day.</div><div class="slot"><div class="logo" style="background:#3a3a3c"><i data-lucide="landmark" style="width:13px"></i></div><div class="logo" style="background:#fff;color:#d00">◀</div></div></div>
+   <div class="cap">90 × $70 = $6,300, not $6,274</div>
+   <div class="lh">Ways to grow it</div>
+   <div class="lr"><div class="slot"><div class="ic"><i data-lucide="goal"></i></div></div><div class="nm">Hit your <span style="color:var(--out)">spending goal</span></div><div class="am">+4 days<small>per month</small></div></div>
+   <div class="tot"><div class="l">Up to</div><div class="r">+4 days<small>in a month</small></div></div>
+   <div class="foot" style="background:linear-gradient(#A6FF00,#5E9900);color:#000">Set cushion</div>
+  </div></div></div>
+ <div class="col p"><h3>Proposed</h3>
+  <div class="phone"><div class="sheet">
+   <div class="grab"></div>
+   <div class="card"><div class="amt">90<span>days</span></div><div class="ruler"></div><div class="pin" style="color:var(--in)">Suggested</div><div class="note">Three months, the classic safety net</div></div>
+   <div class="why first"><div class="tx">Keep at least <span class="b">$6,300</span><i class="n"><b>10</b></i> in the bank. That covers <span class="gv" style="color:var(--in)">90 days<i data-lucide="goal"></i></span> of spending at $70 a day, bills included.<i class="n"><b>11</b></i></div><div class="slot"><div class="logo" style="background:#3a3a3c"><i data-lucide="landmark" style="width:13px"></i></div><div class="logo" style="background:#fff;color:#d00">◀</div></div></div>
+   <div class="lh">Ways to grow it</div>
+   <div class="lr"><div class="slot tight"><div class="ic"><i data-lucide="goal"></i></div></div><div class="nm">Hit your <span style="color:var(--out)">spending goal</span><i class="n"><b>13</b></i></div><div class="am">+2 days a month<i class="n"><b>9</b></i><small>if it stays in the bank<i class="n"><b>12</b></i></small></div></div>
+   <div class="cap">No "Up to" total with only one way <i class="n"><b>12</b></i></div>
+   <div class="foot" style="background:linear-gradient(#A6FF00,#5E9900);color:#000">Set cushion</div>
+  </div></div></div>
+</div>
+
+<div class="sub">Fixes that can't be drawn (navigation, behaviour) go here as one plain line each, with their number.</div>
+<!-- The key: one line per number, a bold short name then what changes, in plain words. -->
+<aside class="legend"><h2>What each number means</h2><ol>
+<li><i class="ln">1</i><span><b>Short name.</b> What changes, in one plain sentence.</span></li>
+</ol></aside>
+<script>lucide.createIcons()
+// Rail: each number sits just right of its phone, level with its dot, nudged down when two would touch.
+document.querySelectorAll('.col.p').forEach(col => {
+  const phone = col.querySelector('.phone'), cb = col.getBoundingClientRect(), pb = phone.getBoundingClientRect()
+  let last = -99
+  ;[...col.querySelectorAll('.n')].map(n => ({ n, r: n.getBoundingClientRect() })).sort((a, b) => a.r.top - b.r.top).forEach(({ n, r }) => {
+    let y = r.top - cb.top - 10
+    if (y < last + 22) y = last + 22
+    last = y
+    const b = document.createElement('i')
+    b.className = 'rail'; b.textContent = n.textContent
+    b.style.left = (pb.right - cb.left + 6) + 'px'; b.style.top = y + 'px'
+    b.style.setProperty('--lead', Math.max(0, pb.right - r.left + 6 - 4) + 'px')
+    col.appendChild(b)
+  })
+})
+</script>
+</body></html>
