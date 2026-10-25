@@ -13,7 +13,7 @@ Ship the change that is in progress (or the one described in the arguments) as a
 - Verify the change the way the project's CLAUDE.md says (its preview, device, or tests). Follow its rules for database changes.
 
 ## 2. Branch and commit
-- If on the main branch, create a branch: `feat/…`, `fix/…`, `chore/…` or `docs/…`, named after the change.
+- Start a new branch from the up-to-date main branch (`git checkout <main> && git pull`), even when the repo sits on another unfinished branch, unless this change builds on that branch. Name it `feat/…`, `fix/…`, `chore/…` or `docs/…` after the change. The main branch may be `master`; check `git remote show origin`.
 - Conventional commit message (`fix(web): …`), with a body that explains **why**. End it with the attribution line from the system reminder.
 
 ## 3. PR
