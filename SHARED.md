@@ -23,6 +23,7 @@ All UI and design work goes through these skills, in every project.
 | `ui-review-deep` | The deep version: a builder and three critics in rounds until all pass. Opt-in only. |
 | `ui-codify` | Turn a reference design into measurable rules and tests. Used by `ui-foundations` and `ui-review-deep`. |
 | `brand-book` | The project's brand as one visual page (logo, color, type, product, voice), built from the real code and published as an Artifact. Brand docs are shown, not written. |
+| `logic-book` | The project's logic as one visual page: every number on screen traced to its formula with a worked example, what adds up, rounding, edge cases, open questions. Built from the real code and published as an Artifact. |
 | `ui-mockup` | Builds and shows UI: options from directions, PNG boards, close-ups, live labs with controls, phone frames, Artifacts, inline visuals, Figma. Other stages call it. |
 | `accessibility-sweep` | Accessibility pass. Runs only when the user asks for one. |
 
