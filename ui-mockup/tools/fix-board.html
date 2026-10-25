@@ -55,7 +55,13 @@ h1{font-size:22px;margin-bottom:6px}
 .tot .r{font-weight:600;text-align:right}
 .tot .r small{display:block;font-weight:400;color:var(--t3);font-size:12px}
 .foot{margin-top:16px;height:50px;border-radius:25px;display:grid;place-items:center;font-weight:700;font-size:17px}
-.n{display:inline-grid;place-items:center;width:20px;height:20px;border-radius:50%;background:#FFD60A;color:#000;font-size:12px;font-weight:800;margin-left:6px;vertical-align:1px;flex:none;font-style:normal}
+.n{display:inline-block;position:relative;width:0;height:0;vertical-align:top;font-style:normal}
+.n b{display:none}
+.n::after{content:"";position:absolute;z-index:10;left:1px;top:-2px;width:7px;height:7px;border-radius:50%;background:#FFD60A;box-shadow:0 0 0 1.5px #000}
+.col.p{position:relative}
+.rail{position:absolute;z-index:10;display:grid;place-items:center;width:20px;height:20px;border-radius:50%;background:#FFD60A;color:#000;font-size:12px;font-weight:800}
+.rail::before{content:"";position:absolute;right:20px;top:9.5px;height:1px;background:rgba(255,214,10,.55);width:var(--lead)}
+.ln{display:inline-grid;place-items:center;width:20px;height:20px;border-radius:50%;background:#FFD60A;color:#000;font-size:12px;font-weight:800;flex:none;font-style:normal;margin-top:1px}
 .x{outline:2px dashed #FFD60A;outline-offset:3px;border-radius:8px}
 .cut{color:#ff453a}
 /* scrolled header states */
@@ -71,13 +77,12 @@ h1{font-size:22px;margin-bottom:6px}
 .legend h2{font-size:16px;margin-bottom:10px}
 .legend ol{list-style:none}
 .legend li{display:flex;gap:10px;margin-bottom:12px;font-size:14px;line-height:1.35;color:#d1d1d6}
-.legend li .n{margin:1px 0 0}
 .legend b{color:#fff}
 </style></head><body>
 <h1>SCREEN NAME: now vs proposed</h1>
 <div class="sub">Yellow numbers mark each fix. Reply like "1 y, 2 n".</div>
 
-<!-- ONE ROW PER SCREEN. Copy this block. Now = the screen as it is (from a real screenshot or the code). Proposed = the same screen with fixes; put <i class="n">#</i> right after each changed element (inline, never absolutely placed). Under a Now problem, one .cap line saying why in plain numbers. -->
+<!-- ONE ROW PER SCREEN. Copy this block. Now = the screen as it is (from a real screenshot or the code). Proposed = the same screen with fixes; put <i class="n"><b>#</b></i> right after each changed element (inline, never absolutely placed). Under a Now problem, one .cap line saying why in plain numbers. -->
 <div class="row">
  <div class="rl">Cushion<small>90 days</small></div>
  <div class="col"><h3>Now</h3>
@@ -95,10 +100,10 @@ h1{font-size:22px;margin-bottom:6px}
   <div class="phone"><div class="sheet">
    <div class="grab"></div>
    <div class="card"><div class="amt">90<span>days</span></div><div class="ruler"></div><div class="pin" style="color:var(--in)">Suggested</div><div class="note">Three months, the classic safety net</div></div>
-   <div class="why first"><div class="tx">Keep at least <span class="b">$6,300</span><i class="n">10</i> in the bank. That covers <span class="gv" style="color:var(--in)">90 days<i data-lucide="goal"></i></span> of spending at $70 a day, bills included.<i class="n">11</i></div><div class="slot"><div class="logo" style="background:#3a3a3c"><i data-lucide="landmark" style="width:13px"></i></div><div class="logo" style="background:#fff;color:#d00">◀</div></div></div>
+   <div class="why first"><div class="tx">Keep at least <span class="b">$6,300</span><i class="n"><b>10</b></i> in the bank. That covers <span class="gv" style="color:var(--in)">90 days<i data-lucide="goal"></i></span> of spending at $70 a day, bills included.<i class="n"><b>11</b></i></div><div class="slot"><div class="logo" style="background:#3a3a3c"><i data-lucide="landmark" style="width:13px"></i></div><div class="logo" style="background:#fff;color:#d00">◀</div></div></div>
    <div class="lh">Ways to grow it</div>
-   <div class="lr"><div class="slot tight"><div class="ic"><i data-lucide="goal"></i></div></div><div class="nm">Hit your <span style="color:var(--out)">spending goal</span><i class="n">13</i></div><div class="am">+2 days a month<i class="n">9</i><small>if it stays in the bank<i class="n">12</i></small></div></div>
-   <div class="cap">No "Up to" total with only one way <i class="n">12</i></div>
+   <div class="lr"><div class="slot tight"><div class="ic"><i data-lucide="goal"></i></div></div><div class="nm">Hit your <span style="color:var(--out)">spending goal</span><i class="n"><b>13</b></i></div><div class="am">+2 days a month<i class="n"><b>9</b></i><small>if it stays in the bank<i class="n"><b>12</b></i></small></div></div>
+   <div class="cap">No "Up to" total with only one way <i class="n"><b>12</b></i></div>
    <div class="foot" style="background:linear-gradient(#A6FF00,#5E9900);color:#000">Set cushion</div>
   </div></div></div>
 </div>
@@ -106,7 +111,23 @@ h1{font-size:22px;margin-bottom:6px}
 <div class="sub">Fixes that can't be drawn (navigation, behaviour) go here as one plain line each, with their number.</div>
 <!-- The key: one line per number, a bold short name then what changes, in plain words. -->
 <aside class="legend"><h2>What each number means</h2><ol>
-<li><i class="n">1</i><span><b>Short name.</b> What changes, in one plain sentence.</span></li>
+<li><i class="ln">1</i><span><b>Short name.</b> What changes, in one plain sentence.</span></li>
 </ol></aside>
-<script>lucide.createIcons()</script>
+<script>lucide.createIcons()
+// Rail: each number sits just right of its phone, level with its dot, nudged down when two would touch.
+document.querySelectorAll('.col.p').forEach(col => {
+  const phone = col.querySelector('.phone'), cb = col.getBoundingClientRect(), pb = phone.getBoundingClientRect()
+  let last = -99
+  ;[...col.querySelectorAll('.n')].map(n => ({ n, r: n.getBoundingClientRect() })).sort((a, b) => a.r.top - b.r.top).forEach(({ n, r }) => {
+    let y = r.top - cb.top - 10
+    if (y < last + 22) y = last + 22
+    last = y
+    const b = document.createElement('i')
+    b.className = 'rail'; b.textContent = n.textContent
+    b.style.left = (pb.right - cb.left + 6) + 'px'; b.style.top = y + 'px'
+    b.style.setProperty('--lead', Math.max(0, pb.right - r.left + 6 - 4) + 'px')
+    col.appendChild(b)
+  })
+})
+</script>
 </body></html>
