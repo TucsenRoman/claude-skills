@@ -1,0 +1,387 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>viseez Logic Book</title>
+<!-- Source of truth for the page: numbers come from `node mobile/scripts/run-check.mjs mobile/lib/logic-example.ts`; definitions from mobile/design/GOAL_MATH.md. -->
+<script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+:root{color-scheme:dark;
+--page:#111114;--band:#18181B;--surface:#202024;--sunk:#2C2C30;--hair:#38383E;--line:rgba(255,255,255,.08);
+--text:#ECECF0;--text-2:#C4C4CB;--muted:#9A9AA3;--quiet:#7A7A84;
+--red:#FA114F;--out:#FF6B8F;--cyan:#5CFFF8;--lime:#B8FF3A;--amber:#FFB020;--pass:#30D158;
+--sheet:rgba(30,30,32,.62);--group:rgba(120,120,128,.2);
+--sf:-apple-system,BlinkMacSystemFont,"SF Pro Text","SF Pro Display","Inter",system-ui,sans-serif}
+*{box-sizing:border-box}html{overflow-x:hidden;scroll-behavior:smooth}
+body{margin:0;background:var(--page);color:var(--text);font-family:var(--sf);font-size:16px;line-height:1.5;letter-spacing:-.01em;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3,p{margin:0}
+.wrap{max-width:1120px;margin:0 auto;padding-inline:24px}
+section{padding-block:88px}.alt{background:var(--band)}
+h2{font-weight:700;font-size:clamp(36px,6vw,64px);line-height:1.04;letter-spacing:-.035em;margin-bottom:14px}
+.lede{font-size:clamp(19px,2.2vw,24px);line-height:1.3;font-weight:600;color:var(--muted);max-width:40ch;margin-bottom:44px}
+.lede b{color:var(--text);font-weight:600}
+h3{font-weight:700;font-size:clamp(20px,2.4vw,26px);letter-spacing:-.02em;margin:56px 0 18px}
+.hero{padding-block:96px 88px;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0 0 auto;height:560px;background:radial-gradient(55% 60% at 30% 0%,rgba(250,17,79,.2),transparent 70%);pointer-events:none}
+.hero>*{position:relative}
+.hero h1{font-size:clamp(56px,11vw,128px);line-height:.95;letter-spacing:-.05em;font-weight:800}
+.hero h1 span{color:var(--red)}
+.hero .job{font-weight:700;font-size:clamp(24px,3.4vw,38px);line-height:1.12;letter-spacing:-.03em;margin-top:24px;max-width:24ch}
+.hero .lead{color:var(--muted);font-size:clamp(16px,1.8vw,19px);max-width:62ch;margin-top:14px}
+.toc{display:flex;flex-wrap:wrap;gap:8px;margin-top:44px}
+.toc a{padding:6px 12px;border-radius:99px;background:var(--surface);color:var(--text-2);text-decoration:none;font-size:14px;font-weight:600}
+.num{font-variant-numeric:tabular-nums}
+.u{color:var(--muted);font-weight:500;font-size:.72em;margin-left:2px}
+
+/* building blocks */
+.blocks{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px}
+.blk{background:var(--surface);border-radius:22px;padding:20px}
+.blk h4{margin:0 0 6px;font-size:22px;letter-spacing:-.02em}
+.blk p{color:var(--muted);font-size:14px;line-height:1.45}
+.viz{margin-top:16px}
+.strip{display:flex;gap:2px;height:26px}
+.strip i{flex:1;border-radius:3px;background:var(--sunk)}
+.strip i.f{background:#4A4A52}.strip i.now{background:var(--lime);opacity:.7}
+.strip+small{display:flex;justify-content:space-between;color:var(--quiet);font-size:11px;margin-top:6px}
+.tx{display:flex;justify-content:space-between;font-size:13px;padding:5px 0;border-top:1px solid var(--line)}
+.tx:first-child{border-top:0}.tx.no{color:var(--quiet);text-decoration:line-through}
+.tx b{font-weight:600}
+
+/* screens */
+.screen{display:grid;grid-template-columns:380px 1fr;gap:56px;align-items:start}
+.phone{position:relative;width:340px;border-radius:30px;overflow:hidden;background:radial-gradient(90% 40% at 50% 8%,#8a0d2e 0%,#3d0616 45%,#000 75%)}
+.phone .appcard{position:absolute;left:14px;right:14px;top:56px;height:110px;border-radius:26px;background:radial-gradient(120% 90% at 50% -10%,#F0335E,#B3123F 45%,#5E0620)}
+.phone .grid{position:absolute;left:14px;right:14px;top:190px;display:grid;grid-template-columns:repeat(7,1fr);gap:5px}
+.phone .grid i{aspect-ratio:1;border-radius:9px;background:#1C1C1E}
+.phone .grid i.l{background:radial-gradient(circle at 50% 70%,#e8e8ea 0 18%,#1C1C1E 19%)}
+.sh{position:relative;margin-top:140px;background:var(--sheet);-webkit-backdrop-filter:blur(14px) saturate(190%);backdrop-filter:blur(14px) saturate(190%);box-shadow:inset 0 .5px 0 rgba(255,255,255,.22);border-radius:32px 32px 0 0;padding:10px 16px 18px;font-size:14px}
+.grab{width:36px;height:5px;border-radius:3px;background:rgba(255,255,255,.3);margin:0 auto 12px}
+.xb{position:absolute;right:14px;top:14px;width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.12);display:grid;place-items:center;color:var(--text-2)}
+.xb svg{width:13px;height:13px}
+.st{text-align:center;font-weight:700;font-size:19px;margin-top:6px}
+.sc{text-align:center;color:var(--muted);font-size:13px}
+.pc{background:var(--group);border-radius:22px;padding:12px;margin-top:12px;text-align:center}
+.amt{font-weight:700;font-size:40px;letter-spacing:-1px;line-height:1.1}.amt small{font-size:15px;color:#c9b8bd;font-weight:600;margin-left:2px}.amt sup{font-size:19px;color:#c9b8bd;vertical-align:14px;margin-right:1px}
+.ru{height:30px;margin:6px 0;background:repeating-linear-gradient(90deg,#777 0 1.5px,transparent 1.5px 8px);opacity:.55;-webkit-mask:linear-gradient(90deg,transparent,#000 20%,#000 80%,transparent)}
+.pin{font-size:11px;font-weight:600}.hint{color:var(--muted);font-size:13px;margin-top:2px}
+.why{padding:11px 0;border-top:1px solid var(--line);color:var(--text-2);line-height:1.45}
+.why.first{border-top:0;padding-top:14px}
+.b{color:#fff;font-weight:600}
+.gv{font-weight:600;white-space:nowrap}.gv svg{width:13px;height:13px;vertical-align:-2px;margin-left:2px;stroke-width:2.6}
+.bul{display:block;margin-top:2px}
+.il{display:flex;gap:6px;align-items:center;color:var(--muted);font-size:13px;margin-top:6px}.il svg{width:14px;height:14px}
+.lh{color:var(--muted);font-size:13px;padding:12px 0 2px;border-top:1px solid var(--line)}
+.lr{display:flex;align-items:center;gap:12px;min-height:40px}
+.lr .nm{flex:1}.lr .am{text-align:right}.lr .am small{color:var(--muted);font-size:12px;margin-left:1px}
+.lg{width:38px;display:flex}.lg i{width:24px;height:24px;border-radius:50%;border:2px solid #222;display:grid;place-items:center;font-size:10px;font-weight:800;font-style:normal}
+.lg i+i{margin-left:-8px}
+.ic{width:24px;height:24px;border-radius:50%;background:#3a3a3c;display:grid;place-items:center}.ic svg{width:13px;height:13px}
+.tot{display:flex;justify-content:space-between;border-top:1.5px solid rgba(255,255,255,.42);min-height:40px;align-items:center;font-weight:600}
+.tot .l{color:var(--muted);font-weight:400}.tot small{color:var(--muted);font-weight:400;font-size:12px}
+.foot{margin-top:14px;height:46px;border-radius:23px;display:grid;place-items:center;font-weight:700}
+.spark{display:flex;gap:2px;align-items:flex-end;height:22px}.spark i{width:3px;border-radius:2px;background:#5a5a60}
+/* dot anchors and rail */
+.d b{display:none}
+.d{display:inline-block;position:relative;width:0;height:0;vertical-align:top}
+.d::after{content:"";position:absolute;z-index:5;left:1px;top:-2px;width:7px;height:7px;border-radius:50%;background:var(--amber);box-shadow:0 0 0 1.5px #000}
+.scr{position:relative}
+.rail{position:absolute;z-index:6;width:20px;height:20px;border-radius:50%;background:var(--amber);color:#000;font-size:11px;font-weight:800;display:grid;place-items:center}
+.rail::before{content:"";position:absolute;right:20px;top:9.5px;height:1px;background:rgba(255,176,32,.55);width:var(--lead)}
+/* number cards */
+.cards{display:grid;gap:12px}
+.nc{background:var(--surface);border-radius:20px;padding:16px 18px;display:grid;grid-template-columns:28px 1fr;gap:4px 12px}
+.nc .k{grid-row:span 3;width:24px;height:24px;border-radius:50%;background:var(--amber);color:#000;font-size:12px;font-weight:800;display:grid;place-items:center;margin-top:3px}
+.nc h4{margin:0;font-size:15px;color:var(--text-2);font-weight:600}
+.nc .eq{font-size:20px;font-weight:700;letter-spacing:-.02em;line-height:1.3}
+.nc .eq em{font-style:normal;color:var(--muted);font-weight:500}
+.nc .eq .r{color:var(--amber)}
+.nc .meta{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+.chip{font-size:12px;font-weight:600;padding:3px 9px;border-radius:99px;background:var(--sunk);color:var(--text-2)}
+.chip.h{background:rgba(255,176,32,.12);color:var(--amber)}
+/* adds up */
+.sums{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:16px}
+.sum{background:var(--surface);border-radius:22px;padding:20px}
+.sum h4{margin:0 0 14px;font-size:17px}
+.bar{display:flex;height:34px;border-radius:10px;overflow:hidden;gap:2px}
+.bar span{display:grid;place-items:center;font-size:12px;font-weight:700;color:#000;white-space:nowrap;overflow:hidden}
+.legend{display:flex;flex-wrap:wrap;gap:4px 14px;margin-top:10px;font-size:13px;color:var(--muted)}
+.legend b{color:var(--text);font-weight:600}
+.total{display:flex;justify-content:space-between;border-top:1.5px solid rgba(255,255,255,.42);margin-top:12px;padding-top:8px;font-weight:700}
+.ok{color:var(--pass);font-size:13px;font-weight:700;display:flex;align-items:center;gap:4px}.ok svg{width:15px;height:15px}
+/* rounding */
+.rounds{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}
+.rd{background:var(--surface);border-radius:22px;padding:20px}
+.rd h4{margin:0 0 4px;font-size:17px}.rd p{color:var(--muted);font-size:13px}
+.nl{position:relative;height:56px;margin-top:18px}
+.nl .ax{position:absolute;left:0;right:0;top:28px;height:2px;background:var(--hair)}
+.nl .tk{position:absolute;top:22px;width:2px;height:14px;background:#5a5a60}
+.nl .tk small{position:absolute;top:16px;left:50%;transform:translateX(-50%);font-size:11px;color:var(--quiet);white-space:nowrap}
+.nl .raw{position:absolute;top:0;transform:translateX(-50%);font-size:12px;color:var(--muted);white-space:nowrap}
+.nl .raw::after{content:"";position:absolute;left:50%;top:18px;width:2px;height:12px;background:var(--muted)}
+.nl .lands{position:absolute;top:22px;width:14px;height:14px;border-radius:50%;background:var(--amber);transform:translateX(-50%)}
+.res{margin-top:22px;font-size:20px;font-weight:700}.res em{font-style:normal;color:var(--muted);font-weight:500}
+/* edge tiles */
+.edges{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}
+.eg{background:var(--surface);border-radius:20px;padding:16px;display:flex;flex-direction:column;gap:10px}
+.eg h4{margin:0;font-size:14px;color:var(--text-2);font-weight:600;line-height:1.3}
+.mini{background:#1C1C1E;border-radius:14px;padding:12px;font-size:13px;color:var(--text-2);min-height:62px;display:flex;align-items:center;justify-content:center;text-align:center}
+.mini .s{color:var(--quiet);text-decoration:line-through}
+/* open */
+.opens{display:grid;gap:16px}
+.op{background:rgba(255,176,32,.06);border:1px solid rgba(255,176,32,.32);border-radius:22px;padding:22px}
+.op h4{margin:0 0 6px;font-size:19px;letter-spacing:-.01em}.op h4 span{color:var(--amber);margin-right:8px}
+.op p{color:var(--text-2);font-size:14px;max-width:80ch}
+.op .opts{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.op .opt{background:#1C1C1E;border-radius:14px;padding:10px 14px;font-size:13px;color:var(--text-2);max-width:340px}
+.op .opt b{display:block;color:var(--text);font-size:12px;margin-bottom:2px;color:var(--amber)}
+/* checks */
+.checks{display:flex;flex-wrap:wrap;gap:10px}
+.ck{display:flex;align-items:center;gap:8px;padding:10px 14px;border-radius:99px;background:var(--surface);font-size:14px;font-weight:600}
+.ck svg{width:16px;height:16px}.ck.p svg{color:var(--pass)}.ck.t{color:var(--muted)}.ck.t svg{color:var(--quiet)}
+.ck small{color:var(--muted);font-weight:400}
+.note{color:var(--quiet);font-size:13px;margin-top:18px}
+@media (max-width:860px){.screen{grid-template-columns:1fr}.phone{margin:0 auto}}
+@media (max-width:420px){.phone{width:100%}}
+</style></head><body>
+
+<section class="hero"><div class="wrap">
+ <h1>Logic <span>book</span></h1>
+ <p class="job">Every number on the goal sheets, and where it comes from.</p>
+ <p class="lead">Worked through one made-up 90 days (paid every 2 weeks, rent, $85 saved a week), run through the app's own code. Change a formula, rerun the example, update this page.</p>
+ <nav class="toc">
+  <a href="#blocks">Building blocks</a><a href="#spending">Spending</a><a href="#saving">Saving</a><a href="#cushion">Cushion</a><a href="#adds">What adds up</a><a href="#rounding">Rounding</a><a href="#edges">Edge cases</a><a href="#open">Open</a><a href="#checks">Checks</a>
+ </nav>
+</div></section>
+
+<!-- BUILDING BLOCKS -->
+<section class="alt" id="blocks"><div class="wrap">
+ <h2>Building blocks</h2>
+ <p class="lede">Every sheet uses <b>the same definitions</b>. One meaning per word.</p>
+ <div class="blocks">
+  <div class="blk"><h4>Window</h4><p>The last 90 days up to today. Copy says "90 days", never "13 weeks".</p>
+   <div class="viz"><div class="strip" id="win"></div><small><span>Jul 28</span><span>today, Oct 25</span></small></div></div>
+  <div class="blk"><h4>Full weeks</h4><p>Monday–Sunday weeks fully inside the window, before this week. Only for week facts: lowest, best, "done it before", the bars.</p>
+   <div class="viz"><div class="strip" id="weeks"></div><small><span>grey = full week</span><span>lime = this week, left out</span></small></div></div>
+  <div class="blk"><h4>Weekly average</h4><p>A window total ÷ days × 7. Every "usual week" is one. Includes this week's days so far.</p>
+   <div class="viz"><div class="res num" style="margin-top:0">$3,123 <em>÷ 90 × 7 =</em> $242.90</div></div></div>
+  <div class="blk"><h4>Spending</h4><p>Money out that isn't a transfer. Your own category is a label and never changes what counts.</p>
+   <div class="viz"><div class="tx"><span>Aldi</span><b>$38.00</b></div><div class="tx"><span>Anytime Fitness</span><b>$25.00</b></div><div class="tx no"><span>Visa payment</span><span>transfer</span></div><div class="tx no"><span>To Ally Savings</span><span>transfer</span></div></div></div>
+  <div class="blk"><h4>Bills</h4><p>Purchases you confirmed as bills. Never in the Spending goal, so every Spending number leaves them out.</p>
+   <div class="viz"><div class="tx"><span>Chipotle</span><b>$14.00</b></div><div class="tx no"><span>Bilt Rent</span><span>bill</span></div></div></div>
+  <div class="blk"><h4>Income</h4><p>Deposits the bank labels as income, as a weekly average. Transfers, friends and refunds aren't income.</p>
+   <div class="viz"><div class="res num" style="margin-top:0">$762<span class="u">/week</span></div></div></div>
+ </div>
+</div></section>
+
+<!-- SPENDING -->
+<section id="spending"><div class="wrap">
+ <h2>Spending</h2>
+ <p class="lede">Suggested <b>$220/week</b>, from a usual week of <b>$245</b>. Bills left out of everything here.</p>
+ <div class="screen">
+  <div class="scr" data-rail>
+  <div class="phone"><div class="appcard"></div><div class="grid">GRID</div>
+   <div class="sh"><div class="grab"></div><div class="xb"><i data-lucide="x"></i></div>
+    <div class="st">Weekly spending limit</div><div class="sc">Checked 90 days of spending</div>
+    <div class="pc"><div class="amt"><sup>$</sup>220<span class="d"><b>1</b></span><small>/week</small></div><div class="ru"></div><div class="pin" style="color:var(--out)">Suggested</div><div class="hint">&nbsp;</div></div>
+    <div class="why first">At <span class="gv" style="color:var(--out)">$220<i data-lucide="goal"></i></span> a week
+     <span class="bul">• <span class="b">$30</span><span class="d"><b>2</b></span> to repeating purchases</span>
+     <span class="bul">• <span class="b">$190</span><span class="d"><b>3</b></span> for your extras</span>
+     <div class="il"><i data-lucide="trending-down"></i>$25 less than your usual week<span class="d"><b>4</b></span></div>
+     <div class="il"><i data-lucide="scale"></i>Fits with your $200 saving goal<span class="d"><b>5</b></span></div></div>
+    <div class="why" style="display:flex;gap:10px;align-items:center"><span style="flex:1">You've done it before. <span class="b">5 weeks in the last 90 days</span> were $220 or less.<span class="d"><b>6</b></span></span><span class="spark" id="spk"></span></div>
+    <div class="lh">Your extras</div>
+    <div class="lr"><div class="lg"><i style="background:#fff;color:#000">a</i><i style="background:#cc0000;color:#fff">T</i></div><div class="nm">General Merchandise</div><div class="am num">$122<small>/week</small></div></div>
+    <div class="lr"><div class="lg"><i style="background:#00a1e0;color:#fff">A</i><i style="background:#451400;color:#fff">C</i></div><div class="nm">Food &amp; Drink</div><div class="am num">$51<small>/week</small></div></div>
+    <div class="lr"><div class="lg"><i style="background:#d0021b;color:#fff">K</i></div><div class="nm">Transportation</div><div class="am num">$42<small>/week</small></div></div>
+    <div class="tot"><span class="l">Your extras</span><span class="num">$215<span class="d"><b>7</b></span><small>/week</small></span></div>
+    <div class="foot" style="background:linear-gradient(#F0335E,#B3123F)">Set limit</div>
+   </div></div></div>
+  <div class="cards">
+   <div class="nc"><span class="k">1</span><h4>Suggested limit</h4><div class="eq num"><em>min(</em>$245 − $25<em>, max(</em>$179 + $15 → $200<em>,</em> $242.90 × 0.88 → $225<em>))</em> = <span class="r">$220</span></div><div class="meta"><span class="chip">to $25</span><span class="chip">above the lowest week</span><span class="chip">never over usual</span><span class="chip">min $25</span></div></div>
+   <div class="nc"><span class="k">2</span><h4>Repeating purchases</h4><div class="eq num">($325 gym + $36 Spotify) <em>÷ 90 × 7 =</em> $28.08 → <span class="r">$30</span></div><div class="meta"><span class="chip">to $5</span><span class="chip">same payee, same amount ±$5, steady schedule, 3+ times</span><span class="chip">check shows $130/month (× 4.33)</span></div></div>
+   <div class="nc"><span class="k">3</span><h4>For your extras</h4><div class="eq num">$220 <em>−</em> $30 = <span class="r">$190</span></div><div class="meta"><span class="chip">live with the ruler</span><span class="chip">never below $0</span></div></div>
+   <div class="nc"><span class="k">4</span><h4>Against your usual week</h4><div class="eq num">$245 <em>−</em> $220 = <span class="r">$25 less</span></div><div class="meta"><span class="chip">"About your usual week" within $10</span></div></div>
+   <div class="nc"><span class="k">5</span><h4>Fits with your saving goal</h4><div class="eq num">$220 + $200 = $420 <em>≤</em> $762 income</div><div class="meta"><span class="chip h">Open 1: ignores bills</span><span class="chip">only when both goals are set and income was seen</span></div></div>
+   <div class="nc"><span class="k">6</span><h4>You've done it before</h4><div class="eq num">full weeks ≤ $220: <span class="r">5 of 11</span></div><div class="meta"><span class="chip">hidden at 0</span><span class="chip">those weeks light up on the bars</span></div></div>
+   <div class="nc"><span class="k">7</span><h4>Your extras</h4><div class="eq num">$245 <em>−</em> $30 = <span class="r">$215</span> = $122 + $51 + $42</div><div class="meta"><span class="chip">rows split by largest remainder</span><span class="chip">rows under $1 hidden</span></div></div>
+  </div>
+ </div>
+</div></section>
+
+<!-- SAVING -->
+<section class="alt" id="saving"><div class="wrap">
+ <h2>Saving</h2>
+ <p class="lede">Suggested <b>$200/week</b>, from a usual week of <b>$115</b>.</p>
+ <div class="screen">
+  <div class="scr" data-rail>
+  <div class="phone" style="background:radial-gradient(90% 40% at 50% 8%,#0a6a82 0%,#06303e 45%,#000 75%)"><div class="appcard" style="background:radial-gradient(120% 90% at 50% -10%,#12B8D0,#0A7C9C 45%,#06405E)"></div><div class="grid">GRID</div>
+   <div class="sh"><div class="grab"></div><div class="xb"><i data-lucide="x"></i></div>
+    <div class="st">Weekly savings goal</div><div class="sc">Checked 90 days of saving</div>
+    <div class="pc"><div class="amt"><sup>$</sup>200<span class="d"><b>1</b></span><small>/week</small></div><div class="ru"></div><div class="pin" style="color:var(--cyan)">Suggested</div></div>
+    <div class="why first">At <span class="gv" style="color:var(--cyan)">$200<i data-lucide="goal"></i></span> a week
+     <span class="bul">• <span class="b">$115</span><span class="d"><b>2</b></span>, your usual week</span>
+     <span class="bul">• <span class="b">$85</span><span class="d"><b>3</b></span> extra a week</span>
+     <div class="il"><i data-lucide="scale"></i>Fits with your $220 spending goal</div></div>
+    <div class="lh">Ways to save more</div>
+    <div class="lr"><div class="ic"><i data-lucide="goal"></i></div><div class="nm">Save what you don’t <span style="color:var(--out)">spend</span></div><div class="am num">$25<span class="d"><b>4</b></span><small>/week</small></div></div>
+    <div class="foot" style="background:linear-gradient(#12B8D0,#0A7C9C)">Set savings goal</div>
+   </div></div></div>
+  <div class="cards">
+   <div class="nc"><span class="k">1</span><h4>Suggested</h4><div class="eq num">$115 + ($285 best − $115) × 0.55 = $208.50 → <span class="r">$200</span></div><div class="meta"><span class="chip">to $25</span><span class="chip">at least usual + $25</span><span class="chip">capped by money piling up, when seen</span></div></div>
+   <div class="nc"><span class="k">2</span><h4>Usual week</h4><div class="eq num">$1,505 <em>÷ 90 × 7 =</em> $117.06 → <span class="r">$115</span></div><div class="meta"><span class="chip">to $5</span><span class="chip h">Open 2: what counts as a save</span></div></div>
+   <div class="nc"><span class="k">3</span><h4>Extra a week</h4><div class="eq num">$200 <em>−</em> $115 = <span class="r">$85</span></div><div class="meta"><span class="chip">"about what you already save" under $5</span></div></div>
+   <div class="nc"><span class="k">4</span><h4>Save what you don't spend</h4><div class="eq num">$245 usual <em>−</em> $220 goal = <span class="r">$25</span></div><div class="meta"><span class="chip">Spending's usual week, bills out</span><span class="chip">shown at $5+</span><span class="chip">one way: no "Up to" total</span></div></div>
+  </div>
+ </div>
+</div></section>
+
+<!-- CUSHION -->
+<section id="cushion"><div class="wrap">
+ <h2>Cushion</h2>
+ <p class="lede">Suggested <b>90 days</b>. Cash lasts <b>91 days</b> today at <b>$77 a day</b>.</p>
+ <div class="screen">
+  <div class="scr" data-rail>
+  <div class="phone" style="background:radial-gradient(90% 40% at 50% 8%,#3d6a00 0%,#1a2e00 45%,#000 75%)"><div class="appcard" style="background:radial-gradient(120% 90% at 50% -10%,#A6FF00,#5E9900 45%,#263D00)"></div><div class="grid">GRID</div>
+   <div class="sh"><div class="grab"></div><div class="xb"><i data-lucide="x"></i></div>
+    <div class="st">Cushion goal</div><div class="sc">Checked 90 days of balances</div>
+    <div class="pc"><div class="amt">90<span class="d"><b>1</b></span><small> days</small></div><div class="ru"></div><div class="pin" style="color:var(--lime)">Suggested</div><div class="hint">Three months, the classic safety net</div></div>
+    <div class="why first">Keep at least <span class="b">$6,930</span><span class="d"><b>2</b></span> in the bank. That covers <span class="gv" style="color:var(--lime)">90 days<i data-lucide="goal"></i></span> of spending at $77<span class="d"><b>3</b></span> a day, bills included.
+     <div class="il"><i data-lucide="info"></i>See what counts</div></div>
+    <div class="lh">Ways to grow it</div>
+    <div class="lr"><div class="ic"><i data-lucide="goal"></i></div><div class="nm">Hit your <span style="color:var(--out)">spending goal</span></div><div class="am num">+1 day<span class="d"><b>4</b></span><small>/month</small></div></div>
+    <div class="foot" style="background:linear-gradient(#A6FF00,#5E9900);color:#000">Set cushion</div>
+   </div></div></div>
+  <div class="cards">
+   <div class="nc"><span class="k">1</span><h4>Suggested</h4><div class="eq num">highest stop ≤ 85-day average = 60; 60 &lt; 63 lowest and 90 ≤ 91 today → <span class="r">90</span></div><div class="meta"><span class="chip">stops 14 · 30 · 60 · 90</span></div></div>
+   <div class="nc"><span class="k">2</span><h4>Keep at least</h4><div class="eq num">90 <em>×</em> $77 = <span class="r">$6,930</span></div><div class="meta"><span class="chip">uses the shown daily, so you can multiply it</span></div></div>
+   <div class="nc"><span class="k">3</span><h4>Daily spending</h4><div class="eq num">$2,303 <em>÷ 30 =</em> $76.77 → <span class="r">$77</span></div><div class="meta"><span class="chip">whole $</span><span class="chip">bills included</span><span class="chip">every account</span></div></div>
+   <div class="nc"><span class="k">4</span><h4>Hit your spending goal</h4><div class="eq num">($245 − $220) <em>× 4.33 ÷</em> $77 = 1.41 → <span class="r">+1 day</span></div><div class="meta"><span class="chip">shown at $5+ cut</span><span class="chip h">Open 5: assumes it stays in the bank</span></div></div>
+   <div class="nc" style="grid-template-columns:28px 1fr"><span class="k" style="background:var(--sunk);color:var(--text)">·</span><h4>Cash and days</h4><div class="eq num">$3,180 + $4,120 − $240 = $7,060 <em>÷</em> $76.77 = <span class="r">91 days</span></div><div class="meta"><span class="chip">days rounded down</span></div></div>
+  </div>
+ </div>
+</div></section>
+
+<!-- ADDS UP -->
+<section class="alt" id="adds"><div class="wrap">
+ <h2>What adds up</h2>
+ <p class="lede">Parts shown together <b>always make their total</b>, after rounding. The checks prove it.</p>
+ <div class="sums">
+  <div class="sum"><h4>Usual week = repeating + extras</h4>
+   <div class="bar"><span style="flex:30;background:var(--out)">$30</span><span style="flex:215;background:#ffb3c6">$215</span></div>
+   <div class="legend"><span><b>$30</b> repeating</span><span><b>$215</b> extras</span></div>
+   <div class="total num"><span>Usual week</span><span>$245</span></div><div class="ok"><i data-lucide="check-circle-2"></i>Checked on 40 made-up histories + real data</div></div>
+  <div class="sum"><h4>Extras = its rows</h4>
+   <div class="bar"><span style="flex:122;background:#ffb3c6">$122</span><span style="flex:51;background:#ffd0dc">$51</span><span style="flex:42;background:#ffe6ec">$42</span></div>
+   <div class="legend"><span><b>$122</b> merchandise</span><span><b>$51</b> food</span><span><b>$42</b> transport</span></div>
+   <div class="total num"><span>Your extras</span><span>$215</span></div><div class="ok"><i data-lucide="check-circle-2"></i>Largest-remainder split, 500 cases</div></div>
+  <div class="sum"><h4>Limit = repeating + left for extras</h4>
+   <div class="bar"><span style="flex:30;background:var(--out)">$30</span><span style="flex:190;background:#ffb3c6">$190</span></div>
+   <div class="legend"><span><b>$30</b> repeating</span><span><b>$190</b> for your extras</span></div>
+   <div class="total num"><span>Limit</span><span>$220</span></div></div>
+  <div class="sum"><h4>Saving goal = usual + extra</h4>
+   <div class="bar"><span style="flex:115;background:var(--cyan)">$115</span><span style="flex:85;background:#b8fffb">$85</span></div>
+   <div class="legend"><span><b>$115</b> usual</span><span><b>$85</b> extra a week</span></div>
+   <div class="total num"><span>Goal</span><span>$200</span></div></div>
+  <div class="sum"><h4>Cash you can spend</h4>
+   <div class="bar"><span style="flex:3180;background:var(--lime)">$3,180</span><span style="flex:4120;background:#dcff9e">$4,120</span></div>
+   <div class="legend"><span><b>$3,180</b> checking</span><span><b>$4,120</b> savings</span><span><b>−$240</b> card</span></div>
+   <div class="total num"><span>Cash</span><span>$7,060</span></div></div>
+ </div>
+</div></section>
+
+<!-- ROUNDING -->
+<section id="rounding"><div class="wrap">
+ <h2>Rounding</h2>
+ <p class="lede">Round the inputs you show, <b>then</b> do the math with them.</p>
+ <div class="rounds" id="rounds"></div>
+</div></section>
+
+<!-- EDGES -->
+<section class="alt" id="edges"><div class="wrap">
+ <h2>Edge cases</h2>
+ <p class="lede">What the sheets show when the data is thin, odd or missing.</p>
+ <div class="edges">
+  <div class="eg"><h4>No bank linked</h4><div class="mini">Connect a bank</div></div>
+  <div class="eg"><h4>Under 4 full weeks of history</h4><div class="mini">No Spending suggestion. Ruler starts at the default.</div></div>
+  <div class="eg"><h4>Under 2 full weeks</h4><div class="mini">No Saving suggestion</div></div>
+  <div class="eg"><h4>No paycheck seen</h4><div class="mini"><span class="s">Fits with your saving goal</span>&nbsp;· opens on Any amount</div></div>
+  <div class="eg"><h4>Ruler below every week</h4><div class="mini">Lower than any week in 90 days</div></div>
+  <div class="eg"><h4>Repeating bigger than usual</h4><div class="mini">Capped at usual · extras $0</div></div>
+  <div class="eg"><h4>Nothing repeating</h4><div class="mini">No repeating bullet · extras = usual</div></div>
+  <div class="eg"><h4>Nothing spent in 30 days</h4><div class="mini" style="font-size:24px;font-weight:700">—</div></div>
+  <div class="eg"><h4>Card debt bigger than cash</h4><div class="mini">Cushion starts above $0</div></div>
+  <div class="eg"><h4>Pile-up from below $0</h4><div class="mini"><span class="s">Checking $60/week</span>&nbsp;not claimed</div></div>
+  <div class="eg"><h4>Huge numbers</h4><div class="mini">$149k · $1.2M · ruler steps $5 → $500</div></div>
+  <div class="eg"><h4>Refunds</h4><div class="mini">Not spending, not income</div></div>
+ </div>
+</div></section>
+
+<!-- OPEN -->
+<section id="open"><div class="wrap">
+ <h2>Open</h2>
+ <p class="lede">Not decided. <b>Nothing here gets built</b> until it is.</p>
+ <div class="opens">
+  <div class="op"><h4><span>1</span>"Fits with your saving goal" and bills</h4><p>Today: limit + saving goal ≤ income, bills ignored, so it can say "fits" when rent doesn't. ", bills included" read as if bills were inside the limit.</p>
+   <div class="opts"><div class="opt"><b>A</b>Fits with your $200 saving goal and $280 of bills</div><div class="opt"><b>B</b>Leaves $62 a week after bills and saving</div></div></div>
+  <div class="op"><h4><span>2</span>What counts as a save</h4><p>Real data read $465 a week against about $350 really saved: moves between two savings accounts at the same bank count, and outside deposits (checks) count.</p>
+   <div class="opts"><div class="opt"><b>Proposed default</b>Money moved from your own account into savings or investments. Same-bank savings-to-savings and unmatched deposits don't count.</div><div class="opt"><b>Plus</b>You choose what counts, per account and per transaction (in design).</div></div></div>
+  <div class="op"><h4><span>3</span>One usual week everywhere</h4><p>The calendar's week totals and the goal check must leave bills out the same way the sheets do. Confirm before trusting the bars.</p></div>
+  <div class="op"><h4><span>4</span>Refunds</h4><p>Does a refund lower the week it lands in, the week of the purchase, or neither (today)?</p></div>
+  <div class="op"><h4><span>5</span>"+1 day/month" assumes the money stays</h4><p>If Saving moves it to an account Cushion doesn't count, the days don't grow. Say so, or drop the row then.</p></div>
+  <div class="op"><h4><span>6</span>Hidden accounts and Cushion</h4><p>A hidden account's spending still counts in Cushion's daily spending, but not on the Spending sheet.</p></div>
+ </div>
+</div></section>
+
+<!-- CHECKS -->
+<section class="alt" id="checks"><div class="wrap">
+ <h2>Checks</h2>
+ <p class="lede">Run before any math change ships.</p>
+ <div class="checks">
+  <span class="ck p"><i data-lucide="check-circle-2"></i>Rows add up <small>500 splits</small></span>
+  <span class="ck p"><i data-lucide="check-circle-2"></i>Spending sums <small>40 made-up + real 90 days</small></span>
+  <span class="ck t"><i data-lucide="circle-dashed"></i>Saving sums <small>to add</small></span>
+  <span class="ck t"><i data-lucide="circle-dashed"></i>Cushion math <small>to add</small></span>
+  <span class="ck t"><i data-lucide="circle-dashed"></i>Save rule on the real case <small>with Open 2</small></span>
+ </div>
+ <p class="note">node mobile/scripts/run-check.mjs mobile/lib/suggest.check.ts · last run Oct 25, 2026. Written spec: mobile/design/GOAL_MATH.md.</p>
+</div></section>
+
+<script>
+// Strips: the window (90 days) and the full weeks inside it.
+document.getElementById('win').innerHTML = Array.from({ length: 30 }, () => '<i class="f"></i>').join('')
+document.getElementById('weeks').innerHTML = Array.from({ length: 11 }, () => '<i class="f"></i>').join('') + '<i class="now"></i>'
+// Background grid on each phone.
+document.querySelectorAll('.grid').forEach(g => { g.innerHTML = Array.from({ length: 28 }, (_, i) => `<i class="${(i * 7) % 5 === 1 ? 'l' : ''}"></i>`).join('') })
+// Spending's weeks from the example; lit when at or under $220.
+const W = [242, 179, 194, 444, 176, 242, 234, 173, 423, 236, 193], lo = Math.min(...W), hi = Math.max(...W)
+document.getElementById('spk').innerHTML = W.map(w => `<i style="height:${Math.round((w - lo) / (hi - lo) * 18 + 4)}px;${w <= 220 ? 'background:var(--out)' : ''}"></i>`).join('')
+// Rounding number lines.
+const R = [
+  ['Weekly averages', 'To $5', 242.90, 230, 255, 5, 245, '$242.90 → $245'],
+  ['Suggested limit', 'To $25', 213.75, 175, 250, 25, 225, '$213.75 → $225'],
+  ['Daily spending', 'To whole $', 76.77, 75, 79, 1, 77, '$76.77 → $77'],
+  ['Days', 'Always down', 91.96, 89, 94, 1, 91, '91.96 → 91 days'],
+]
+document.getElementById('rounds').innerHTML = R.map(([t, rule, raw, a, b, step, land, res]) => {
+  const x = v => ((v - a) / (b - a) * 100).toFixed(2) + '%'
+  let ticks = ''
+  for (let v = a; v <= b + 1e-9; v += step) ticks += `<span class="tk" style="left:${x(v)}"><small>${step >= 5 || v % 1 === 0 ? (t === 'Days' ? v : '$' + v) : ''}</small></span>`
+  return `<div class="rd"><h4>${t}</h4><p>${rule}</p><div class="nl"><span class="ax"></span>${ticks}<span class="raw" style="left:${x(raw)}">${t === 'Days' ? raw : '$' + raw.toFixed(2)}</span><span class="lands" style="left:${x(land)}"></span></div><div class="res num">${res.replace('→', '<em>→</em>')}</div></div>`
+}).join('')
+lucide.createIcons()
+// Rail: each dot's number sits just right of its phone, level with the dot.
+document.querySelectorAll('[data-rail]').forEach(scr => {
+  const phone = scr.querySelector('.phone'), sb = scr.getBoundingClientRect(), pb = phone.getBoundingClientRect()
+  let last = -99
+  ;[...scr.querySelectorAll('.d')].map(n => ({ n, r: n.getBoundingClientRect() })).sort((a, b) => a.r.top - b.r.top).forEach(({ n, r }) => {
+    let y = r.top - sb.top - 10
+    if (y < last + 22) y = last + 22
+    last = y
+    const b = document.createElement('i')
+    b.className = 'rail'; b.textContent = n.textContent
+    b.style.left = (pb.right - sb.left + 8) + 'px'; b.style.top = y + 'px'
+    b.style.setProperty('--lead', Math.max(0, pb.right - r.left + 8 - 4) + 'px')
+    scr.appendChild(b)
+  })
+})
+</script>
+</body></html>
