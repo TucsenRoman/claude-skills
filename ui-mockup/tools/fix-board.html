@@ -50,17 +50,18 @@ h1{font-size:22px;margin-bottom:6px}
 .lr .nm{flex:1}
 .lr .am{text-align:right;color:var(--t2)}
 .lr .am small{display:block;color:var(--t3);font-size:12px}
+.lr .am small.u{display:inline;font-size:13px;margin-left:2px}
+.lr .am .v{color:#fff}
 .tot{display:flex;justify-content:space-between;align-items:center;border-top:1.5px solid var(--total);min-height:44px;padding-top:4px}
 .tot .l{color:var(--t3)}
 .tot .r{font-weight:600;text-align:right}
 .tot .r small{display:block;font-weight:400;color:var(--t3);font-size:12px}
 .foot{margin-top:16px;height:50px;border-radius:25px;display:grid;place-items:center;font-weight:700;font-size:17px}
-.n{display:inline-block;position:relative;width:0;height:0;vertical-align:top;font-style:normal}
+.n{display:inline-block;position:relative;width:0;height:0;vertical-align:middle;font-style:normal}
+.n[data-side="sup"]{vertical-align:top}
 .n b{display:none}
-.n::after{content:"";position:absolute;z-index:10;left:1px;top:-2px;width:7px;height:7px;border-radius:50%;background:#FFD60A;box-shadow:0 0 0 1.5px #000}
 .col.p{position:relative}
-.rail{position:absolute;z-index:10;display:grid;place-items:center;width:20px;height:20px;border-radius:50%;background:#FFD60A;color:#000;font-size:12px;font-weight:800}
-.rail::before{content:"";position:absolute;right:20px;top:9.5px;height:1px;background:rgba(255,214,10,.55);width:var(--lead)}
+.rail{position:absolute;z-index:10;display:grid;place-items:center;width:18px;height:18px;border-radius:50%;background:#FFD60A;color:#000;font-size:12px;font-weight:800;box-shadow:0 0 0 2px rgba(0,0,0,.85),0 2px 6px rgba(0,0,0,.5);pointer-events:none}
 .ln{display:inline-grid;place-items:center;width:20px;height:20px;border-radius:50%;background:#FFD60A;color:#000;font-size:12px;font-weight:800;flex:none;font-style:normal;margin-top:1px}
 .x{outline:2px dashed #FFD60A;outline-offset:3px;border-radius:8px}
 .cut{color:#ff453a}
@@ -82,7 +83,7 @@ h1{font-size:22px;margin-bottom:6px}
 <h1>SCREEN NAME: now vs proposed</h1>
 <div class="sub">Yellow numbers mark each fix. Reply like "1 y, 2 n".</div>
 
-<!-- ONE ROW PER SCREEN. Copy this block. Now = the screen as it is (from a real screenshot or the code). Proposed = the same screen with fixes; put <i class="n"><b>#</b></i> right after each changed element (inline, never absolutely placed). Under a Now problem, one .cap line saying why in plain numbers. -->
+<!-- ONE ROW PER SCREEN. Copy this block. Now = the screen as it is (from a real screenshot or the code). Proposed = the same screen with fixes; put <i class="n"><b>#</b></i> where its chip has free space: at the end of the changed line, data-side="sup" on a big number, data-side="left" just before a right-aligned value (the chip floats over the page; the anchor takes no space). Under a Now problem, one .cap line saying why in plain numbers. -->
 <div class="row">
  <div class="rl">Cushion<small>90 days</small></div>
  <div class="col"><h3>Now</h3>
@@ -100,10 +101,10 @@ h1{font-size:22px;margin-bottom:6px}
   <div class="phone"><div class="sheet">
    <div class="grab"></div>
    <div class="card"><div class="amt">90<span>days</span></div><div class="ruler"></div><div class="pin" style="color:var(--in)">Suggested</div><div class="note">Three months, the classic safety net</div></div>
-   <div class="why first"><div class="tx">Keep at least <span class="b">$6,300</span><i class="n"><b>10</b></i> in the bank. That covers <span class="gv" style="color:var(--in)">90 days<i data-lucide="goal"></i></span> of spending at $70 a day, bills included.<i class="n"><b>11</b></i></div><div class="slot"><div class="logo" style="background:#3a3a3c"><i data-lucide="landmark" style="width:13px"></i></div><div class="logo" style="background:#fff;color:#d00">◀</div></div></div>
+   <div class="why first"><div class="tx">Keep at least <span class="b">$6,300</span><i class="n" data-side="sup"><b>10</b></i> in the bank. That covers <span class="gv" style="color:var(--in)">90 days<i data-lucide="goal"></i></span> of spending at $70 a day, bills included.<i class="n"><b>11</b></i></div><div class="slot"><div class="logo" style="background:#3a3a3c"><i data-lucide="landmark" style="width:13px"></i></div><div class="logo" style="background:#fff;color:#d00">◀</div></div></div>
    <div class="lh">Ways to grow it</div>
-   <div class="lr"><div class="slot tight"><div class="ic"><i data-lucide="goal"></i></div></div><div class="nm">Hit your <span style="color:var(--out)">spending goal</span><i class="n"><b>13</b></i></div><div class="am">+2 days a month<i class="n"><b>9</b></i><small>if it stays in the bank<i class="n"><b>12</b></i></small></div></div>
-   <div class="cap">No "Up to" total with only one way <i class="n"><b>12</b></i></div>
+   <div class="lr"><div class="slot tight"><div class="ic"><i data-lucide="goal"></i></div></div><div class="nm">Hit your <span style="color:var(--out)">spending goal</span><i class="n"><b>13</b></i></div><div class="am"><i class="n" data-side="left"><b>9</b></i><span class="v">+2 days</span><small class="u">/month</small></div></div>
+   <div class="cap">One way, so no "Up to" total under it<i class="n"><b>12</b></i></div>
    <div class="foot" style="background:linear-gradient(#A6FF00,#5E9900);color:#000">Set cushion</div>
   </div></div></div>
 </div>
@@ -114,20 +115,24 @@ h1{font-size:22px;margin-bottom:6px}
 <li><i class="ln">1</i><span><b>Short name.</b> What changes, in one plain sentence.</span></li>
 </ol></aside>
 <script>lucide.createIcons()
-// Rail: each number sits just right of its phone, level with its dot, nudged down when two would touch.
-document.querySelectorAll('.col.p').forEach(col => {
-  const phone = col.querySelector('.phone'), cb = col.getBoundingClientRect(), pb = phone.getBoundingClientRect()
-  let last = -99
-  ;[...col.querySelectorAll('.n')].map(n => ({ n, r: n.getBoundingClientRect() })).sort((a, b) => a.r.top - b.r.top).forEach(({ n, r }) => {
-    let y = r.top - cb.top - 10
-    if (y < last + 22) y = last + 22
-    last = y
+// Number chips float on the element they mark, drawn over the page so the layout never moves.
+// Place each anchor where there is free space: end of its line (default), data-side="sup" for the
+// top-right corner of a big number, data-side="left" for the gap left of a right-aligned value.
+const placeChips = () => document.querySelectorAll('.col.p').forEach(col => {
+  col.querySelectorAll('.rail').forEach(c => c.remove())
+  const cb = col.getBoundingClientRect()
+  col.querySelectorAll('.n').forEach(n => {
+    const r = n.getBoundingClientRect(), side = n.dataset.side || 'after'
+    const x = r.left - cb.left, y = r.top - cb.top
     const b = document.createElement('i')
     b.className = 'rail'; b.textContent = n.textContent
-    b.style.left = (pb.right - cb.left + 6) + 'px'; b.style.top = y + 'px'
-    b.style.setProperty('--lead', Math.max(0, pb.right - r.left + 6 - 4) + 'px')
+    b.style.left = (side === 'left' ? x - 24 : side === 'sup' ? x + 1 : x + 5) + 'px'
+    b.style.top = (side === 'sup' ? y - 16 : y - 9) + 'px'
     col.appendChild(b)
   })
 })
+placeChips()
+addEventListener('resize', placeChips)
+document.fonts?.ready.then(placeChips)
 </script>
 </body></html>
