@@ -49,7 +49,7 @@ Calling a skill is fine; reading another skill's files directly is not. Conventi
 Each `GUIDE.md` started from outside skills (Emil Kowalski's, Taste, Impeccable), distilled and credited at the top. They were starting points; the guides now grow from real use through each skill's `LESSONS.md`, not from upstream.
 
 ## Proposals for the user to approve
-Any list of proposed changes (copy, review fixes, stress breaks, skill edits, new skills) goes in one table, then `Reply like "1 y, 2 n"`:
+Fixes to a screen the user can see (review fixes, copy, math, stress breaks) go on a fix-approval board from `ui-mockup`: Now vs Proposed, numbered, with a key (user, 2026-10-25: "i dont wanna read all that, so show me"). Everything else (skill edits, new skills, anything with no screen) goes in one table. Both end with `Reply like "1 y, 2 n"`:
 
 | # | Context | Why | Now | Proposed |
 |---|---|---|---|---|
