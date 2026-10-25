@@ -9,7 +9,7 @@
 --page:#111114;--band:#18181B;--surface:#202024;--sunk:#2C2C30;--hair:#38383E;--line:rgba(255,255,255,.08);
 --text:#ECECF0;--text-2:#C4C4CB;--muted:#9A9AA3;--quiet:#7A7A84;
 --red:#FA114F;--out:#FF6B8F;--cyan:#5CFFF8;--lime:#B8FF3A;--amber:#FFB020;--pass:#30D158;
---sheet:rgba(30,30,32,.62);--group:rgba(120,120,128,.2);
+--sheet:rgba(30,30,32,.5);--group:rgba(120,120,128,.2);
 --sf:-apple-system,BlinkMacSystemFont,"SF Pro Text","SF Pro Display","Inter",system-ui,sans-serif}
 *{box-sizing:border-box}html{overflow-x:hidden;scroll-behavior:smooth}
 body{margin:0;background:var(--page);color:var(--text);font-family:var(--sf);font-size:16px;line-height:1.5;letter-spacing:-.01em;-webkit-font-smoothing:antialiased;overflow-x:hidden}
@@ -33,12 +33,14 @@ h3{font-weight:700;font-size:clamp(20px,2.4vw,26px);letter-spacing:-.02em;margin
 .u{color:var(--muted);font-weight:500;font-size:.72em;margin-left:2px}
 
 /* building blocks */
-.blocks{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px}
+.blocks{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media (max-width:860px){.blocks{grid-template-columns:1fr}}
 .blk{background:var(--surface);border-radius:22px;padding:20px}
 .blk h4{margin:0 0 6px;font-size:22px;letter-spacing:-.02em}
 .blk p{color:var(--muted);font-size:14px;line-height:1.45}
 .viz{margin-top:16px}
 .strip{display:flex;gap:2px;height:26px}
+#win{gap:1px}
 .strip i{flex:1;border-radius:3px;background:var(--sunk)}
 .strip i.f{background:#4A4A52}.strip i.now{background:var(--lime);opacity:.7}
 .strip+small{display:flex;justify-content:space-between;color:var(--quiet);font-size:11px;margin-top:6px}
@@ -50,10 +52,15 @@ h3{font-weight:700;font-size:clamp(20px,2.4vw,26px);letter-spacing:-.02em;margin
 .screen{display:grid;grid-template-columns:380px 1fr;gap:56px;align-items:start}
 .phone{position:relative;width:340px;border-radius:30px;overflow:hidden;background:radial-gradient(90% 40% at 50% 8%,#8a0d2e 0%,#3d0616 45%,#000 75%)}
 .phone .appcard{position:absolute;left:14px;right:14px;top:56px;height:110px;border-radius:26px;background:radial-gradient(120% 90% at 50% -10%,#F0335E,#B3123F 45%,#5E0620)}
-.phone .grid{position:absolute;left:14px;right:14px;top:190px;display:grid;grid-template-columns:repeat(7,1fr);gap:5px}
+.phone .grid{position:absolute;left:14px;right:14px;top:182px;display:grid;grid-template-columns:repeat(7,1fr);gap:5px 5px}
+.phone .grid i{position:relative}
+.phone .grid i b{position:absolute;left:5px;bottom:5px;width:15px;height:15px;border-radius:50%;border:1.5px solid #1C1C1E}
+.phone .grid i b+b{left:16px}
+.phone .grid i span{position:absolute;left:5px;top:3px;font-size:9px;font-weight:700;color:#d8d8dc;font-style:normal}
+.phone .grid .wk{grid-column:1/-1;height:3px;border-radius:2px;background:#3a3a3e;margin:2px 0 3px}
 .phone .grid i{aspect-ratio:1;border-radius:9px;background:#1C1C1E}
-.phone .grid i.l{background:radial-gradient(circle at 50% 70%,#e8e8ea 0 18%,#1C1C1E 19%)}
-.sh{position:relative;margin-top:140px;background:var(--sheet);-webkit-backdrop-filter:blur(14px) saturate(190%);backdrop-filter:blur(14px) saturate(190%);box-shadow:inset 0 .5px 0 rgba(255,255,255,.22);border-radius:32px 32px 0 0;padding:10px 16px 18px;font-size:14px}
+
+.sh{position:relative;margin-top:236px;background:var(--sheet);-webkit-backdrop-filter:blur(14px) saturate(190%);backdrop-filter:blur(14px) saturate(190%);box-shadow:inset 0 .5px 0 rgba(255,255,255,.22);border-radius:32px 32px 0 0;padding:10px 16px 18px;font-size:14px}
 .grab{width:36px;height:5px;border-radius:3px;background:rgba(255,255,255,.3);margin:0 auto 12px}
 .xb{position:absolute;right:14px;top:14px;width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.12);display:grid;place-items:center;color:var(--text-2)}
 .xb svg{width:13px;height:13px}
@@ -81,11 +88,11 @@ h3{font-weight:700;font-size:clamp(20px,2.4vw,26px);letter-spacing:-.02em;margin
 .spark{display:flex;gap:2px;align-items:flex-end;height:22px}.spark i{width:3px;border-radius:2px;background:#5a5a60}
 /* dot anchors and rail */
 .d b{display:none}
-.d{display:inline-block;position:relative;width:0;height:0;vertical-align:top}
-.d::after{content:"";position:absolute;z-index:5;left:1px;top:-2px;width:7px;height:7px;border-radius:50%;background:var(--amber);box-shadow:0 0 0 1.5px #000}
+/* A number chip floats over its element: the anchor takes no space, the chip is drawn on top (user, 2026-10-25: no dots or lines, layout untouched). */
+.d{display:inline-block;position:relative;width:0;height:0;vertical-align:middle}
+.d[data-side="sup"]{vertical-align:top}
 .scr{position:relative}
-.rail{position:absolute;z-index:6;width:20px;height:20px;border-radius:50%;background:var(--amber);color:#000;font-size:11px;font-weight:800;display:grid;place-items:center}
-.rail::before{content:"";position:absolute;right:20px;top:9.5px;height:1px;background:rgba(255,176,32,.55);width:var(--lead)}
+.rail{position:absolute;z-index:6;width:18px;height:18px;border-radius:50%;background:var(--amber);color:#000;font-size:10.5px;font-weight:800;display:grid;place-items:center;box-shadow:0 0 0 2px rgba(0,0,0,.85),0 2px 6px rgba(0,0,0,.5);pointer-events:none}
 /* number cards */
 .cards{display:grid;gap:12px}
 .nc{background:var(--surface);border-radius:20px;padding:16px 18px;display:grid;grid-template-columns:28px 1fr;gap:4px 12px}
@@ -94,6 +101,8 @@ h3{font-weight:700;font-size:clamp(20px,2.4vw,26px);letter-spacing:-.02em;margin
 .nc .eq{font-size:20px;font-weight:700;letter-spacing:-.02em;line-height:1.3}
 .nc .eq em{font-style:normal;color:var(--muted);font-weight:500}
 .nc .eq .r{color:var(--amber)}
+.nc .eq.steps{display:grid;gap:4px;font-size:17px}
+.nc .eq.steps em{display:block;font-size:12px;font-weight:600;color:var(--muted);letter-spacing:0}
 .nc .meta{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
 .chip{font-size:12px;font-weight:600;padding:3px 9px;border-radius:99px;background:var(--sunk);color:var(--text-2)}
 .chip.h{background:rgba(255,176,32,.12);color:var(--amber)}
@@ -120,10 +129,15 @@ h3{font-weight:700;font-size:clamp(20px,2.4vw,26px);letter-spacing:-.02em;margin
 .nl .lands{position:absolute;top:22px;width:14px;height:14px;border-radius:50%;background:var(--amber);transform:translateX(-50%)}
 .res{margin-top:22px;font-size:20px;font-weight:700}.res em{font-style:normal;color:var(--muted);font-weight:500}
 /* edge tiles */
-.edges{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}
+.edges{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+@media (max-width:860px){.edges{grid-template-columns:1fr 1fr}}
 .eg{background:var(--surface);border-radius:20px;padding:16px;display:flex;flex-direction:column;gap:10px}
 .eg h4{margin:0;font-size:14px;color:var(--text-2);font-weight:600;line-height:1.3}
-.mini{background:#1C1C1E;border-radius:14px;padding:12px;font-size:13px;color:var(--text-2);min-height:62px;display:flex;align-items:center;justify-content:center;text-align:center}
+.mini{background:#1C1C1E;border-radius:14px;padding:10px 12px;font-size:13px;color:var(--text-2);min-height:62px;display:flex;flex-direction:column;justify-content:center;gap:4px}
+.mini .rw{display:flex;justify-content:space-between;gap:8px}
+.mini .rw b{color:#fff;font-weight:600}
+.mini .gone{color:var(--quiet);text-decoration:line-through}
+.mini .c{text-align:center}
 .mini .s{color:var(--quiet);text-decoration:line-through}
 /* open */
 .opens{display:grid;gap:16px}
@@ -131,7 +145,10 @@ h3{font-weight:700;font-size:clamp(20px,2.4vw,26px);letter-spacing:-.02em;margin
 .op h4{margin:0 0 6px;font-size:19px;letter-spacing:-.01em}.op h4 span{color:var(--amber);margin-right:8px}
 .op p{color:var(--text-2);font-size:14px;max-width:80ch}
 .op .opts{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
-.op .opt{background:#1C1C1E;border-radius:14px;padding:10px 14px;font-size:13px;color:var(--text-2);max-width:340px}
+.op .opt{background:#1C1C1E;border-radius:14px;padding:10px 14px;font-size:13px;color:var(--text-2);max-width:360px}
+.op .opt .il{margin-top:4px}
+.op .now{margin-top:12px;display:inline-flex;gap:8px;align-items:center;background:#1C1C1E;border-radius:12px;padding:8px 12px;font-size:13px;color:var(--text-2)}
+.op .now b{color:var(--quiet);font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase}
 .op .opt b{display:block;color:var(--text);font-size:12px;margin-bottom:2px;color:var(--amber)}
 /* checks */
 .checks{display:flex;flex-wrap:wrap;gap:10px}
@@ -181,10 +198,10 @@ h3{font-weight:700;font-size:clamp(20px,2.4vw,26px);letter-spacing:-.02em;margin
   <div class="phone"><div class="appcard"></div><div class="grid">GRID</div>
    <div class="sh"><div class="grab"></div><div class="xb"><i data-lucide="x"></i></div>
     <div class="st">Weekly spending limit</div><div class="sc">Checked 90 days of spending</div>
-    <div class="pc"><div class="amt"><sup>$</sup>220<span class="d"><b>1</b></span><small>/week</small></div><div class="ru"></div><div class="pin" style="color:var(--out)">Suggested</div><div class="hint">&nbsp;</div></div>
+    <div class="pc"><div class="amt"><sup>$</sup>220<span class="d" data-side="sup"><b>1</b></span><small>/week</small></div><div class="ru"></div><div class="pin" style="color:var(--out)">Suggested</div><div class="hint">&nbsp;</div></div>
     <div class="why first">At <span class="gv" style="color:var(--out)">$220<i data-lucide="goal"></i></span> a week
-     <span class="bul">• <span class="b">$30</span><span class="d"><b>2</b></span> to repeating purchases</span>
-     <span class="bul">• <span class="b">$190</span><span class="d"><b>3</b></span> for your extras</span>
+     <span class="bul">• <span class="b">$30</span> to repeating purchases<span class="d"><b>2</b></span></span>
+     <span class="bul">• <span class="b">$190</span> for your extras<span class="d"><b>3</b></span></span>
      <div class="il"><i data-lucide="trending-down"></i>$25 less than your usual week<span class="d"><b>4</b></span></div>
      <div class="il"><i data-lucide="scale"></i>Fits with your $200 saving goal<span class="d"><b>5</b></span></div></div>
     <div class="why" style="display:flex;gap:10px;align-items:center"><span style="flex:1">You've done it before. <span class="b">5 weeks in the last 90 days</span> were $220 or less.<span class="d"><b>6</b></span></span><span class="spark" id="spk"></span></div>
@@ -192,11 +209,11 @@ h3{font-weight:700;font-size:clamp(20px,2.4vw,26px);letter-spacing:-.02em;margin
     <div class="lr"><div class="lg"><i style="background:#fff;color:#000">a</i><i style="background:#cc0000;color:#fff">T</i></div><div class="nm">General Merchandise</div><div class="am num">$122<small>/week</small></div></div>
     <div class="lr"><div class="lg"><i style="background:#00a1e0;color:#fff">A</i><i style="background:#451400;color:#fff">C</i></div><div class="nm">Food &amp; Drink</div><div class="am num">$51<small>/week</small></div></div>
     <div class="lr"><div class="lg"><i style="background:#d0021b;color:#fff">K</i></div><div class="nm">Transportation</div><div class="am num">$42<small>/week</small></div></div>
-    <div class="tot"><span class="l">Your extras</span><span class="num">$215<span class="d"><b>7</b></span><small>/week</small></span></div>
+    <div class="tot"><span class="l">Your extras</span><span class="num"><span class="d" data-side="left"><b>7</b></span>$215<small>/week</small></span></div>
     <div class="foot" style="background:linear-gradient(#F0335E,#B3123F)">Set limit</div>
    </div></div></div>
   <div class="cards">
-   <div class="nc"><span class="k">1</span><h4>Suggested limit</h4><div class="eq num"><em>min(</em>$245 − $25<em>, max(</em>$179 + $15 → $200<em>,</em> $242.90 × 0.88 → $225<em>))</em> = <span class="r">$220</span></div><div class="meta"><span class="chip">to $25</span><span class="chip">above the lowest week</span><span class="chip">never over usual</span><span class="chip">min $25</span></div></div>
+   <div class="nc"><span class="k">1</span><h4>Suggested limit</h4><div class="eq num steps"><span><em>12% under average</em> $242.90 × 0.88 = $213.75 → $225</span><span><em>at least third-lowest + $15</em> $179 + $15 = $194 → $200</span><span><em>take the higher</em> $225</span><span><em>never over usual − $25</em> $245 − $25 = $220 → <span class="r">$220</span></span></div><div class="meta"><span class="chip">to $25</span><span class="chip">above the lowest week</span><span class="chip">never over usual</span><span class="chip">min $25</span></div></div>
    <div class="nc"><span class="k">2</span><h4>Repeating purchases</h4><div class="eq num">($325 gym + $36 Spotify) <em>÷ 90 × 7 =</em> $28.08 → <span class="r">$30</span></div><div class="meta"><span class="chip">to $5</span><span class="chip">same payee, same amount ±$5, steady schedule, 3+ times</span><span class="chip">check shows $130/month (× 4.33)</span></div></div>
    <div class="nc"><span class="k">3</span><h4>For your extras</h4><div class="eq num">$220 <em>−</em> $30 = <span class="r">$190</span></div><div class="meta"><span class="chip">live with the ruler</span><span class="chip">never below $0</span></div></div>
    <div class="nc"><span class="k">4</span><h4>Against your usual week</h4><div class="eq num">$245 <em>−</em> $220 = <span class="r">$25 less</span></div><div class="meta"><span class="chip">"About your usual week" within $10</span></div></div>
@@ -216,13 +233,13 @@ h3{font-weight:700;font-size:clamp(20px,2.4vw,26px);letter-spacing:-.02em;margin
   <div class="phone" style="background:radial-gradient(90% 40% at 50% 8%,#0a6a82 0%,#06303e 45%,#000 75%)"><div class="appcard" style="background:radial-gradient(120% 90% at 50% -10%,#12B8D0,#0A7C9C 45%,#06405E)"></div><div class="grid">GRID</div>
    <div class="sh"><div class="grab"></div><div class="xb"><i data-lucide="x"></i></div>
     <div class="st">Weekly savings goal</div><div class="sc">Checked 90 days of saving</div>
-    <div class="pc"><div class="amt"><sup>$</sup>200<span class="d"><b>1</b></span><small>/week</small></div><div class="ru"></div><div class="pin" style="color:var(--cyan)">Suggested</div></div>
+    <div class="pc"><div class="amt"><sup>$</sup>200<span class="d" data-side="sup"><b>1</b></span><small>/week</small></div><div class="ru"></div><div class="pin" style="color:var(--cyan)">Suggested</div></div>
     <div class="why first">At <span class="gv" style="color:var(--cyan)">$200<i data-lucide="goal"></i></span> a week
-     <span class="bul">• <span class="b">$115</span><span class="d"><b>2</b></span>, your usual week</span>
-     <span class="bul">• <span class="b">$85</span><span class="d"><b>3</b></span> extra a week</span>
+     <span class="bul">• <span class="b">$115</span>, your usual week<span class="d"><b>2</b></span></span>
+     <span class="bul">• <span class="b">$85</span> extra a week<span class="d"><b>3</b></span></span>
      <div class="il"><i data-lucide="scale"></i>Fits with your $220 spending goal</div></div>
     <div class="lh">Ways to save more</div>
-    <div class="lr"><div class="ic"><i data-lucide="goal"></i></div><div class="nm">Save what you don’t <span style="color:var(--out)">spend</span></div><div class="am num">$25<span class="d"><b>4</b></span><small>/week</small></div></div>
+    <div class="lr"><div class="ic"><i data-lucide="goal"></i></div><div class="nm">Save what you don’t <span style="color:var(--out)">spend</span></div><div class="am num"><span class="d" data-side="left"><b>4</b></span>$25<small>/week</small></div></div>
     <div class="foot" style="background:linear-gradient(#12B8D0,#0A7C9C)">Set savings goal</div>
    </div></div></div>
   <div class="cards">
@@ -243,11 +260,11 @@ h3{font-weight:700;font-size:clamp(20px,2.4vw,26px);letter-spacing:-.02em;margin
   <div class="phone" style="background:radial-gradient(90% 40% at 50% 8%,#3d6a00 0%,#1a2e00 45%,#000 75%)"><div class="appcard" style="background:radial-gradient(120% 90% at 50% -10%,#A6FF00,#5E9900 45%,#263D00)"></div><div class="grid">GRID</div>
    <div class="sh"><div class="grab"></div><div class="xb"><i data-lucide="x"></i></div>
     <div class="st">Cushion goal</div><div class="sc">Checked 90 days of balances</div>
-    <div class="pc"><div class="amt">90<span class="d"><b>1</b></span><small> days</small></div><div class="ru"></div><div class="pin" style="color:var(--lime)">Suggested</div><div class="hint">Three months, the classic safety net</div></div>
-    <div class="why first">Keep at least <span class="b">$6,930</span><span class="d"><b>2</b></span> in the bank. That covers <span class="gv" style="color:var(--lime)">90 days<i data-lucide="goal"></i></span> of spending at $77<span class="d"><b>3</b></span> a day, bills included.
+    <div class="pc"><div class="amt">90<span class="d" data-side="sup"><b>1</b></span><small> days</small></div><div class="ru"></div><div class="pin" style="color:var(--lime)">Suggested</div><div class="hint">Three months, the classic safety net</div></div>
+    <div class="why first">Keep at least <span class="b">$6,930</span><span class="d" data-side="sup"><b>2</b></span> in the bank. That covers <span class="gv" style="color:var(--lime)">90 days<i data-lucide="goal"></i></span> of spending at $77 a day, bills included.<span class="d"><b>3</b></span>
      <div class="il"><i data-lucide="info"></i>See what counts</div></div>
     <div class="lh">Ways to grow it</div>
-    <div class="lr"><div class="ic"><i data-lucide="goal"></i></div><div class="nm">Hit your <span style="color:var(--out)">spending goal</span></div><div class="am num">+1 day<span class="d"><b>4</b></span><small>/month</small></div></div>
+    <div class="lr"><div class="ic"><i data-lucide="goal"></i></div><div class="nm">Hit your <span style="color:var(--out)">spending goal</span></div><div class="am num"><span class="d" data-side="left"><b>4</b></span>+1 day<small>/month</small></div></div>
     <div class="foot" style="background:linear-gradient(#A6FF00,#5E9900);color:#000">Set cushion</div>
    </div></div></div>
   <div class="cards">
@@ -300,18 +317,18 @@ h3{font-weight:700;font-size:clamp(20px,2.4vw,26px);letter-spacing:-.02em;margin
  <h2>Edge cases</h2>
  <p class="lede">What the sheets show when the data is thin, odd or missing.</p>
  <div class="edges">
-  <div class="eg"><h4>No bank linked</h4><div class="mini">Connect a bank</div></div>
-  <div class="eg"><h4>Under 4 full weeks of history</h4><div class="mini">No Spending suggestion. Ruler starts at the default.</div></div>
-  <div class="eg"><h4>Under 2 full weeks</h4><div class="mini">No Saving suggestion</div></div>
-  <div class="eg"><h4>No paycheck seen</h4><div class="mini"><span class="s">Fits with your saving goal</span>&nbsp;· opens on Any amount</div></div>
-  <div class="eg"><h4>Ruler below every week</h4><div class="mini">Lower than any week in 90 days</div></div>
-  <div class="eg"><h4>Repeating bigger than usual</h4><div class="mini">Capped at usual · extras $0</div></div>
-  <div class="eg"><h4>Nothing repeating</h4><div class="mini">No repeating bullet · extras = usual</div></div>
-  <div class="eg"><h4>Nothing spent in 30 days</h4><div class="mini" style="font-size:24px;font-weight:700">—</div></div>
-  <div class="eg"><h4>Card debt bigger than cash</h4><div class="mini">Cushion starts above $0</div></div>
-  <div class="eg"><h4>Pile-up from below $0</h4><div class="mini"><span class="s">Checking $60/week</span>&nbsp;not claimed</div></div>
-  <div class="eg"><h4>Huge numbers</h4><div class="mini">$149k · $1.2M · ruler steps $5 → $500</div></div>
-  <div class="eg"><h4>Refunds</h4><div class="mini">Not spending, not income</div></div>
+  <div class="eg"><h4>No bank linked</h4><div class="mini"><div class="c"><b style="color:#fff">Weekly spending limit</b></div><div class="c">Connect a bank</div></div></div>
+  <div class="eg"><h4>Under 4 full weeks</h4><div class="mini"><div class="c">Checked 20 days of spending</div><div class="c" style="color:var(--quiet)">ruler at the default, no "Suggested"</div></div></div>
+  <div class="eg"><h4>Under 2 full weeks</h4><div class="mini"><div class="c">Saving: no suggestion</div><div class="c" style="color:var(--quiet)">ruler at the default</div></div></div>
+  <div class="eg"><h4>No paycheck seen</h4><div class="mini"><div class="gone">Fits with your $200 saving goal</div><div class="rw"><span>Opens on</span><b>Any/week</b></div></div></div>
+  <div class="eg"><h4>Ruler below every week</h4><div class="mini"><div class="c" style="color:var(--amber)">Lower than any week in 90 days</div><div class="gone c">You've done it before</div></div></div>
+  <div class="eg"><h4>Repeating over usual</h4><div class="mini"><div class="rw"><span>Repeating</span><b>= usual</b></div><div class="rw"><span>Your extras</span><b>$0/week</b></div></div></div>
+  <div class="eg"><h4>Nothing repeating</h4><div class="mini"><div class="gone">• $30 to repeating purchases</div><div class="rw"><span>Your extras</span><b>= usual</b></div></div></div>
+  <div class="eg"><h4>Nothing spent in 30 days</h4><div class="mini"><div class="c" style="font-size:22px;font-weight:700;color:#fff">— days</div></div></div>
+  <div class="eg"><h4>Card debt over cash</h4><div class="mini"><div class="c"><b style="color:#fff">Cushion starts above $0</b></div><div class="c" style="color:var(--quiet)">Spending and Saving do the work until then</div></div></div>
+  <div class="eg"><h4>Pile-up from below $0</h4><div class="mini"><div class="rw gone"><span>Checking</span><span>$60/week</span></div><div class="c" style="color:var(--quiet)">not claimed</div></div></div>
+  <div class="eg"><h4>Huge numbers</h4><div class="mini"><div class="rw"><span>Your usual week</span><b>$149k</b></div><div class="rw"><span>ruler step</span><b>$500</b></div></div></div>
+  <div class="eg"><h4>Refunds</h4><div class="mini"><div class="rw"><span>Amazon refund</span><b style="color:var(--quiet)">not counted</b></div><div class="c" style="color:var(--quiet)">not spending, not income</div></div></div>
  </div>
 </div></section>
 
@@ -321,12 +338,12 @@ h3{font-weight:700;font-size:clamp(20px,2.4vw,26px);letter-spacing:-.02em;margin
  <p class="lede">Not decided. <b>Nothing here gets built</b> until it is.</p>
  <div class="opens">
   <div class="op"><h4><span>1</span>"Fits with your saving goal" and bills</h4><p>Today: limit + saving goal ≤ income, bills ignored, so it can say "fits" when rent doesn't. ", bills included" read as if bills were inside the limit.</p>
-   <div class="opts"><div class="opt"><b>A</b>Fits with your $200 saving goal and $280 of bills</div><div class="opt"><b>B</b>Leaves $62 a week after bills and saving</div></div></div>
+   <div class="opts"><div class="opt"><b>Now</b><div class="il"><i data-lucide="scale"></i>Fits with your $200 saving goal</div></div><div class="opt"><b>A</b><div class="il"><i data-lucide="scale"></i>Fits with your $200 saving goal and $280 of bills</div></div><div class="opt"><b>B</b><div class="il"><i data-lucide="scale"></i>Leaves $62 a week after bills and saving</div></div></div></div>
   <div class="op"><h4><span>2</span>What counts as a save</h4><p>Real data read $465 a week against about $350 really saved: moves between two savings accounts at the same bank count, and outside deposits (checks) count.</p>
    <div class="opts"><div class="opt"><b>Proposed default</b>Money moved from your own account into savings or investments. Same-bank savings-to-savings and unmatched deposits don't count.</div><div class="opt"><b>Plus</b>You choose what counts, per account and per transaction (in design).</div></div></div>
-  <div class="op"><h4><span>3</span>One usual week everywhere</h4><p>The calendar's week totals and the goal check must leave bills out the same way the sheets do. Confirm before trusting the bars.</p></div>
-  <div class="op"><h4><span>4</span>Refunds</h4><p>Does a refund lower the week it lands in, the week of the purchase, or neither (today)?</p></div>
-  <div class="op"><h4><span>5</span>"+1 day/month" assumes the money stays</h4><p>If Saving moves it to an account Cushion doesn't count, the days don't grow. Say so, or drop the row then.</p></div>
+  <div class="op"><h4><span>3</span>One usual week everywhere</h4><p>The calendar's week totals and the goal check must leave bills out the same way the sheets do. Confirm before trusting the bars.</p><div class="now"><b>Check</b>week bar $611 vs sheet's week, same bills left out?</div></div>
+  <div class="op"><h4><span>4</span>Refunds</h4><p>Does a refund lower the week it lands in, the week of the purchase, or neither (today)?</p><div class="opts"><div class="opt"><b>Now</b>Week of Oct 13: $611, refund ignored</div><div class="opt"><b>A</b>Week it lands: $611 − $40 = $571</div><div class="opt"><b>B</b>Week of the purchase: earlier week − $40</div></div></div>
+  <div class="op"><h4><span>5</span>"+1 day/month" assumes the money stays</h4><p>If Saving moves it to an account Cushion doesn't count, the days don't grow. Say so, or drop the row then.</p><div class="opts"><div class="opt"><b>Now</b><div class="rw" style="display:flex;justify-content:space-between"><span>Hit your spending goal</span><span>+1 day/month</span></div></div><div class="opt"><b>A</b>Hidden when your saving goal moves it out</div></div></div>
   <div class="op"><h4><span>6</span>Hidden accounts and Cushion</h4><p>A hidden account's spending still counts in Cushion's daily spending, but not on the Spending sheet.</p></div>
  </div>
 </div></section>
@@ -347,17 +364,18 @@ h3{font-weight:700;font-size:clamp(20px,2.4vw,26px);letter-spacing:-.02em;margin
 
 <script>
 // Strips: the window (90 days) and the full weeks inside it.
-document.getElementById('win').innerHTML = Array.from({ length: 30 }, () => '<i class="f"></i>').join('')
+document.getElementById('win').innerHTML = Array.from({ length: 90 }, (_, i) => `<i class="f" style="${i % 7 === 6 ? 'margin-right:2px' : ''}"></i>`).join('')
 document.getElementById('weeks').innerHTML = Array.from({ length: 11 }, () => '<i class="f"></i>').join('') + '<i class="now"></i>'
 // Background grid on each phone.
-document.querySelectorAll('.grid').forEach(g => { g.innerHTML = Array.from({ length: 28 }, (_, i) => `<i class="${(i * 7) % 5 === 1 ? 'l' : ''}"></i>`).join('') })
+const LOGO = ['#ff9900', '#e8e8ea', '#cc0000', '#00a1e0', '#1DB954', '#d0021b', '#f26722']
+document.querySelectorAll('.grid').forEach(g => { let h = ''; for (let w = 0; w < 4; w++) { for (let d = 0; d < 7; d++) { const n = w * 7 + d + 1, k = (n * 5) % 7; h += `<i><span>${n}</span>${n % 4 !== 2 ? `<b style="background:${LOGO[k]}"></b>` : ''}${n % 3 === 0 ? `<b style="background:${LOGO[(k + 3) % 7]}"></b>` : ''}</i>` } h += '<em class="wk"></em>' } g.innerHTML = h })
 // Spending's weeks from the example; lit when at or under $220.
 const W = [242, 179, 194, 444, 176, 242, 234, 173, 423, 236, 193], lo = Math.min(...W), hi = Math.max(...W)
 document.getElementById('spk').innerHTML = W.map(w => `<i style="height:${Math.round((w - lo) / (hi - lo) * 18 + 4)}px;${w <= 220 ? 'background:var(--out)' : ''}"></i>`).join('')
 // Rounding number lines.
 const R = [
   ['Weekly averages', 'To $5', 242.90, 230, 255, 5, 245, '$242.90 → $245'],
-  ['Suggested limit', 'To $25', 213.75, 175, 250, 25, 225, '$213.75 → $225'],
+  ['Suggested limit', 'To $25, then capped at usual − $25 = $220', 213.75, 175, 250, 25, 225, '$213.75 → $225'],
   ['Daily spending', 'To whole $', 76.77, 75, 79, 1, 77, '$76.77 → $77'],
   ['Days', 'Always down', 91.96, 89, 94, 1, 91, '91.96 → 91 days'],
 ]
@@ -368,20 +386,24 @@ document.getElementById('rounds').innerHTML = R.map(([t, rule, raw, a, b, step, 
   return `<div class="rd"><h4>${t}</h4><p>${rule}</p><div class="nl"><span class="ax"></span>${ticks}<span class="raw" style="left:${x(raw)}">${t === 'Days' ? raw : '$' + raw.toFixed(2)}</span><span class="lands" style="left:${x(land)}"></span></div><div class="res num">${res.replace('→', '<em>→</em>')}</div></div>`
 }).join('')
 lucide.createIcons()
-// Rail: each dot's number sits just right of its phone, level with the dot.
-document.querySelectorAll('[data-rail]').forEach(scr => {
-  const phone = scr.querySelector('.phone'), sb = scr.getBoundingClientRect(), pb = phone.getBoundingClientRect()
-  let last = -99
-  ;[...scr.querySelectorAll('.d')].map(n => ({ n, r: n.getBoundingClientRect() })).sort((a, b) => a.r.top - b.r.top).forEach(({ n, r }) => {
-    let y = r.top - sb.top - 10
-    if (y < last + 22) y = last + 22
-    last = y
+// Number chips: each floats at the top-right corner of the element it marks (where its anchor
+// sits, right after the element), drawn over the page so the layout never moves.
+const placeChips = () => document.querySelectorAll('[data-rail]').forEach(scr => {
+  scr.querySelectorAll('.rail').forEach(c => c.remove())
+  const sb = scr.getBoundingClientRect()
+  scr.querySelectorAll('.d').forEach(n => {
+    const r = n.getBoundingClientRect()
     const b = document.createElement('i')
     b.className = 'rail'; b.textContent = n.textContent
-    b.style.left = (pb.right - sb.left + 8) + 'px'; b.style.top = y + 'px'
-    b.style.setProperty('--lead', Math.max(0, pb.right - r.left + 8 - 4) + 'px')
+    const side = n.dataset.side || 'after'
+    const x = r.left - sb.left, y = r.top - sb.top
+    b.style.left = (side === 'left' ? x - 24 : side === 'sup' ? x + 1 : x + 5) + 'px'
+    b.style.top = (side === 'sup' ? y - 16 : y - 9) + 'px'
     scr.appendChild(b)
   })
 })
+placeChips()
+addEventListener('resize', placeChips)
+document.fonts?.ready.then(placeChips)
 </script>
 </body></html>

@@ -21,7 +21,8 @@ One long scroll. Each section leads with one big visual; words are captions.
 - **Equations use the example's inputs**, in the order the code applies them, with the rounding step shown last. If the code caps or clamps, show the cap as its own step.
 - **One definition per term.** If two screens use different versions of "the same" number, that's a finding: show both side by side in Open, never smooth it over.
 - **Units like the product.** Numbers on a row with a muted unit after them ("$175/week"); sentences in plain words ("a week").
-- **The screen is the index.** Readers find a number by looking at the screen they know, not by name. Keep the numbered dots in a rail beside the phone, joined by a thin line, so they never cover the screen (as on `ui-mockup`'s fix-approval board).
+- **The screen is the index.** Readers find a number by looking at the screen they know, not by name. Each number is a small chip floating on the element it marks: a zero-size anchor in the markup, the chip drawn over the page by script, so the layout never moves (user, 2026-10-25: no dots, no lines). Put the chip in free space: at the end of its line, on the top-right corner of a big number (`data-side="sup"`), or in the gap left of a right-aligned value (`data-side="left"`). Never mid-line, where it covers the next word. Same chips as `ui-mockup`'s fix-approval board.
+- **Formulas read as steps.** One labelled line per step in the order the code runs, never `min()` / `max()`.
 - **Glass sheets look like glass:** draw iOS sheets see-through over the real home screen, not as flat grey panels.
 - **Phone width works:** the screen and its cards stack; no sideways scroll.
 - Avoid the banned looks listed in `ui-mockup`.
