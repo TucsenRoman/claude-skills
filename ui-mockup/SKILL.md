@@ -10,6 +10,7 @@ The one place that builds mocks and decides how UI gets shown. Pick the format b
 | The user needs to… | Format | How |
 |---|---|---|
 | Compare options, or see a fix before and after | PNG board (default) | [modes/board.md](modes/board.md) |
+| Approve a list of fixes (yes/no per fix) | Fix-approval board: Now vs Proposed, numbered fixes | [modes/board.md](modes/board.md) |
 | Judge a small detail (an icon, an outline, a number) | 2x close-up | [modes/board.md](modes/board.md) |
 | Compare options that differ over time (an intro, a transition, a loading sequence) | Synced scrubber: every option on one timeline, with key moments and durations marked | [modes/lab.md](modes/lab.md#synced-scrubber) |
 | Tune anything live: find the right numbers, tune tokens or motion, break it with extreme data, edit wording in place | Lab (custom controls, or the tokens, stress data, copy and motion presets) | [modes/lab.md](modes/lab.md) |
