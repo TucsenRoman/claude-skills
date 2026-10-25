@@ -42,7 +42,7 @@ A set of Claude Code skills for designing and building UI, plus a few that keep 
 Skills keep a `LESSONS.md` of what real use taught them. Those files are personal and gitignored, so they are not in this repo. See "How a skill is laid out" in `SHARED.md`.
 
 ## Shared conventions
-`SHARED.md` holds what every skill follows: the UI stage table and rules, how source guides are used, the proposals table (`# | Context | Why | Now | Proposed`), and when `skill-tailor` and `skill-mason` speak up.
+`SHARED.md` holds what every skill follows: the UI stage table and rules, how source guides are used, the proposals table (`# | Problem | Context | Why | Now | Proposed`), and when `skill-tailor` and `skill-mason` speak up.
 
 ## Credits
 Some guides build on these open-source skills:

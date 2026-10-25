@@ -10,7 +10,7 @@ Turn what the user keeps repeating into a skill, so they stop having to repeat i
 ## Keep it fast and light
 - **The ask is one line.** Pattern, evidence count, proposed name. For example:
   `Pattern: you've asked for a before/after table on every refactor (4x, 3 sessions). Build "refactor-recap"? y/n`
-- Several at once: the proposals table (`# | Context | Why | Now | Proposed`, see `../SHARED.md`) (Now = what happens today without the skill), then `Reply like "1 y, 2 n"`.
+- Several at once: the proposals table (`# | Problem | Context | Why | Now | Proposed`, see `../SHARED.md`) (Now = what happens today without the skill), then `Reply like "1 y, 2 n"`.
 - Details (quotes, dates, the draft outline) only when the user asks about a number.
 - Ask at the end of a task, never mid-task.
 
