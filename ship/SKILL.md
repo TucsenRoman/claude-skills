@@ -32,6 +32,7 @@ Ship the change that is in progress (or the one described in the arguments) as a
 
 ## 5. Approve or deny
 Ask with `AskUserQuestion`, one question, header `Merge PR`:
+- Lead with the verdict (user, 2026-10-25: "start with this next time"): approve or not, then its risks in plain words, including what wasn't tested and how to check it.
 - The question: the PR title, one plain line on what it does, and the check status.
 - Everywhere you mention the PR (question, report), call it by its title, not "#<n>". Link it once in full if a link helps.
 - Options: **Approve & merge** / **Deny**. If the PR has a database migration, add **Merge only** (don't apply to the DB).
