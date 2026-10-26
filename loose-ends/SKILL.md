@@ -19,6 +19,6 @@ One numbered list, most important first, one short line each: what it is and wha
 
 ## 3. Work it one at a time
 - Take the user's pick (or the top item), do it, report in a line, move to the next.
-- **Explain before you ask** (user, 2026-10-25): before any yes/no on an item (merge, delete, close, revert), explain it in plain words: what it is, what it changes, its risk, and your pick. The one-line list entry is not enough. When offering the next item, explain that item, don't just name it. Check the facts first (for example whether main already has a PR's fix).
+- **Explain before you ask** (user, 2026-10-25): before any yes/no on an item (merge, delete, close, revert), explain it in plain words: what it is, what it changes, its risk, and your pick. The one-line list entry is not enough. When offering the next item, explain that item, don't just name it. Call items by what they are, never by list number alone (user, 2026-10-26: "what is item 10?"). Check the facts first (for example whether main already has a PR's fix).
 - **Say what a thing is before deleting it**: what it does or holds, how old it is, whether anything uses it. Wait for a yes on every delete.
 - Commits and merges follow `ship`. Locked folders: find what holds them (a running server, an open session) and say so, rather than forcing it.
