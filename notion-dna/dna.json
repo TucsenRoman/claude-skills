@@ -1,0 +1,388 @@
+{
+  "meta": {
+    "name": "Notion DNA",
+    "slug": "notion-dna",
+    "source": "Notion: 361 collected images (reference/screens/INDEX.md), 21 first-party sources (reference/DESIGN-SOURCES.md)",
+    "captured": "2026-10-31",
+    "medium_of_origin": "Desktop and mobile app",
+    "not_copied": [
+      "Notion name, logo and wordmark",
+      "Roman Muradov's illustrations",
+      "any Notion icon set",
+      "Notion's own typeface"
+    ],
+    "legal_note": "Notion's brand guidelines prohibit copying its look and feel. Use this to learn the system and combine it with your own identity. This is not legal advice.",
+    "evidence_limits": "Notion explains blocks and bricks at length, but says almost nothing about color, type choice, hover hiding or motion. Those rules come from pixels or are inferred. No clear block handle, current slash menu or live published Site screen was found."
+  },
+  "soul": {
+    "one_line": "A quiet white page of same-sized rows where the user's emoji, covers and colored tags are the only things with personality.",
+    "adjectives": [
+      "quiet",
+      "modular",
+      "enduring",
+      "yours"
+    ],
+    "lineage": "Word processors and early Macintosh software, by way of the 1960s and 70s computing pioneers Notion names.",
+    "read_distance": "Reading distance at a desk: built for working in for hours, not for glancing at.",
+    "energy": {
+      "density": 5,
+      "variance": 2,
+      "contrast": 5,
+      "warmth": 4
+    },
+    "philosophy": [
+      "Everything is one unit, a block. [first-party]",
+      "Add a reusable brick, not a fixed feature. [first-party]",
+      "Give beginners ready-made boxes that still come apart. [first-party]",
+      "Enduring, and free of novelty. [first-party]",
+      "Make the plain path great; distrust the clever. [first-party, reported]",
+      "Avoid bright colors in the app. [first-party, reason not given]"
+    ]
+  },
+  "palette": {
+    "colors": [
+      {
+        "role": "page",
+        "hex": "#FFFFFF",
+        "dark_hex": "#191919",
+        "name": "paper white",
+        "coverage_pct": 88,
+        "measured": true
+      },
+      {
+        "role": "sidebar and app chrome",
+        "hex": "#F7F7F5",
+        "name": "warm off-white",
+        "coverage_pct": 25,
+        "measured": true,
+        "note": "Coverage varies: 0 with the sidebar closed, about 25 with it open. It takes space from the page."
+      },
+      {
+        "role": "selected row, tab",
+        "hex": "#EDEDEB",
+        "name": "pressed paper",
+        "coverage_pct": 1,
+        "measured": true
+      },
+      {
+        "role": "callout",
+        "hex": "#F1F1EF",
+        "name": "soft note grey",
+        "coverage_pct": 8,
+        "measured": true
+      },
+      {
+        "role": "empty cover",
+        "hex": "#F7F6F3",
+        "name": "unbleached",
+        "coverage_pct": 0,
+        "measured": true
+      },
+      {
+        "role": "hairlines",
+        "hex": "#E5E5E1",
+        "name": "pencil line",
+        "coverage_pct": 1,
+        "measured": true
+      },
+      {
+        "role": "primary text",
+        "hex": "#37352F",
+        "name": "soft warm black, never pure",
+        "coverage_pct": 3,
+        "measured": true
+      },
+      {
+        "role": "sidebar and row text",
+        "hex": "#72716D",
+        "name": "warm grey",
+        "coverage_pct": 1,
+        "measured": true
+      },
+      {
+        "role": "section label",
+        "hex": "#969692",
+        "name": "faded grey",
+        "coverage_pct": 0.5,
+        "measured": true
+      },
+      {
+        "role": "single primary button",
+        "hex": "#4080E0",
+        "name": "muted blue",
+        "coverage_pct": 0.3,
+        "measured": "approximate; 16-step bucket"
+      }
+    ],
+    "user_colors": {
+      "rule": "Color belongs to the user's content. Tags are pale fill with dark same-hue text.",
+      "tag_yellow": "#F5E7BC",
+      "tag_green": "#DFEBDE",
+      "tag_red": "#F6DFD9",
+      "measured": true,
+      "count": "Third-party count: 10 per theme. Not first-party."
+    },
+    "banned_behaviours": [
+      "Saturated color as a surface in the app's own chrome.",
+      "Pure black text on white.",
+      "More than one blue button on a view.",
+      "A brand color anywhere in the frame."
+    ]
+  },
+  "type": {
+    "families": [
+      {
+        "role": "everything",
+        "family": "A plain humanist sans; system UI stack",
+        "fallback": "Inter, system-ui, sans-serif",
+        "weights": [
+          400,
+          500,
+          600,
+          700
+        ],
+        "note": "Users can switch a page to Default, Serif or Mono. That choice of three is first-party."
+      }
+    ],
+    "scale": {
+      "display_to_body_ratio": "Page title about 2.6x body, measured by eye",
+      "steps": "label 0.875, body 1, title 2.5",
+      "max_sizes_per_frame": 3,
+      "largest_to_smallest_max": 3
+    },
+    "treatment": {
+      "tracking": "default",
+      "leading": "about 1.5 for body",
+      "case": "Sentence case. Almost never caps.",
+      "measure": "Centered page column, about 54% of window width with sidebar open",
+      "numerals": "Default"
+    }
+  },
+  "space": {
+    "grid": "One sidebar and one centered text column. Blocks stack; columns are opt-in.",
+    "margin_pct": 10,
+    "gutter_pct": 2,
+    "alignment": "Everything starts at one left edge. Icon, title and body share it.",
+    "rhythm": "One row height repeats for sidebar rows, list rows, table rows and menu rows",
+    "negative_space": "Generous above the title; tight between blocks",
+    "safe_area": "The empty margin around the column is where controls appear"
+  },
+  "surface": {
+    "texture": "None",
+    "edges": "Radius about 4 to 6px on rows and callouts, small on tags. Never pill-heavy, except view tabs.",
+    "elevation": "Flat. Only floating menus get a shadow.",
+    "imagery": "User-chosen covers. Line-drawn black and white for anything the product supplies itself.",
+    "iconography": "Thin grey monochrome for chrome. Full-color emoji for content. The two never swap jobs."
+  },
+  "signatures": [
+    {
+      "move": "One row for everything",
+      "how": "Sidebar rows, list rows, table rows and menu items share a height and a [small icon][label] shape, and hover gets the same pale fill.",
+      "when": "Any list",
+      "never": "A new row style per feature"
+    },
+    {
+      "move": "Page anatomy",
+      "how": "Optional cover about 28% of content height, emoji at 2.5x title cap height overlapping its bottom edge, then a title at 2.6x body. All on one left edge.",
+      "when": "Top of any page",
+      "never": "A header bar with a page name inside it"
+    },
+    {
+      "move": "Monochrome frame, colorful contents",
+      "how": "Chrome stays within warm greys. Emoji, covers and tags are the only saturated marks, always placed by the user.",
+      "when": "Always",
+      "never": "Colored icons in the product's own chrome"
+    },
+    {
+      "move": "Pale tag, dark text",
+      "how": "Pale pastel fill with a same-hue dark label, small radius, height about 0.75x the row.",
+      "when": "A property or status",
+      "never": "White text on a saturated pill"
+    },
+    {
+      "move": "Callout as the only box",
+      "how": "Soft grey fill, no border, emoji at left, the block's contents inside.",
+      "when": "Content that should stand apart",
+      "never": "Bordered or shadowed cards in body content"
+    },
+    {
+      "move": "Quiet until needed",
+      "how": "Page and block controls stay out of sight, grey and icon-only; a label appears only on the one primary action and on Share. [behavior documented; the reason is inferred]",
+      "when": "Anything not being used",
+      "never": "A permanent toolbar of labeled buttons over content"
+    },
+    {
+      "move": "Breadcrumb, not a title bar",
+      "how": "A thin top bar holds a small icon-and-name path at left and sparse grey icons at right, with no fill.",
+      "when": "Every page",
+      "never": "A heavy header"
+    },
+    {
+      "move": "Words as interface",
+      "how": "Most choices live in plain text menus. A link is grey underlined text, and + New page is a faint row at the list end.",
+      "when": "Adding and linking",
+      "never": "A big colored Add button for each list"
+    }
+  ],
+  "weird_move": {
+    "name": "A glossy emoji on a monochrome page",
+    "what": "A large, detailed, full-color emoji sits on an otherwise colorless interface, overlapping the cover's edge at about 2.5x title height.",
+    "rule": "It's the only rich image the page needs. It always belongs to the user, and it is the first thing they customize."
+  },
+  "archetypes": [
+    {
+      "id": "page",
+      "purpose": "Reading and writing",
+      "anatomy": "breadcrumb, optional cover, big emoji, title, stacked blocks",
+      "content_shape": "Any length"
+    },
+    {
+      "id": "table",
+      "purpose": "Scanning records",
+      "anatomy": "icon and title, view tabs left, grey tool icons and one blue New right, hairline grid, faint + New page row",
+      "content_shape": "Many rows"
+    },
+    {
+      "id": "board",
+      "purpose": "Status at a glance",
+      "anatomy": "columns headed by a pale tag; flat cards with hairline",
+      "content_shape": "3 to 5 columns"
+    },
+    {
+      "id": "sidebar",
+      "purpose": "Getting around",
+      "anatomy": "workspace switcher, few utilities, grey section labels, nested rows with chevron and emoji",
+      "content_shape": "A tree"
+    },
+    {
+      "id": "mobile-home",
+      "purpose": "Jumping back in",
+      "anatomy": "account row, horizontal cards with mini cover and emoji, inset grouped rows with chevron and plus",
+      "content_shape": "Recent, then favorites"
+    },
+    {
+      "id": "starter-box",
+      "purpose": "Filling a blank page",
+      "anatomy": "A ready-made arrangement of ordinary blocks the user can pull apart. [first-party idea; layout inferred]",
+      "content_shape": "Template"
+    }
+  ],
+  "motion": {
+    "easing": "Unknown",
+    "durations": "Unknown: nothing first-party, and stills can't show it",
+    "entrances": "Unknown",
+    "never_moves": "Content position while reading, inferred",
+    "reduced_motion": "Crossfade only"
+  },
+  "voice": {
+    "register": "Plain, friendly, unhurried",
+    "sentence_length": "Short labels; verbs for actions",
+    "headline_shape": "The user's own words: the page's name",
+    "banned_words": []
+  },
+  "bans": [
+    "Never give the product's own frame a saturated color.",
+    "Never use pure black for text.",
+    "Never add a second row style when the existing row can hold it.",
+    "Never put a shadow or border on body-content boxes.",
+    "Never use more than one filled button per view.",
+    "Never show a toolbar of labeled buttons over content.",
+    "Never use emoji for chrome or line icons for user content.",
+    "Never use a pill for a content tag.",
+    "Never add a one-off feature when a reusable block would do it.",
+    "Never leave someone at a blank page without a starter box."
+  ],
+  "tests": [
+    {
+      "id": "T1",
+      "check": "Chrome colors have under 12 points between their highest and lowest RGB channel, excluding one primary button",
+      "auto": false
+    },
+    {
+      "id": "T2",
+      "check": "Text color is never #000",
+      "auto": true
+    },
+    {
+      "id": "T3",
+      "check": "At most 3 font sizes, excluding emoji",
+      "auto": true
+    },
+    {
+      "id": "T4",
+      "check": "Largest to smallest type is at most 3.2:1, excluding emoji",
+      "auto": true
+    },
+    {
+      "id": "T5",
+      "check": "No box-shadow except on floating menus",
+      "auto": true
+    },
+    {
+      "id": "T6",
+      "check": "No gradient",
+      "auto": true
+    },
+    {
+      "id": "T7",
+      "check": "At most one filled primary button",
+      "auto": true
+    },
+    {
+      "id": "T8",
+      "check": "Row-like elements share one height, within 2px",
+      "auto": false
+    },
+    {
+      "id": "T9",
+      "check": "Tags have a radius of 6px or less and pale fills",
+      "auto": false
+    },
+    {
+      "id": "T10",
+      "check": "Every emoji sits on content the user owns, none in chrome",
+      "auto": false
+    }
+  ],
+  "reconstruction": {
+    "attempted": true,
+    "gaps_found": [
+      "Round 1: sidebar chevrons missing",
+      "Round 1: links were grey and underlined across emoji; they are ink with text-only underline",
+      "Round 1: too little air between emoji and title",
+      "Round 1: linked rows were too tight",
+      "Round 1: selected row was not emphasized",
+      "Round 1: emoji size contradicted the type tests",
+      "Round 1: breadcrumb tile icon missing",
+      "Round 1: Share label contradicted the no-label ban"
+    ],
+    "passes": 2,
+    "round_2_gaps": [
+      "Sidebar chevrons still missing: the rule needs to be plainer",
+      "Selected state landed on the wrong row",
+      "Callout padding had to shrink to fit the height"
+    ],
+    "verdict": "Round 2 matches structure, hierarchy and rhythm on one screen, the page with sidebar. A stranger could still tell: system font and emoji differ, and no illustration on the cover. Other archetypes, dark mode and motion were never rebuilt."
+  },
+  "page_anatomy": {
+    "reference_window": "960x600pt with sidebar",
+    "sidebar_width": 240,
+    "row_height": 28,
+    "top_bar_height": 38,
+    "cover_height": 170,
+    "cover_top": 38,
+    "emoji_size": 78,
+    "sizes": {
+      "body": 16,
+      "label": 14,
+      "title": 40
+    },
+    "title_weight": 700,
+    "emoji": "Starts on the page column left edge and overlaps the cover bottom by about half. Emoji size is excluded from the type tests.",
+    "gaps": "About 55pt of air between emoji and title. 16pt from title to first block. 8pt between callouts.",
+    "links": "Link text stays primary ink color with a 1px grey underline under the text only, not the emoji. Inline emoji sits before the link, outside the underline. Linked rows inside a callout are 32pt apart.",
+    "sidebar": "Rows have a grey chevron at far left when they have children, then the emoji, then the label. Teamspace rows use a small grey tile icon and no chevron. Selected row: pale fill, primary ink, weight 500. 16pt gap above each teamspace group. Every page row with children must show its chevron.",
+    "breadcrumb": "First crumb has a small grey tile icon. Separator is a faint slash. Share stays a text label; it is the one labeled top-bar control.",
+    "callout": "Padding 16pt; emoji in a 40pt left column; radius 4."
+  }
+}

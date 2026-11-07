@@ -1,0 +1,73 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Rebuild 1</title>
+<script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+<style>
+*{box-sizing:border-box}
+body{margin:0;overflow:hidden;width:960px;height:600px;font-family:Inter,system-ui,sans-serif;font-size:16px;line-height:1.5;color:#37352F;background:#fff}
+.app{display:flex;width:960px;height:600px;overflow:hidden}
+.side{width:240px;height:600px;background:#F7F7F5;padding:8px 6px;overflow:hidden;flex:none}
+.row{display:flex;align-items:center;gap:8px;height:28px;padding:0 8px;border-radius:4px;font-size:14px;color:#72716D;white-space:nowrap;overflow:hidden}
+.row.sel{background:#EDEDEB;color:#37352F}
+.row.l2{padding-left:26px}
+.row.l3{padding-left:44px}
+.row i,.row svg{width:16px;height:16px;flex:none;stroke-width:1.75}
+.row .e{width:16px;text-align:center;font-size:14px;flex:none}
+.ws{height:40px;margin-bottom:4px;color:#37352F}
+.ws .av{width:20px;height:20px;border-radius:4px;background:#EDEDEB;font-size:12px;display:flex;align-items:center;justify-content:center;flex:none;color:#72716D}
+.ws b{font-weight:500}
+.ws small{display:block;font-size:14px;line-height:1.2;color:#969692}
+.label{height:28px;display:flex;align-items:center;padding:0 8px;margin-top:12px;font-size:14px;color:#969692}
+.main{flex:1;width:720px;height:600px;display:flex;flex-direction:column;overflow:hidden}
+.top{height:45px;flex:none;display:flex;align-items:center;justify-content:space-between;padding:0 12px;font-size:14px;color:#72716D}
+.crumb{display:flex;align-items:center;gap:6px}
+.tools{display:flex;align-items:center;gap:14px}
+.tools i,.tools svg{width:16px;height:16px;stroke-width:1.75}
+.page{flex:1;overflow:hidden;position:relative}
+.cover{height:155px;background:#F7F6F3}
+.col{width:518px;margin:0 auto}
+.emoji{font-size:64px;line-height:72px;height:72px;margin-top:-36px;position:relative}
+.title{font-size:41.6px;line-height:1.2;font-weight:700;margin:8px 0 12px}
+.callout{display:flex;gap:12px;background:#F1F1EF;border-radius:4px;padding:16px;margin-bottom:4px;font-size:16px}
+.callout .ce{font-size:16px;flex:none}
+.callout a{color:#72716D;text-decoration:underline;text-decoration-color:#C9C9C5}
+.callout div p{margin:0}
+.newrow{margin-top:8px;color:#969692}
+</style></head><body>
+<div class="app">
+<div class="side">
+  <div class="row ws"><div class="av">A</div><div><b>Acme Inc.</b><small>stephanie@toolsforthought.xyz</small></div></div>
+  <div class="row"><i data-lucide="search"></i>Search</div>
+  <div class="row"><i data-lucide="clock"></i>Updates</div>
+  <div class="row"><i data-lucide="users"></i>All teamspaces</div>
+  <div class="row"><i data-lucide="settings"></i>Settings &amp; members</div>
+  <div class="label">Teamspaces</div>
+  <div class="row"><i data-lucide="home"></i>General</div>
+  <div class="row l2 sel"><span class="e">☕</span>Company Home</div>
+  <div class="row l2"><span class="e">✍️</span>Meeting Notes</div>
+  <div class="row l2"><span class="e">📰</span>Docs</div>
+  <div class="row"><i data-lucide="flower-2"></i>People</div>
+  <div class="row l2"><span class="e">🪴</span>People Home</div>
+  <div class="row l2"><span class="e">📮</span>Applicant Tracker</div>
+  <div class="row l2"><span class="e">🙌</span>Monthly All-Hands</div>
+  <div class="row l2"><span class="e">🗄️</span>People Archive</div>
+  <div class="row"><i data-lucide="wrench"></i>Product</div>
+  <div class="row" style="position:absolute;top:564px;left:6px;color:#969692"><i data-lucide="plus"></i>New page</div>
+</div>
+<div class="main">
+  <div class="top">
+    <div class="crumb">General <span>/</span> <span>☕</span> Company Home</div>
+    <div class="tools"><span>Share</span><i data-lucide="message-square"></i><i data-lucide="clock"></i><i data-lucide="star"></i><i data-lucide="more-horizontal"></i></div>
+  </div>
+  <div class="page">
+    <div class="cover"></div>
+    <div class="col">
+      <div class="emoji">☕</div>
+      <div class="title">Company Home</div>
+      <div class="callout"><span class="ce">📌</span><div><p><b>Must reads</b> for our company:</p><p><a>✨ Mission, Vision and Values</a></p><p><a>🚋 Company goals</a></p></div></div>
+      <div class="callout"><span class="ce">🪁</span><div><p><a>New Employee</a></p><p><a>🌱 General onboarding</a></p><p><a>🆕 To Do/Read in your first week</a></p></div></div>
+    </div>
+  </div>
+</div>
+</div>
+<script>lucide.createIcons();</script>
+</body></html>
