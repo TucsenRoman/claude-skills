@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=402,initial-scale=1">
+<title>Detail</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#fff;font-family:Inter,system-ui,sans-serif;font-variant-numeric:tabular-nums;color:#000}
+.screen{position:relative;width:402px;height:812px;overflow:hidden;background:#3b4a2a}
+.sheet{position:absolute;left:0;right:0;top:120px;bottom:0;background:#F6F6F6;border-radius:16px 16px 0 0;padding:20px 16px;box-shadow:0 -4px 16px rgba(0,0,0,.18)}
+.s14{font-size:14px;line-height:1.3}
+.grey{color:#8A8A8E}
+.kick{display:flex;justify-content:space-between;align-items:center}
+.close{width:28px;height:28px;border-radius:50%;background:#ECECEC;color:#8A8A8E;font-size:14px;display:flex;align-items:center;justify-content:center}
+h1{font-size:16px;line-height:1.2;font-weight:700;margin-top:4px}
+.pills{display:flex;gap:8px;margin-top:12px}
+.pill{font-size:14px;font-weight:600;padding:8px 14px;border-radius:999px;background:#ECECEC;color:#000}
+.pill.p{background:#0076F7;color:#fff}
+.strip{margin-top:12px;background:#F5EEEE;border-radius:12px;padding:10px 12px;display:flex;justify-content:space-between;align-items:center;font-size:14px;font-weight:600}
+.strip .cd{color:#D92D20}
+.sign{background:#F7AB05;color:#000;font-weight:700;font-size:14px;padding:4px 8px;border-radius:4px;display:inline-flex;gap:4px}
+.ep{margin-top:20px}
+.row{display:flex;justify-content:space-between;align-items:baseline}
+.code{font-size:28px;font-weight:700;letter-spacing:-.5px;line-height:1.2}
+.time{font-size:24px;font-weight:700;line-height:1.2;color:#D92D20}
+.old{text-decoration:line-through;color:#8A8A8E;font-size:14px;margin-right:6px;font-weight:400}
+.facts{display:flex;justify-content:space-between;margin-top:4px}
+.facts div:last-child{text-align:right}
+.delta{color:#D92D20}
+.div{text-align:center;margin-top:20px;color:#8A8A8E}
+.note{margin-top:16px;background:#ECECEC;border-radius:12px;padding:12px}
+.note b{display:block}
+.cards{display:flex;gap:8px;margin-top:8px}
+.card{flex:1;background:#ECECEC;border-radius:12px;padding:12px;position:relative}
+.card b{display:block}
+.chip{position:absolute;right:10px;top:10px;background:#F6F6F6;border-radius:999px;font-size:14px;font-weight:600;padding:2px 8px}
+</style></head><body>
+<div class="screen">
+<div class="sheet">
+  <div class="kick"><span class="s14 grey">SUN, 1 JAN • B6 2187</span><span class="close">✕</span></div>
+  <h1>New York to Nashville</h1>
+  <div class="pills"><span class="pill p">Live Share</span><span class="pill">My Flight</span><span class="pill">Alternatives</span></div>
+  <div class="strip"><span>Gate Departure <span class="cd">in 2h 25m</span></span><span class="sign">→ 42</span></div>
+
+  <div class="ep">
+    <div class="row"><span class="code">LGA</span><span><span class="old">4:25 PM</span><span class="time">5:16 PM</span></span></div>
+    <div class="facts s14 grey"><div>La Guardia<br>Terminal B • Gate 42</div><div><span class="delta">51m late</span><br>in 2h 25m</div></div>
+  </div>
+
+  <div class="div s14">Total 2h 41m · 762 mi</div>
+
+  <div class="ep" style="margin-top:12px">
+    <div class="row"><span class="code">BNA</span><span><span class="old">6:06 PM</span><span class="time">6:57 PM</span></span></div>
+    <div class="facts s14 grey"><div>Nashville Intl<br>Terminal -- • Gate B6<br>Baggage Belt --</div><div><span class="delta">51m late</span><br>in 5h 6m</div></div>
+  </div>
+
+  <div class="note s14"><b>Random Flight</b><span class="grey">Explore Pro features and alerts for free. Auto-deleted upon arrival.</span></div>
+  <div class="cards s14">
+    <div class="card"><b>Booking Code</b><span class="grey">Tap to Edit</span><span class="chip">PASTE</span></div>
+    <div class="card"><b>Seat</b><span class="grey">Tap to Edit</span></div>
+  </div>
+</div>
+</div>
+</body></html>

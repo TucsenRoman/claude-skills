@@ -1,0 +1,182 @@
+{
+  "meta": {
+    "name": "Flighty DNA",
+    "slug": "flighty-dna",
+    "source": "Flighty iOS app: 386 collected images (reference/screens/INDEX.md), makers' statements (reference/DESIGN-SOURCES.md)",
+    "captured": "2026-10-31",
+    "medium_of_origin": "iPhone app",
+    "not_copied": ["Flighty name and icon", "airline logos", "aircraft renders", "passport holographic art", "SF Pro as a shipped web font"],
+    "evidence_limits": "No in-app boarding, gate change, cancelled or diverted states were found. Colors and sizes come from pixels, because the makers have not published them."
+  },
+  "soul": {
+    "one_line": "A personal departure board on a sheet over a live map: big times that turn green or red, one yellow gate sign, and only what matters right now.",
+    "adjectives": ["obvious", "calm", "exact", "alive"],
+    "lineage": "Airport signage read through Apple-native sheets. The makers call it a personal flight status board.",
+    "read_distance": "Arm's length, stressed and walking: status and next action read in one glance.",
+    "energy": { "density": 7, "variance": 2, "contrast": 8, "warmth": 3 },
+    "philosophy": [
+      "Almost boringly obvious, because the user is stressed.",
+      "Disruption is the main case: design the late state first.",
+      "Show what matters at this stage; drop what is finished.",
+      "Keep information visible so people stop checking.",
+      "Plain words for professional data."
+    ]
+  },
+  "palette": {
+    "colors": [
+      { "role": "sheet, light", "hex": "#F6F6F6", "name": "paper grey", "coverage_pct": 63, "measured": true },
+      { "role": "sheet, dark", "hex": "#18181B", "name": "cockpit charcoal", "coverage_pct": 66, "measured": true },
+      { "role": "live world above the sheet", "hex": "varies", "name": "satellite map or star field", "coverage_pct": 12, "measured": "by eye, details screen; about 45% on the list screen" },
+      { "role": "primary text, airport codes", "hex": "#000000", "name": "ink black; white in dark", "coverage_pct": 8, "measured": "approximate, includes device bezel in the sample" },
+      { "role": "secondary text", "hex": "#8A8A8E", "name": "signage grey", "coverage_pct": 8, "measured": false },
+      { "role": "inset card, light", "hex": "#ECECEC", "name": "soft card grey", "coverage_pct": 5, "measured": true },
+      { "role": "selected row, dark", "hex": "#202024", "name": "raised charcoal", "coverage_pct": 3, "measured": true },
+      { "role": "late", "hex": "#D92D20", "dark_hex": "#EF4438", "name": "delay red", "coverage_pct": 2, "measured": "dark measured; light is third-party" },
+      { "role": "on time and early", "hex": "#01A051", "dark_hex": "#12B76A", "name": "runway green", "coverage_pct": 2, "measured": true },
+      { "role": "the gate sign", "hex": "#F7AB05", "name": "airport sign yellow", "coverage_pct": 1, "measured": true },
+      { "role": "one primary pill", "hex": "#0076F7", "name": "system blue", "coverage_pct": 1, "measured": true }
+    ],
+    "status_band_tints": { "late_light": "#F5EEEE", "late_dark": "deep oxblood, inferred" },
+    "banned_behaviours": [
+      "Green or red on labels, icons or decoration when it isn't reporting a real state.",
+      "Yellow anywhere but the one sign.",
+      "Blue on more than one element per screen.",
+      "Gradients or brand color as a surface on functional screens. Showcase cards like the passport are the only exception."
+    ]
+  },
+  "type": {
+    "families": [
+      { "role": "everything", "family": "SF Pro on Apple devices", "fallback": "Inter, system-ui, sans-serif", "weights": [400, 500, 600, 700] }
+    ],
+    "scale": {
+      "display_to_body_ratio": "Code 2:1 over metadata; time 1.7:1 over metadata. Measured by eye on the details screen.",
+      "steps": "metadata 1, title and strip 1.25, time 1.8, code 2.1",
+      "max_sizes_per_frame": 4,
+      "largest_to_smallest_max": 2.5
+    },
+    "treatment": {
+      "tracking": "default; slightly tight on codes",
+      "leading": "1.2 to 1.35",
+      "case": "Sentence case. Caps only for kicker dates in some versions and tiny labels such as DAYS.",
+      "measure": "One line per fact. Facts do not wrap into sentences.",
+      "numerals": "Tabular, so times stay aligned as they change."
+    }
+  },
+  "space": {
+    "grid": "Two columns of facts: left labels flush left, right values flush right",
+    "margin_pct": 4,
+    "gutter_pct": 4,
+    "alignment": "Left and right edges. Centered only for a divider like 'Total 2h 41m'.",
+    "rhythm": "Tight within a fact group, about 3x that between groups",
+    "negative_space": "Generous around the two times; dense in metadata",
+    "safe_area": "The sheet starts below the status area; the world stays visible above it"
+  },
+  "surface": {
+    "texture": "None on the sheet. The texture comes from the live world behind it.",
+    "edges": "Sheet top radius about 4% of width; inset cards about 3%; pills fully round; sign about 1%",
+    "elevation": "Only the sheet floats. Cards are flat or hairline.",
+    "imagery": "Real world only: satellite map, plane on its route. Never stock art.",
+    "iconography": "Small filled circle with an arrow marks depart and arrive; icons are sparse and functional."
+  },
+  "signatures": [
+    { "move": "World under a sheet", "how": "A live visual fills the top 8 to 45% of the screen; a rounded sheet carries all the facts.", "when": "Every main screen", "never": "A static decorative header" },
+    { "move": "The value is the status", "how": "The time itself turns green or red. No separate badge is needed to read state.", "when": "Any time or delta", "never": "Black time beside a colored 'Delayed' chip" },
+    { "move": "Old time struck through", "how": "When changed: new time large on its own row; directly beneath, old time struck through in grey at metadata size, a dot, then the delta in bold color.", "when": "Any changed value", "never": "Replacing the value silently" },
+    { "move": "One now-strip", "how": "One full-width band under the header states the single next thing with a countdown, tinted by status.", "when": "A stage is active. Its contents change by stage.", "never": "Two strips, or a strip stating something finished" },
+    { "move": "Code left, time right", "how": "Heavy short identifier flush left at 2x metadata; time flush right at 1.7x. Below them, stacked grey facts in the same columns.", "when": "Each endpoint or entity", "never": "A centered hero number with no identity" },
+    { "move": "Kicker and title", "how": "Grey date and code at metadata size above a semibold plain-language title at 1.25x. Close control top right.", "when": "Top of each sheet", "never": "A title alone" },
+    { "move": "Countdown column", "how": "List rows carry a left column with a big number and a tiny unit (14 DAYS). Status replaces it when live (DEPARTED).", "when": "Lists of events", "never": "Dates only" },
+    { "move": "Rail with states", "how": "A thin vertical line joins stages; open dot is future, filled dot is past, an icon marks now.", "when": "A sequence over time", "never": "Numbered steps" },
+    { "move": "Plain sentence verdict", "how": "A one-line verdict precedes the data: 'Looking good!' or 'Departure changed to 11:16 AM. Flight now departs 11m later.'", "when": "Above any detailed data", "never": "Data without a conclusion" }
+  ],
+  "weird_move": {
+    "name": "The airport sign",
+    "what": "A small, solid, square-cornered signal-yellow tag with black bold text and an arrow, as if cut from an airport wall, sitting in an otherwise native grey interface.",
+    "rule": "Exactly once per screen, at the end of the now-strip, holding the single place or thing to act on. It is the only warm solid fill."
+  },
+  "archetypes": [
+    { "id": "board", "purpose": "All upcoming and live items", "anatomy": "world on top 45%, sheet with title and search, rows with countdown column", "content_shape": "Up to about 5 rows visible" },
+    { "id": "detail", "purpose": "One live item", "anatomy": "world on top 8 to 45%, kicker and title, pill row, now-strip with sign, two endpoint blocks, cards below", "content_shape": "Two endpoints and one change" },
+    { "id": "evidence", "purpose": "Why to believe it", "anatomy": "verdict tag, sentence, rail of prior stages with colored status at right", "content_shape": "3 to 6 stages" },
+    { "id": "forecast", "purpose": "History as odds", "anatomy": "three stats on top, then labeled bars ordered green to red, values flush right", "content_shape": "4 to 7 bars" },
+    { "id": "live-glance", "purpose": "Lock Screen or small view", "anatomy": "code and time pairs, one progress bar, countdown centered under it with deltas either side", "content_shape": "One item" },
+    { "id": "showcase", "purpose": "Shareable stats", "anatomy": "full-color card, big numerals in a form-like grid", "content_shape": "Worth sharing; the only place color fills a surface" }
+  ],
+  "motion": {
+    "easing": "Native sheet spring, inferred",
+    "durations": "Inferred from stills; not measured",
+    "entrances": "Sheet drags between detents over the world",
+    "never_moves": "Times and codes hold position as they update",
+    "reduced_motion": "Crossfade only"
+  },
+  "voice": {
+    "register": "Calm, specific, plain",
+    "sentence_length": "Facts in fragments; verdicts under 12 words",
+    "headline_shape": "Place to place, or a next action with a countdown",
+    "banned_words": ["Oops", "Uh oh", "Sorry", "Successfully", "Delayed (without the number of minutes)"]
+  },
+  "bans": [
+    "Never show a status without its specific number or time.",
+    "Never use more than one now-strip or more than one yellow sign on a screen.",
+    "Never color what isn't reporting a state.",
+    "Never put shadows on anything but the sheet.",
+    "Never use a dashboard grid of stat tiles on a live screen.",
+    "Never use a gradient, glass or brand-colored surface on a functional screen.",
+    "Never hide a changed value: show old, new, and the difference.",
+    "Never center facts.",
+    "Never keep finished information prominent.",
+    "Never make the user open anything to learn the current state.",
+    "Never use more than 4 type sizes on a screen."
+  ],
+  "tests": [
+    { "id": "T1", "check": "Exactly one yellow sign element per screen on a live screen", "auto": true },
+    { "id": "T2", "check": "Yellow covers under 2% of the screen", "auto": false },
+    { "id": "T3", "check": "Exactly one now-strip on a live screen", "auto": true },
+    { "id": "T4", "check": "At most 4 distinct font sizes", "auto": true },
+    { "id": "T5", "check": "Largest to smallest type ratio is at most 2.5:1, excluding showcase cards", "auto": true },
+    { "id": "T6", "check": "Every changed time has a struck-through old value directly beneath it", "auto": true },
+    { "id": "T7", "check": "No box-shadow except on the sheet", "auto": true },
+    { "id": "T8", "check": "No gradient in functional-screen CSS", "auto": true },
+    { "id": "T9", "check": "A live world occupies at least 8% of screen height above the sheet", "auto": false },
+    { "id": "T10", "check": "Every green or red text states a time, a delta, or a status word", "auto": false },
+    { "id": "T11", "check": "The sheet opens with a kicker above a title", "auto": true },
+    { "id": "T12", "check": "No more than one filled blue element", "auto": false }
+  ],
+  "detail_anatomy": {
+    "reference_width_pt": 402,
+    "sizes_at_reference_width": { "metadata_and_kicker": 17, "title_and_strip": 21, "time": 31, "code": 36 },
+    "weights": "Code bold. Time regular to medium, never bold: size and color carry it. Title and strip semibold. Name line regular grey; terminal and gate line semibold grey.",
+    "world": "About 9% of height on the detail screen, running under the status bar.",
+    "header": "A 40pt mark column at left; kicker and title stacked to its right, title under kicker with no gap beyond leading. Bare black X at top right, no circle.",
+    "pills": "One filled blue with white text and icon. The rest have a hairline outline, no fill, grey text and a small icon. The row runs off the right edge and scrolls.",
+    "strip": "Full bleed, no radius, hairline top and bottom in a slightly darker tint. Text is near-black oxblood with the countdown in red. Sign at the right margin, about 1.2x strip text height.",
+    "sign": "Radius about 4pt. Black text, heavy diagonal arrow pointing up and right, bold number.",
+    "endpoint": "Left rail: small filled red circle with white arrow, up-right for departure and down-right for arrival, joined by a thin vertical hairline. Code starts at the 40pt column. Row 1: code left, new time right. Row 2: name left; old time struck through, a dot, delta in bold red, right. Row 3: terminal and gate left; 'in 2h 25m' grey right.",
+    "only_the_new_time_and_delta_are_red": "Old time, name, gate and countdown lines are grey. Both endpoints go red when both are late.",
+    "divider": "Centered grey text with a hairline running out each side, starting at the 40pt column. About 24pt of air above and below. The rail stops at the last endpoint's circle. Old times omit AM or PM.",
+    "note_card": "Filled soft grey, radius about 12pt. One run-in paragraph: bold grey lead, a dot, regular grey text, all grey. Never black.",
+    "tiles": "Two tiles side by side, outlined hairline with no fill, radius about 16pt. Small black icon at top, optional tinted blue chip at top right, bold black 21pt label, grey 'Tap to Edit' beneath."
+  },
+  "reconstruction": {
+    "attempted": true,
+    "gaps_found": [
+      "Round 1: strip was inset and rounded; it is full bleed with hairlines.",
+      "Round 1: old time sat beside the new time; it belongs under it, beside the delta.",
+      "Round 1: time was bold; it is regular or medium.",
+      "Round 1: the rail and arrow circles were missing, and the 40pt column with them.",
+      "Round 1: unselected pills were filled; they are outlined.",
+      "Round 1: tiles were filled; they are outlined with an icon and a bigger label.",
+      "Round 1: world was too tall for a detail screen. Note lead was black. Divider had no hairlines.",
+      "Round 1: the kicker at 0.87x forced a fifth size; it equals metadata."
+    ],
+    "round_2_gaps": [
+      "Rail must stop at the last endpoint's circle, not run into the card below.",
+      "Divider text is centered with hairlines on both sides.",
+      "Old time has no AM or PM.",
+      "Terminal and gate line must be semibold grey; the rebuild left it regular.",
+      "The real screen has about 1.5x more vertical air around the divider and between endpoint blocks."
+    ],
+    "passes": 2,
+    "verdict": "Round 2 matches structure and hierarchy on one screen, the detail archetype. A stranger could still tell: the font fell back, and the logo and map are stand-ins. Other archetypes were never rebuilt."
+  }
+}

@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Company Home</title>
+<meta name="viewport" content="width=960">
+<style>
+html,body{margin:0;padding:0;width:960px;height:600px;overflow:hidden}
+body{background:#fff;color:#37352F;font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;font-size:14px;line-height:1.5;font-weight:400}
+*{box-sizing:border-box}
+.app{display:flex;width:960px;height:600px;overflow:hidden}
+
+/* emoji sizes */
+.emoji{font-family:"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif;line-height:1;font-style:normal}
+.emoji-row{font-size:16px;width:20px;text-align:center;flex:none}
+.emoji-crumb{font-size:16px}
+.emoji-callout{font-size:20px}
+.emoji-page{font-size:78px;line-height:78px;height:78px;display:block}
+
+/* sidebar */
+.sidebar{width:240px;height:600px;background:#F7F7F5;flex:none;padding:8px 8px 0;overflow:hidden}
+.ws{display:flex;align-items:center;gap:8px;height:44px;padding:0 8px;margin-bottom:8px}
+.ws-tile{width:22px;height:22px;border-radius:4px;background:#EDEDEB;color:#72716D;font-size:14px;font-weight:600;display:flex;align-items:center;justify-content:center;flex:none}
+.ws-text{min-width:0;line-height:1.2}
+.ws-name{color:#37352F;font-weight:600;font-size:14px;white-space:nowrap}
+.ws-mail{color:#969692;font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:0}
+.row{display:flex;align-items:center;gap:8px;height:28px;padding:0 8px;border-radius:4px;color:#72716D;font-size:14px;white-space:nowrap}
+.row.child{padding-left:28px}
+.row.sel{background:#EDEDEB;color:#37352F;font-weight:500}
+.row .ico{width:16px;height:16px;flex:none;display:flex;align-items:center;justify-content:center;color:#72716D}
+.row .ico svg{width:16px;height:16px;stroke-width:1.75}
+.label{height:28px;display:flex;align-items:center;padding:0 8px;color:#969692;font-size:14px;margin-top:8px}
+.group{margin-top:16px}
+.faint{color:#969692}
+.faint .ico{color:#969692}
+
+/* main */
+.main{width:720px;height:600px;position:relative;overflow:hidden;background:#fff}
+.topbar{height:38px;display:flex;align-items:center;justify-content:space-between;padding:0 12px 0 12px;position:absolute;left:0;top:0;width:720px;background:#fff}
+.crumbs{display:flex;align-items:center;gap:6px;color:#72716D;font-size:14px}
+.crumbs .ico{width:16px;height:16px;display:flex;color:#969692}
+.crumbs .ico svg{width:16px;height:16px;stroke-width:1.75}
+.crumbs .sep{color:#E5E5E1}
+.crumbs .here{color:#37352F;display:flex;align-items:center;gap:4px}
+.tools{display:flex;align-items:center;gap:4px;color:#72716D;font-size:14px}
+.tools .share{padding:0 8px;height:28px;display:flex;align-items:center;border-radius:4px;color:#37352F}
+.tools .btn{width:28px;height:28px;display:flex;align-items:center;justify-content:center;border-radius:4px;color:#969692}
+.tools .btn svg{width:16px;height:16px;stroke-width:1.75}
+.cover{position:absolute;left:0;top:38px;width:720px;height:170px;background:#F7F6F3}
+.page{position:absolute;left:96px;top:169px;width:528px}
+.title{margin:55px 0 0;font-size:40px;line-height:48px;font-weight:700;color:#37352F;height:48px;letter-spacing:0}
+.blocks{margin-top:16px}
+.callout{display:flex;background:#F1F1EF;border-radius:4px;padding:8px 16px;margin-bottom:8px}
+.callout .lead{width:40px;flex:none;display:flex;align-items:flex-start;height:32px;align-items:center}
+.callout .body{flex:1;min-width:0}
+.line{height:32px;display:flex;align-items:center;font-size:16px;line-height:24px;color:#37352F}
+.line b{font-weight:700}
+.link{display:inline-flex;align-items:center;gap:6px}
+.link .u{text-decoration:underline;text-decoration-color:#969692;text-decoration-thickness:1px;text-underline-offset:2px;color:#37352F}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <aside class="sidebar">
+    <div class="ws">
+      <div class="ws-tile">A</div>
+      <div class="ws-text">
+        <div class="ws-name">Acme Inc.</div>
+        <div class="ws-mail">stephanie@toolsforthought.xyz</div>
+      </div>
+    </div>
+
+    <div class="row"><span class="ico"><i data-lucide="search"></i></span>Search</div>
+    <div class="row"><span class="ico"><i data-lucide="bell"></i></span>Updates</div>
+    <div class="row"><span class="ico"><i data-lucide="layout-grid"></i></span>All teamspaces</div>
+    <div class="row"><span class="ico"><i data-lucide="settings"></i></span>Settings &amp; members</div>
+
+    <div class="label">Teamspaces</div>
+
+    <div class="row sel"><span class="ico"><i data-lucide="house"></i></span>General</div>
+    <div class="row child"><span class="emoji emoji-row">☕</span>Company Home</div>
+    <div class="row child"><span class="emoji emoji-row">✍️</span>Meeting Notes</div>
+    <div class="row child"><span class="emoji emoji-row">📰</span>Docs</div>
+
+    <div class="group">
+      <div class="row"><span class="ico"><i data-lucide="flower"></i></span>People</div>
+      <div class="row child"><span class="emoji emoji-row">🪴</span>People Home</div>
+      <div class="row child"><span class="emoji emoji-row">📮</span>Applicant Tracker</div>
+      <div class="row child"><span class="emoji emoji-row">🙌</span>Monthly All-Hands</div>
+      <div class="row child"><span class="emoji emoji-row">🗄️</span>People Archive</div>
+    </div>
+
+    <div class="group">
+      <div class="row"><span class="ico"><i data-lucide="wrench"></i></span>Product</div>
+    </div>
+
+    <div class="group">
+      <div class="row faint"><span class="ico"><i data-lucide="plus"></i></span>New page</div>
+    </div>
+  </aside>
+
+  <main class="main">
+    <div class="topbar">
+      <div class="crumbs">
+        <span class="ico"><i data-lucide="house"></i></span>
+        <span>General</span>
+        <span class="sep">/</span>
+        <span class="here"><span class="emoji emoji-crumb">☕</span>Company Home</span>
+      </div>
+      <div class="tools">
+        <span class="share">Share</span>
+        <span class="btn"><i data-lucide="message-circle"></i></span>
+        <span class="btn"><i data-lucide="clock"></i></span>
+        <span class="btn"><i data-lucide="star"></i></span>
+        <span class="btn"><i data-lucide="ellipsis"></i></span>
+      </div>
+    </div>
+
+    <div class="cover"></div>
+
+    <div class="page">
+      <span class="emoji emoji-page">☕</span>
+      <h1 class="title">Company Home</h1>
+
+      <div class="blocks">
+        <div class="callout">
+          <div class="lead"><span class="emoji emoji-callout">📌</span></div>
+          <div class="body">
+            <div class="line"><b>Must reads</b>&nbsp;for our company:</div>
+            <div class="line"><span class="link"><span class="emoji emoji-crumb">✨</span><span class="u">Mission, Vision and Values</span></span></div>
+            <div class="line"><span class="link"><span class="emoji emoji-crumb">🚋</span><span class="u">Company goals</span></span></div>
+          </div>
+        </div>
+
+        <div class="callout">
+          <div class="lead"><span class="emoji emoji-callout">🪁</span></div>
+          <div class="body">
+            <div class="line"><span class="link"><span class="u">New Employee</span></span></div>
+            <div class="line"><span class="link"><span class="emoji emoji-crumb">🌱</span><span class="u">General onboarding</span></span></div>
+            <div class="line"><span class="link"><span class="emoji emoji-crumb">🆕</span><span class="u">To Do/Read in your first week</span></span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+<script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+<script>lucide.createIcons();</script>
+</body>
+</html>

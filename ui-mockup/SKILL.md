@@ -1,6 +1,6 @@
 ---
 name: ui-mockup
-description: Build and show UI so the user can judge it — design options built from directions, PNG boards and close-ups rendered in a headless browser, live labs with a shared control panel for tuning values (presets for tokens, stress data, copy and motion), a synced scrubber for comparing options that differ over time (intros, transitions), a before/after slider, phone frames with safe-area controls, shareable Artifacts, inline visuals, Figma, and files (HTML, SVG, PDF). Use whenever options, a design, a fix, or a mock needs to be seen rather than described; other skills (ui-direction, ui-review, ui-review-deep, ui-codify, ui-copy) call it to present their work.
+description: Build and show UI so the user can judge it — design options built from directions, PNG boards and close-ups rendered in a headless browser, live labs with a shared control panel for tuning values (presets for tokens, stress data, copy and motion), a synced scrubber for comparing options that differ over time (intros, transitions), a before/after slider, a zoomable canvas of every screen with labeled flow lines, phone frames with safe-area controls, shareable Artifacts, inline visuals, Figma, and files (HTML, SVG, PDF). Use whenever options, a design, a fix, or a mock needs to be seen rather than described; other skills (ui-direction, ui-review, ui-review-deep, ui-codify, ui-copy) call it to present their work.
 ---
 
 # ui-mockup
@@ -17,6 +17,7 @@ The one place that builds mocks and decides how UI gets shown. Pick the format b
 | Spot what changed between two versions | Before/after slider | [modes/compare.md](modes/compare.md) |
 | Check a phone layout: safe areas, notches, exact fidelity, or the app can't run | Phone frame | [modes/phone-frame.md](modes/phone-frame.md) |
 | Share it, come back to it, or view it on a phone | Artifact | [modes/share.md](modes/share.md) |
+| See every screen of a flow at once and critique by label | Canvas: one zoomable Artifact, every screen labeled, flows drawn as labeled lines | [modes/canvas.md](modes/canvas.md) |
 | Understand a flow or structure, not a finished look | Inline visual | [modes/share.md](modes/share.md) |
 | Have it in Figma, or as a file to keep | Figma, HTML, SVG, PDF | [modes/share.md](modes/share.md) |
 
@@ -25,6 +26,7 @@ Modes combine: a lab inside a phone frame, A/B on any lab. See [MIXING.md](MIXIN
 ## Building options from directions
 `ui-direction` calls this with directions in words (name, axis, a few lines, any aesthetic), the inventory path, and explore or refine. Build them as mocks; options stay on boards for viewing.
 - **Explore (default):** 2 to 3 rough options. Builders run on a faster model (`model: "sonnet"` on the Agent call) and are told: one pass, no polishing, do NOT screenshot or verify your own work, report in under 60 words. About 2 minutes per option; the job is to show a direction, not finish it. Rough means unpolished, not cheap: builders still start from the real app's look, photos and logos, so the option looks like the product. Imagery in mocks is real Unsplash photos (cover-cropped), never drawn placeholder shapes. The real look means a fresh screenshot or the current screen code, never saved mocks or brand-book shots, which go stale. Art is different: before drawing any glyph, mark or illustration, reuse the project's approved art (the brand or widget book's paths, icon sets, flame or logo art). Draw new shapes only when none exists.
+- **Different ideas, not tweaks.** Each option in a round is its own idea: where it lives, its layout, or what it looks like. Two that differ only in colour, size or wording are one option; replace it. After "boring", "they all suck" or "completely different", the next round reuses no idea already shown (user, 2026-11-04 to 06, four rounds of near-twins).
 - **Benchmark screens first.** When the project is modeled on another product (a codified reference or an app the user named), find that product's real screens for this same screen, put them on the board beside the options, and have builders start from them.
 - **Caption every option.** One sentence under each option on a board saying what it is; bare numbers or letters aren't enough.
 - **Refine:** only the option the user picked. Full fidelity, strongest model, its own render checks.
