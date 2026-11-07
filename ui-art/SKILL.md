@@ -9,6 +9,7 @@ Art comes from an image generator, not from Claude drawing shapes (user, 2026-10
 
 ## 1. Check what already exists
 - Reuse first: the project's approved art (brand or widget book paths, logo and icon sets), then real photos (Unsplash, as `ui-mockup` says). Generate only when neither fits.
+- Gradients, glows and flat shapes are made in code, never generated. The generator only gets what code can't make: photos, scenes, textures, depth (user, 2026-11-07: "it just a gradient that it made, what was special about that?").
 - Load `ui-foundations` for the palette, mood and bans. The brand book wins over taste.
 
 ## 2. Write the brief
