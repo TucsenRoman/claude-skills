@@ -25,6 +25,7 @@ All UI and design work goes through these skills, in every project.
 | `brand-book` | The project's brand as one visual page (logo, color, type, product, voice), built from the real code and published as an Artifact. Brand docs are shown, not written. |
 | `logic-book` | The project's logic as one visual page: every number on screen traced to its formula with a worked example, what adds up, rounding, edge cases, open questions. Built from the real code and published as an Artifact. |
 | `ui-mockup` | Builds and shows UI: options from directions, PNG boards, close-ups, live labs with controls, phone frames, Artifacts, inline visuals, Figma. Other stages call it. |
+| `ui-art` | Hero art, illustrations and imagery from an image generator (ChatGPT), never hand-drawn. `ui-mockup` calls it when no photo or approved art fits. |
 | `accessibility-sweep` | Accessibility pass. Runs only when the user asks for one. |
 
 - **Foundations first.** Before any UI work in a project, load its design source (`ui-foundations`). If none exists, offer to create one before building.
