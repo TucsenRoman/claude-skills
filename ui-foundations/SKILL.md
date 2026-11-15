@@ -32,12 +32,12 @@ If the section is missing, build it (read mode, step 5) and show it to the user 
 Token files written for a build tool may not work raw. Example: CSS inside Tailwind's `@theme` is ignored by a plain browser. When a stage needs tokens outside the build (HTML mocks, boards), resolve them into plain `:root` variables first, and say so.
 
 ## Start (no design system yet)
-1. Ask, together, then wait: what the product is and who it's for; the feel in three words; one or two references the user loves (a site, an app, a screenshot); platforms (web, Expo, both); and light only or light + dark.
-2. If they named a reference, offer `ui-codify` (occasional mode) to turn it into measurable rules first.
-3. Build the token system on the pattern in [templates/tokens-starter.md](templates/tokens-starter.md): three tiers (primitives, then semantic, then component), light and dark values for every semantic token, one source file that generates every platform output.
+1. The system comes from the two core references (user, 2026-11-15). If they aren't picked yet, run `ui-direction` step 2 first; it ends with a `<name>-dna` skill for each.
+2. Ask, together, then wait, only what's still open: what the product is and who it's for; the feel in three words; platforms (web, Expo, both); and light only or light + dark.
+3. Build the token system from the two dna skills, adapted to the product's goal, on the pattern in [templates/tokens-starter.md](templates/tokens-starter.md): three tiers (primitives, then semantic, then component), light and dark values for every semantic token, one source file that generates every platform output.
 4. Call `brand-book` to show the system as a visual page. Next to the tokens, keep only a short written reference for code: type scale, spacing scale, radii, elevation, and color names and values. Don't repeat in words what the brand book shows.
 5. Add the `## UI foundations` section to the project's CLAUDE.md.
-6. Recommend `ui-direction` to try the system on a first real screen.
+6. Hand back to `ui-direction` to try the system on a first real screen.
 
 ## Extend
 Adding or changing tokens: keep the tiers (components use tier 2 only), add both theme values, regenerate the outputs, and grep for places the change touches. Never hardcode a value to dodge adding a token.
