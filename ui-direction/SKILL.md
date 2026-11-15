@@ -37,13 +37,13 @@ Ask at most three questions together, only where the answer changes the work: wh
 **Logo or app icon:** before any mark is drawn, have `ui-mockup` show 10 to 20 real icons as a numbered board, and have the user pick. In the same message, ask the finish once (flat, Apple-dimensional, realistic object), pointing at icons from the board, and hold it for every round after. Draw only from the picks, in that finish. A mark is clean geometry (true arcs and straight lines) that someone could draw in a few pencil strokes, never hand-drawn curves. Lit marks drawn in SVG are fine. If the user says a round "looks great" but rejects it, ask whether they mean the idea or the rendering.
 
 ## 6. Brainstorm directions
-- 2 to 4 directions, each a blend of the two core references (say what it takes from each) on a named axis (layout, hierarchy, density, interaction model, personality), in one line each: the idea and what changes. Details (what stays, references) only when asked. Three tints of one idea are not directions.
+- 2 to 4 directions, each a blend of the two core references (say what it takes from each) on a named axis (layout, hierarchy, density, interaction model, personality). Work them out here, but don't write them up for the user: they become the mock captions. Three tints of one idea are not directions.
 - Every direction honors the keep-list. Signature components stay themselves.
 - A look the user names can be one of `ui-mockup`'s aesthetics (minimalist, high-end, brutalist, scroll-heavy marketing); name it in the direction.
-- End every list of directions with "Mock these?" as the default next step. Merging, dropping or sharpening happens if the user asks for it instead.
+- Never ask "Mock these?" (user, 2026-11-15: "just put it on the screen, you talk too much"). Go straight to step 7.
 
-## 7. Go visual (the default next step)
-On a yes (or "show me", "mock it"), call `ui-mockup` with arguments:
+## 7. Go visual (always, right away)
+Call `ui-mockup` with arguments:
 - the screen, and explore (rough, the default) or refine (the pick, full fidelity);
 - each direction: name, axis, its line from step 6 plus anything the talk added, any aesthetic;
 - the inventory path (keep-list), and the dials for marketing pages.
