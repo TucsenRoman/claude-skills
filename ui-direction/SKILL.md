@@ -14,7 +14,7 @@ Make sure `ui-foundations` has loaded this project's design source (tokens, font
 Before any direction, pick 2 core references: existing apps from unrelated industries whose core design can be adapted to this product's goal (user, 2026-11-15). The product's own field is not a source; an inspiration the user already named can be one of the two.
 1. Propose 2 to 3 pairs. Each line: the two apps, the core idea each gives (one line each), and why the pair fits the goal.
 2. The user picks a pair or swaps an app. Wait for an OK on both.
-3. For each approved app with no `<name>-dna` skill yet, run `ui-codify` on it (like `flighty-dna`, `notion-dna`). Copy the system, never the marks.
+3. For each approved app with no `dna-<name>` skill yet, run `ui-codify` on it (like `dna-flighty`, `dna-notion`). Copy the system, never the marks.
 4. No design system yet: `ui-foundations` (Start) builds it from the two.
 
 Additions and new screens inside an existing system skip this; they use the references already on record.

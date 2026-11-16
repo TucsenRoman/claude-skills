@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>natgeo</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#FFFFFF;color:#000000;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:14px;line-height:18px;font-weight:400}
+.screen{width:375px;margin:0 auto;background:#FFFFFF}
+.top{height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 22px}
+.top .handle{font-size:20px;line-height:24px;font-weight:700;display:flex;align-items:center}
+.btn{height:36px;padding:0 20px;border:0;border-radius:8px;background:#4150F7;color:#FFFFFF;font-size:14px;line-height:18px;font-weight:600;font-family:inherit}
+.head{display:flex;align-items:center;padding:0 22px}
+.ring{width:108px;height:108px;border-radius:50%;padding:3px;background:conic-gradient(#7638FA,#FFD600,#FF7A00,#FF0169,#D300C5,#7638FA);flex:none}
+.avatar{width:100%;height:100%;border-radius:50%;border:3px solid #FFFFFF;background:#2F5D50;display:flex;align-items:center;justify-content:center}
+.ring+.id{margin-left:16px}.top .handle svg,.id .user svg{margin-left:6px}.stats .dot{margin:0 6px}.id .user{font-size:20px;line-height:24px;font-weight:700;display:flex;align-items:center}
+.id .name{font-size:14px;line-height:18px;font-weight:400;margin-top:2px}
+.stats{padding:14px 22px 0;font-size:14px;line-height:18px;display:flex;align-items:center}
+.stats b{font-weight:700}
+.dot{width:3px;height:3px;border-radius:50%;background:#000000;flex:none}
+.bio{padding:8px 22px 0;font-size:14px;line-height:18px;font-weight:400}
+.tabs{display:flex;margin-top:16px}
+.tab{flex:1;height:44px;display:flex;align-items:center;justify-content:center;border-bottom:2px solid transparent}
+.tab.on{border-bottom-color:#000000}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px}
+.cell{position:relative;aspect-ratio:3/4}
+.cell svg.g{position:absolute;top:8px;right:8px}
+svg{display:block}
+</style>
+</head>
+<body>
+<div class="screen">
+
+  <div class="top">
+    <div class="handle">natgeo
+      <svg width="16" height="16" viewBox="0 0 24 24"><path d="M12 2l2.4 1.8 3-.2 1 2.8 2.6 1.6-.8 2.9 1.2 2.7-2.3 2-.4 3-3 .6L12 22l-2.7-1.8-3-.6-.4-3-2.3-2 1.2-2.7-.8-2.9 2.6-1.6 1-2.8 3 .2z" fill="#4150F7"/><path d="M8 12.3l2.7 2.7L16 9.5" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <button class="btn">Follow</button>
+  </div>
+
+  <div class="head">
+    <div class="ring"><div class="avatar">
+      <svg width="40" height="40" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="0" fill="none" stroke="#E8B923" stroke-width="2.4"/></svg>
+    </div></div>
+    <div class="id">
+      <div class="user">natgeo</div>
+      <div class="name">National Geographic</div>
+    </div>
+  </div>
+
+  <div class="stats"><span><b>268M</b> followers</span><span class="dot"></span><span><b>195</b> following</span></div>
+
+  <div class="bio">Step into wonder and find your inner explorer with National Geographic &#127757;</div>
+
+  <div class="tabs">
+    <div class="tab on"><svg width="24" height="24" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" fill="#000000" stroke="#000000" stroke-width="1.6"/><rect x="14" y="3" width="7" height="7" fill="#000000" stroke="#000000" stroke-width="1.6"/><rect x="3" y="14" width="7" height="7" fill="#000000" stroke="#000000" stroke-width="1.6"/><rect x="14" y="14" width="7" height="7" fill="#000000" stroke="#000000" stroke-width="1.6"/></svg></div>
+    <div class="tab"><svg width="24" height="24" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="4" fill="none" stroke="#000000" stroke-width="1.6"/><path d="M10 8.5v7l6-3.5z" fill="none" stroke="#000000" stroke-width="1.6" stroke-linejoin="round"/></svg></div>
+    <div class="tab"><svg width="24" height="24" viewBox="0 0 24 24"><path d="M6 3h12v18l-6-5-6 5z" fill="none" stroke="#000000" stroke-width="1.6" stroke-linejoin="round"/></svg></div>
+    <div class="tab"><svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4" fill="none" stroke="#000000" stroke-width="1.6"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7" fill="none" stroke="#000000" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+  </div>
+
+  <div class="grid">
+    <div class="cell" style="background:#3E6B57"><svg class="g" width="20" height="20" viewBox="0 0 24 24"><path d="M9 4l-1 5-4 3 5 1 1 7 2-5 6 1-4-4 1-5-4 2z" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="1" stroke-linejoin="round"/></svg></div>
+    <div class="cell" style="background:#3B6C9E"></div>
+    <div class="cell" style="background:#D49A3A"><svg class="g" width="20" height="20" viewBox="0 0 24 24"><path d="M7 4v16l13-8z" fill="#FFFFFF"/></svg></div>
+    <div class="cell" style="background:#7FA37E"></div>
+    <div class="cell" style="background:#FFFFFF"></div>
+    <div class="cell" style="background:#2F4F7A"><svg class="g" width="20" height="20" viewBox="0 0 24 24"><path d="M7 4v16l13-8z" fill="#FFFFFF"/></svg></div>
+    <div class="cell" style="background:#B9822C"></div>
+    <div class="cell" style="background:#2E5A47"></div>
+    <div class="cell" style="background:#6C9BBF"><svg class="g" width="20" height="20" viewBox="0 0 24 24"><path d="M9 4l-1 5-4 3 5 1 1 7 2-5 6 1-4-4 1-5-4 2z" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="1" stroke-linejoin="round"/></svg></div>
+    <div class="cell" style="background:#8DA86B"></div>
+    <div class="cell" style="background:#E0B25A"><svg class="g" width="20" height="20" viewBox="0 0 24 24"><path d="M7 4v16l13-8z" fill="#FFFFFF"/></svg></div>
+    <div class="cell" style="background:#4A7FA8"></div>
+  </div>
+
+</div>
+</body>
+</html>

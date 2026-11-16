@@ -1,9 +1,9 @@
 ---
-name: flighty-dna
+name: dna-flighty
 description: The Flighty look and thinking as a reusable spec — a sheet over a live world, big times that turn green or red, one yellow sign, only what matters now. Use when a live, time-sensitive status screen should feel like Flighty, or when the user names Flighty as the reference. Copies the system, never Flighty's marks.
 ---
 
-# flighty-dna
+# dna-flighty
 
 Flighty's system, reduced to rules that work on other content.
 

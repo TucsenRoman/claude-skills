@@ -1,0 +1,381 @@
+{
+  "meta": {
+    "name": "Instagram",
+    "slug": "dna-instagram",
+    "captured": "2026-11-15",
+    "source": "Measured from instagram.com mobile web, logged-out public profile at 375px, light and dark (DOM computed styles); layout and tone cross-checked against the 8 official App Store screenshots of Instagram 455.0.0 (reference/screens). Native app values not measured.",
+    "medium_of_origin": "mobile app and mobile web",
+    "not_copied": [
+      "Instagram name, glyph, wordmark",
+      "Instagram Sans (proprietary, 2022)",
+      "any creator photo",
+      "the ring colour stops as a brand gradient"
+    ],
+    "role_in_project": "Core reference #2 for Gift Circle (Life360 is #1). Gift Circle takes Instagram's content-first canvas, photo grid, ring and sheet. Amazon gift cards are a separate texture pack, not part of this spec."
+  },
+  "soul": {
+    "one_line": "A white page that gets out of the way: photo grid, one gradient ring, one blue button.",
+    "adjectives": [
+      "neutral",
+      "content-first",
+      "flat",
+      "quick",
+      "social"
+    ],
+    "lineage": "2016 flat redesign by Ian Spalter's team: black-and-white chrome so photos carry the colour.",
+    "read_distance": "arm's length, one thumb, scrolled fast",
+    "energy": {
+      "density": 7,
+      "variance": 3,
+      "contrast": 6,
+      "warmth": 4
+    }
+  },
+  "palette": {
+    "colors": [
+      {
+        "role": "canvas",
+        "hex_light": "#FFFFFF",
+        "hex_dark": "#0C1014",
+        "name": "paper white / midnight ink",
+        "coverage_pct": 55,
+        "measured": true
+      },
+      {
+        "role": "content (photos)",
+        "hex": "user photos",
+        "name": "whatever the people posted",
+        "coverage_pct": 38,
+        "measured": false
+      },
+      {
+        "role": "text",
+        "hex_light": "#000000",
+        "hex_dark": "#F5F5F5",
+        "name": "black / soft white",
+        "coverage_pct": 4,
+        "measured": true
+      },
+      {
+        "role": "action",
+        "hex_light": "#4150F7",
+        "hex_dark": "#4150F7",
+        "name": "electric indigo-blue",
+        "coverage_pct": 1.5,
+        "measured": true,
+        "link_light": "#3143E3",
+        "link_dark": "#85A1FF"
+      },
+      {
+        "role": "ring",
+        "hex": [
+          "#7638FA",
+          "#FFD600",
+          "#FF7A00",
+          "#FF0169",
+          "#D300C5"
+        ],
+        "name": "violet, yellow, orange, pink, magenta sweep",
+        "coverage_pct": 0.5,
+        "measured": true
+      },
+      {
+        "role": "verified tick",
+        "hex": "sky blue (inferred, about #0095F6)",
+        "name": "tiny badge beside the username",
+        "coverage_pct": 0.05,
+        "measured": false
+      }
+    ],
+    "banned": [
+      "any other chroma on chrome",
+      "tinted row backgrounds",
+      "coloured section headers",
+      "gradient anywhere but the ring"
+    ]
+  },
+  "type": {
+    "families": [
+      {
+        "role": "all",
+        "family": "Instagram Sans (proprietary, not copied)",
+        "fallback": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif",
+        "weights": [
+          400,
+          500,
+          600,
+          700
+        ]
+      }
+    ],
+    "scale": {
+      "display_to_body_ratio": 1.43,
+      "steps_px": [
+        20,
+        14,
+        12
+      ],
+      "max_sizes_per_frame": 3,
+      "note": "20/700 username, 14/400 everything else, 14/600 button. 12 inferred for captions and timestamps."
+    },
+    "treatment": {
+      "tracking": "default",
+      "leading": "18px on 14px (1.29)",
+      "case": "sentence case or lowercase handles, never uppercase",
+      "numerals": "number bold, unit regular: 268M followers"
+    }
+  },
+  "space": {
+    "grid": "3 equal columns, 1px gutter both ways, edge to edge, cells 3:4 (124x165 at 375)",
+    "margin_pct": 6,
+    "gutter_pct": 0.27,
+    "alignment": "left; identity left, actions right",
+    "rhythm": "header 64px, avatar 96px (25.6% of width) at x=22, text block 14/18, icon tab row, grid",
+    "negative_space": "tight; the grid is the density",
+    "safe_area": "bottom tab bar of 5 icons, no labels (from screenshots)"
+  },
+  "surface": {
+    "texture": "none",
+    "edges": "buttons radius 8px; sheets rounded at top only (about 24px, inferred); avatars full circle; grid cells square-cornered",
+    "elevation": "none. No shadows on cards, rows or buttons. A sheet is separated by a dim scrim, not a shadow.",
+    "imagery": "photos fill cells edge to edge, cropped, no frames, no borders",
+    "iconography": "thin outline glyphs on one grid; selected state is the filled glyph, not a colour change; grid cells carry one small white glyph top-right, 8px inset: multi-photo square, play triangle or pin"
+  },
+  "signatures": [
+    {
+      "move": "photo grid",
+      "how": "3 columns, 1px gutters, cells 3:4, edge to edge",
+      "when": "any collection of things people posted",
+      "never": "gaps over 2px, rounded cells, captions inside cells"
+    },
+    {
+      "move": "avatar ring",
+      "how": "circle avatar 96px at left; ring 3 to 4px with a 3px canvas gap between ring and photo; the ring is the only gradient",
+      "when": "something new to see",
+      "never": "ring on non-people; ring when nothing is new (use a 1px grey ring)"
+    },
+    {
+      "move": "one action colour",
+      "how": "single indigo-blue solid button 36px tall, radius 8, 14/600 white; other actions are plain text links",
+      "when": "the one thing to do on this screen",
+      "never": "two blue buttons, outlined buttons"
+    },
+    {
+      "move": "name then stats line",
+      "how": "avatar left; in the column beside it: username 20/700 + small more-dots, name 14/400, then the stats row (number bold, unit regular, dot between). Bio sits below, full width",
+      "when": "any profile or circle header",
+      "never": "stat tiles, cards, icons next to numbers"
+    },
+    {
+      "move": "icon-only tab row",
+      "how": "3 equal-width icon-only outline glyphs (grid, reels, tagged); inactive grey, active dark with a 2px action-indigo underline; 1px hairline under the row. Native may fill the active glyph (inferred)",
+      "when": "switching views of one thing",
+      "never": "text labels, pills, segmented backgrounds"
+    },
+    {
+      "move": "sheet over content",
+      "how": "white sheet, small grabber, rounded top, centered 14/600 title, rows, input pinned at the bottom",
+      "when": "comments, share, pick, details",
+      "never": "full-screen modals for small tasks, shadows"
+    },
+    {
+      "move": "reaction row",
+      "how": "one row of emoji at about 24px above the input",
+      "when": "quick feedback",
+      "never": "labelled reaction buttons"
+    },
+    {
+      "move": "chat bubbles",
+      "how": "mine: solid action blue, white text; theirs: light grey, black text; fully rounded",
+      "when": "conversation",
+      "never": "an avatar on every message"
+    }
+  ],
+  "weird_move": {
+    "move": "The story ring: a five-colour sweep (violet, yellow, orange, pink, magenta) hugging a circular avatar. It is the only gradient and the only multi-colour element in an otherwise black, white and one-blue interface.",
+    "how": "Once per row or header, around a person. About 0.5% of the screen.",
+    "never": "On buttons, headers, cards, icons or backgrounds"
+  },
+  "archetypes": [
+    {
+      "id": "profile",
+      "purpose": "who or what a circle is",
+      "anatomy": "top bar 64px (wordmark left; plain indigo text link then one solid indigo button right) / avatar 96px with ring, beside it username+name+stats / 14px bio / 3 icon tabs with hairline / 3-col grid starting right under the hairline",
+      "content_shape": "one entity, many items"
+    },
+    {
+      "id": "feed-post",
+      "purpose": "one item with people reacting",
+      "anatomy": "avatar+name row / full-width square or 4:5 photo / icon row (like, comment, share left; save right) / bold count / caption / grey timestamp",
+      "content_shape": "one photo plus a sentence"
+    },
+    {
+      "id": "sheet-list",
+      "purpose": "comments or pick-lists",
+      "anatomy": "scrim / white sheet with grabber / title / rows (avatar, name+text, heart right) / reaction row / input",
+      "content_shape": "short rows with a person"
+    },
+    {
+      "id": "story-viewer",
+      "purpose": "full-bleed single item",
+      "anatomy": "photo edge to edge / thin segmented progress bar top / avatar+name top / reply pill bottom",
+      "content_shape": "one image, one line"
+    },
+    {
+      "id": "chat",
+      "purpose": "talk about a thing",
+      "anatomy": "header with avatar+name / bubbles / input pill with icons",
+      "content_shape": "short messages"
+    }
+  ],
+  "motion": {
+    "easing": "fast ease-out (inferred)",
+    "durations": "150 to 250ms (inferred)",
+    "entrances": "sheets rise from the bottom; hearts pop and settle",
+    "never_moves": "the grid, the tab row",
+    "reduced_motion": "cross-fade"
+  },
+  "voice": {
+    "register": "casual, lowercase handles, no jargon",
+    "sentence_length": "under 8 words",
+    "headline_shape": "verb or plain noun: Follow, Message, Share with friends",
+    "banned_words": [
+      "unlock",
+      "supercharge",
+      "seamless",
+      "journey"
+    ]
+  },
+  "bans": [
+    "No shadows anywhere.",
+    "No gradient except the avatar ring.",
+    "No second action colour; one indigo-blue only.",
+    "No card containers around list rows or stats.",
+    "No coloured or tinted backgrounds on chrome; canvas is white or midnight.",
+    "No more than 3 type sizes in one frame.",
+    "No text labels on the tab row or icon rows.",
+    "No rounded corners on grid cells.",
+    "No uppercase text."
+  ],
+  "tests": [
+    {
+      "id": "T1",
+      "check": "Exactly one gradient rule per screen and it is the ring around a circular avatar",
+      "auto": true
+    },
+    {
+      "id": "T2",
+      "check": "No box-shadow or drop-shadow anywhere",
+      "auto": true
+    },
+    {
+      "id": "T3",
+      "check": "At most 3 distinct font sizes in one frame",
+      "auto": true
+    },
+    {
+      "id": "T4",
+      "check": "At most one solid action-blue filled button per screen",
+      "auto": true
+    },
+    {
+      "id": "T5",
+      "check": "Grid cells: gutter between 0 and 2px, no border-radius on cells",
+      "auto": true
+    },
+    {
+      "id": "T6",
+      "check": "Body text is 14px with 18px line height",
+      "auto": true
+    },
+    {
+      "id": "T7",
+      "check": "Largest to smallest type ratio at most 1.8:1",
+      "auto": true
+    },
+    {
+      "id": "T8",
+      "check": "Action blue covers under 3% of the screen",
+      "auto": false
+    },
+    {
+      "id": "T9",
+      "check": "No text-transform: uppercase",
+      "auto": true
+    },
+    {
+      "id": "T10",
+      "check": "Photos or content fill at least 30% of a collection screen",
+      "auto": false
+    },
+    {
+      "id": "T11",
+      "check": "Stats: number bold, unit regular, on one row",
+      "auto": false
+    },
+    {
+      "id": "T12",
+      "check": "Tab and action icons carry no text labels",
+      "auto": false
+    }
+  ],
+  "gift_circle_translation": {
+    "profile": "an event circle page: circle avatar with ring when there is something new, name, stats row (12 people, 8 ideas, 3 claimed), 3-col grid of gift idea photos",
+    "ring": "ring on a member who added or claimed something new; 1px grey ring otherwise",
+    "grid": "gift ideas as photos, 3:4, 1px gutters; claimed ideas get a small filled glyph in the corner, never a colour wash",
+    "sheet": "claim sheet and comments use sheet-list",
+    "action_colour": "Gift Circle may map the single action colour to its own coral; keep the one-action rule",
+    "texture_pack": "Amazon gift card patterns can fill empty states and circle covers; they never sit on chrome"
+  },
+  "inferred": [
+    "12px caption size",
+    "sheet radius about 24px",
+    "motion timing",
+    "2px active tab underline",
+    "native app action blue (web measured #4150F7; native was #0095F6 for years)",
+    "tab bar layout from screenshots only",
+    "sky blue tick hex",
+    "native fills the active tab glyph"
+  ],
+  "reconstruction": {
+    "attempted": true,
+    "passes": 2,
+    "gaps_found": [
+      "Top bar: original is wordmark left + text link + indigo button; blind rebuild put the handle and a Follow button there",
+      "Stats sit in the column beside the avatar under the name, not full-width below it",
+      "Verified tick is a small sky blue badge, a deliberate second blue",
+      "Tabs: 3 not 4; inactive grey; active has a 2px indigo (not black) underline; icons are not filled on web",
+      "A 1px hairline runs between the tab row and the grid",
+      "Ring is a thin 3px band tight to a black circular photo",
+      "Spec was ambiguous on whether 96px is the photo or the outer ring box: it is the photo (96px at x=22)"
+    ],
+    "checker_fixes": "T5 now reads only gap on grid rules and ignores border-radius:0",
+    "note": "Dark mode, sheet, chat and story screens not rebuilt",
+    "round2": {
+      "result": "A stranger could mistake rebuild-2 for the original at arm's length. Layout, top bar, header order, tabs, hairline, grid and tick all match.",
+      "remaining_gaps": [
+        "Tab icons: original are about 24px with a 2px stroke; active is darker and bolder, inactive mid-grey",
+        "Header text block sits slightly higher: username line about 24px then name directly beneath with about 2px gap, stats 8px below",
+        "Ring is a hairline-thin 3px band; keep the 3px canvas gap",
+        "Wordmark is an image; stand-in text is acceptable"
+      ],
+      "not_in_spec": "top-bar padding 22px left / 16px right, link 14/600, stats dot with 4px side margins, inactive icon grey about #8E8E8E, hairline about #DBDBDB (guessed by the builder and they looked right)"
+    }
+  },
+  "tab_row_detail": {
+    "height_px": 44,
+    "icon_px": 24,
+    "stroke_px": 2,
+    "inactive": "#8E8E8E",
+    "hairline": "#DBDBDB",
+    "hairline_px": 1,
+    "underline_px": 2,
+    "underline_colour": "#4150F7"
+  },
+  "header_detail": {
+    "top_bar_padding": "22px left, 16px right",
+    "link": "14/600 #3143E3",
+    "stats_dot_margin_px": 4,
+    "avatar_text_gap_px": 18
+  }
+}

@@ -32,7 +32,7 @@ If the section is missing, build it (read mode, step 5) and show it to the user 
 Token files written for a build tool may not work raw. Example: CSS inside Tailwind's `@theme` is ignored by a plain browser. When a stage needs tokens outside the build (HTML mocks, boards), resolve them into plain `:root` variables first, and say so.
 
 ## Start (no design system yet)
-1. The system comes from the two core references (user, 2026-11-15). If they aren't picked yet, run `ui-direction` step 2 first; it ends with a `<name>-dna` skill for each.
+1. The system comes from the two core references (user, 2026-11-15). If they aren't picked yet, run `ui-direction` step 2 first; it ends with a `dna-<name>` skill for each.
 2. Ask, together, then wait, only what's still open: what the product is and who it's for; the feel in three words; platforms (web, Expo, both); and light only or light + dark.
 3. Build the token system from the two dna skills, adapted to the product's goal, on the pattern in [templates/tokens-starter.md](templates/tokens-starter.md): three tiers (primitives, then semantic, then component), light and dark values for every semantic token, one source file that generates every platform output.
 4. Call `brand-book` to show the system as a visual page. Next to the tokens, keep only a short written reference for code: type scale, spacing scale, radii, elevation, and color names and values. Don't repeat in words what the brand book shows.

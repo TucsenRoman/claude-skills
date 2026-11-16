@@ -1,9 +1,9 @@
 ---
-name: notion-dna
+name: dna-notion
 description: Notion's thinking as a reusable spec — one block for everything, a quiet monochrome frame, and color that belongs to the user's content. Use when building pages, rosters, lists or customizable group spaces that should feel like Notion, or when the user names Notion as the reference. Learns the system; never copies Notion's marks or look wholesale.
 ---
 
-# notion-dna
+# dna-notion
 
 Notion's system, reduced to rules that work on other content.
 
@@ -14,8 +14,8 @@ Notion's system, reduced to rules that work on other content.
 4. Before adding anything, ask whether it can be an existing block.
 5. Run the check: `node tools/check.mjs <file.html>`. It covers the automatic tests; the rest are in `dna.json`.
 
-## Pairing with flighty-dna
-On Loop'd, use this for what a group builds and `flighty-dna` for live status. Inside a Notion-style page, a live piece follows Flighty.
+## Pairing with dna-flighty
+On Loop'd, use this for what a group builds and `dna-flighty` for live status. Inside a Notion-style page, a live piece follows Flighty.
 
 ## Files
 - `dna.json`: the full record, with tests and rebuild findings.
