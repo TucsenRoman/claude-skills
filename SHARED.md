@@ -28,6 +28,7 @@ All UI and design work goes through these skills, in every project.
 | `ui-art` | Hero art, illustrations and imagery from an image generator (ChatGPT), never hand-drawn. `ui-mockup` calls it when no photo or approved art fits. |
 | `accessibility-sweep` | Accessibility pass. Runs only when the user asks for one. |
 
+- **Icons are Lucide.** Round variants wherever they exist; any arrow uses Lucide's move-left/right arrows. An icon Lucide lacks is drawn to behave exactly like Lucide (24 grid, stroke, caps) (user, 2026-11-09 to 16).
 - **Two core references first.** A new product or a new look starts by picking 2 core references: existing apps from unrelated industries whose core design can be adapted to the product's goal (user, 2026-11-15). Name each, say in one line what core idea it gives, and get the user's OK on both before any direction. Each approved reference is captured as a `<name>-dna` skill through `ui-codify`, unless one exists already (`flighty-dna`, `notion-dna`). `ui-direction` runs this step.
 - **Foundations first.** Before any UI work in a project, load its design source (`ui-foundations`). If none exists, the new system is built from the two core references once they're picked.
 - **Show first, talk after.** In every UI stage, put options and ideas on screen before explaining them, then add at most 2 lines of text (user, 2026-11-15: "you talk too much").

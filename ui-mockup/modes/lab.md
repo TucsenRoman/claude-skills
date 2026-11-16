@@ -32,7 +32,7 @@ For choosing between options that differ over time (an intro, a transition, a lo
 When the user names an option on a board ("send B to the lab"), open that option's mock here with controls for the values that define it (the ones that differ between options first). Its paste-back feeds the direction note.
 
 ## Custom controls
-Anything else is a lab with its own controls (the logo stack's size, overlap and max per day was one). Include one control that reaches the worst case (for example "N items on every row"). When the user's answers reveal a better rule (for example "fit to width with a minimum" instead of a fixed scale), rebuild the model rather than adding dials.
+Anything else is a lab with its own controls (the logo stack's size, overlap and max per day was one). Include one control that reaches the worst case (for example "N items on every row"). When the user's answers reveal a better rule (for example "fit to width with a minimum" instead of a fixed scale), rebuild the model rather than adding dials. Any value you change at the user's request (a timing, a size, an offset) becomes a control in the same edit (user, 2026-11-14: "why dont i have a setting for this").
 
 ## Rules
 - **Paste-back:** `output(state)` returns the changes in the project's own format. When the user picks, make their numbers the defaults.
