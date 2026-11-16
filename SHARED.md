@@ -21,7 +21,7 @@ All UI and design work goes through these skills, in every project.
 | `ui-review` | One pass: regression check, design critique, polish. |
 | `ui-copy` | UI text, checked against the project's voice. |
 | `ui-review-deep` | The deep version: a builder and three critics in rounds until all pass. Opt-in only. |
-| `ui-codify` | Turn a reference design into measurable rules and tests, saved as a `<name>-dna` skill. Used by `ui-direction` (core references), `ui-foundations` and `ui-review-deep`. |
+| `ui-codify` | Turn a reference design into measurable rules and tests, saved as a `dna-<name>` skill. Used by `ui-direction` (core references), `ui-foundations` and `ui-review-deep`. |
 | `brand-book` | The project's brand as one visual page (logo, color, type, product, voice), built from the real code and published as an Artifact. Brand docs are shown, not written. |
 | `logic-book` | The project's logic as one visual page: every number on screen traced to its formula with a worked example, what adds up, rounding, edge cases, open questions. Built from the real code and published as an Artifact. |
 | `ui-mockup` | Builds and shows UI: options from directions, PNG boards, close-ups, live labs with controls, phone frames, Artifacts, inline visuals, Figma. Other stages call it. |
@@ -29,7 +29,7 @@ All UI and design work goes through these skills, in every project.
 | `accessibility-sweep` | Accessibility pass. Runs only when the user asks for one. |
 
 - **Icons are Lucide.** Round variants wherever they exist; any arrow uses Lucide's move-left/right arrows. An icon Lucide lacks is drawn to behave exactly like Lucide (24 grid, stroke, caps) (user, 2026-11-09 to 16).
-- **Two core references first.** A new product or a new look starts by picking 2 core references: existing apps from unrelated industries whose core design can be adapted to the product's goal (user, 2026-11-15). Name each, say in one line what core idea it gives, and get the user's OK on both before any direction. Each approved reference is captured as a `<name>-dna` skill through `ui-codify`, unless one exists already (`flighty-dna`, `notion-dna`). `ui-direction` runs this step.
+- **Two core references first.** A new product or a new look starts by picking 2 core references: existing apps from unrelated industries whose core design can be adapted to the product's goal (user, 2026-11-15). Name each, say in one line what core idea it gives, and get the user's OK on both before any direction. Each approved reference is captured as a `dna-<name>` skill through `ui-codify`, unless one exists already (`dna-flighty`, `dna-notion`). `ui-direction` runs this step.
 - **Foundations first.** Before any UI work in a project, load its design source (`ui-foundations`). If none exists, the new system is built from the two core references once they're picked.
 - **Show first, talk after.** In every UI stage, put options and ideas on screen before explaining them, then add at most 2 lines of text (user, 2026-11-15: "you talk too much").
 - **Recommend; don't make the user remember.** When UI work starts without a named stage, say which stage applies and use it. After a stage finishes, recommend the next one in one line (for example "Built. Want a `ui-stress` pass?").

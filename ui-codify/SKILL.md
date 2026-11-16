@@ -1,6 +1,6 @@
 ---
 name: ui-codify
-description: "Codify one design the user loves (any medium) into a reusable spec: measured ratios, coverage, bans, pass/fail tests, a capped 2KB prompt payload and a full dna.json record, validated by rebuilding the original from the spec alone. Use when the user names a reference they want to capture or match, when ui-direction gets an OK on a core reference app with no <name>-dna skill yet, when ui-foundations starts a design system from a reference, or when ui-review-deep needs a measurable bar."
+description: "Codify one design the user loves (any medium) into a reusable spec: measured ratios, coverage, bans, pass/fail tests, a capped 2KB prompt payload and a full dna.json record, validated by rebuilding the original from the spec alone. Use when the user names a reference they want to capture or match, when ui-direction gets an OK on a core reference app with no dna-<name> skill yet, when ui-foundations starts a design system from a reference, or when ui-review-deep needs a measurable bar."
 ---
 
 # Design DNA
