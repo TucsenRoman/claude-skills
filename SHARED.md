@@ -39,7 +39,15 @@ All UI and design work goes through these skills, in every project.
 - **Speed first.** UI exploration defaults to fast: 2 to 3 rough options on a faster model, no builder self-verification, one render and check by you, options shown as each one finishes, variants of one thing from a single agent, and options explored as quick HTML mocks (even in a locked system) with only the picked option built in real code. Full polish only for the option the user picked. Details in `ui-mockup`.
 - **Accessibility lives in `accessibility-sweep`.** The other stages leave it out. Problems anyone can see (something vanishing into its background) are design issues; raise them as such.
 
+## Logic work: the `build-` group
+Product logic (the engines everything else reads from) goes through these skills.
+
+| Skill | Job |
+|---|---|
+| `build-engine` | Design and build one engine: pin the job, pressure-test it, name it, spec doc, procedure diagram, build with a check script, prove on real data, wire into the logic book and Notion. |
+
 ## How a skill is laid out
+- **Names lead with the group:** `ui-`, `dna-`, `build-`, `skill-` (user, 2026-11-16). The books (`brand-book`, `logic-book`) keep their names for now.
 - `SKILL.md`: when to use it and the steps. Short.
 - `GUIDE.md`: the technique, distilled from outside skills it learned from, credited at the top. Platform-specific parts go in `platforms/` (for example `platforms/expo.md`); variants of a technique in their own folder (for example `presets/`).
 - `LESSONS.md`: what real use taught, one dated line each. It beats `GUIDE.md` where they differ. The skill writes its own lessons: when a session teaches it something about its technique (a bug pattern, a value that works, a trap), it adds a dated line before it finishes and says so in one line. Lessons are personal: `LESSONS.md` is gitignored, so it stays on this machine and is never committed.
