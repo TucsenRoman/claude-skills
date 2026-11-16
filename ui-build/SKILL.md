@@ -24,6 +24,7 @@ Turn the direction into shipped code, inside the project's system.
 - Expo: emulator or Expo Go per the project's instructions; say which was used.
 - A layout fix that misses twice on the device: stop changing code. Have `ui-mockup` show 2 to 3 options with measured values, and build the pick.
 - Compare against the chosen option (board or prototype) and the inventory. Anything dropped is a bug.
+- A locked mock is the spec, not inspiration. Before shipping, screenshot each built screen beside its mock at the same size and fix every difference (user, 2026-11-09 and 11-13: "it should be exactly like the mocks we locked in").
 
 ## Next
 Recommend `ui-feel` if something should move or respond, `ui-stress` for data-heavy UI, then `ui-review`.

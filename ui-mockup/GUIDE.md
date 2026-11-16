@@ -48,7 +48,7 @@ Sources: Taste skills (design-taste-frontend, gpt-taste; MIT), Emil Kowalski's p
 - Treat stock so it stops looking like stock: grayscale, luminosity blend, raised contrast, matched to the vibe. One decisive photo of the subject's physical object beats five generic ones.
 - No div-built fake screenshots, dashboards or terminals. Show the real UI, a generated image, a real mini component, or skip the preview.
 - Logo walls: real SVG logos only, no category label under each, placed under the hero. Invented brands get a simple monogram mark, not a styled text name.
-- No hand-drawn decorative SVG illustrations or hand-rolled icon paths; one icon family, one stroke width (Phosphor, Hugeicons, Radix, Tabler; Lucide only if already in the project).
+- No hand-drawn decorative SVG illustrations or hand-rolled icon paths; one icon family, one stroke width: Lucide, round variants where they exist (see `../SHARED.md`).
 - Author the content: realistic names, entries, prices you can stand behind. Demonstration data is design material (label it as sample); commercial claims are never invented.
 
 ## 5. Motion for marketing
